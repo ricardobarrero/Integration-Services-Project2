@@ -12,8 +12,8 @@
   DTS:LocaleID="21514"
   DTS:MaxErrorCount="0"
   DTS:ObjectName="Package3"
-  DTS:VersionBuild="3"
-  DTS:VersionGUID="{38F54D4A-DD3F-4A56-8900-091B6366D200}">
+  DTS:VersionBuild="4"
+  DTS:VersionGUID="{C0F0E656-2668-4A52-B606-CAE7AB0D12DB}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -28,7 +28,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAARHVuP+oaqkSvaKg8a4ToLQAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAABJa/4tYLiPJ//jaZS07fmNAAAAAASAAACgAAAAEAAAAC5jaMa08Ny5eMJPNRF3dOoYAAAA7Zqmgc/6hkxWzwYCPqI346ASiYOC1kUuFAAAAK6ICYrXrds3OOobgxA9kOucph08</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAARHVuP+oaqkSvaKg8a4ToLQAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAABovMSXljrlWvwGlq4x7X9GAAAAAASAAACgAAAAEAAAAHcoyyn6Xtyv1oYTh28SEq8YAAAApQY3Isn6ipcT+Pte6SeRjfCcCHcQ98whFAAAAHMZBy4pa6kJpuDnXs8FskQTGCrj</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -43,7 +43,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAARHVuP+oaqkSvaKg8a4ToLQAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAAD2F65IEMikmbCeSKeqf3vzAAAAAASAAACgAAAAEAAAAD8Pa13ZRG1GhmzZA+BDgGQYAAAArhE2DNQheTI8r+qASUzSnGOISvenPfyYFAAAAFQwkAV7qIQDx7n9xnFcPTFpS2Bt</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAARHVuP+oaqkSvaKg8a4ToLQAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAADw0Pi5S0BSHKlpJ3xUCnS4AAAAAASAAACgAAAAEAAAACohy1KpDAXwiXKC3IKLAWMYAAAAApz4C9Ytg94trIvlREoZzTpbecjmbm1iFAAAAAZFrWzSyZu1JcyGV8xwl0LduHiM</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -1967,7 +1967,7 @@ IM_trans_vals
         <NodeLayout
           Size="139,42"
           Id="Package\Tarea Flujo de datos 1\Excel Source"
-          TopLeft="253,22" />
+          TopLeft="284,36" />
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
