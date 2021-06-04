@@ -12,8 +12,8 @@
   DTS:LocaleID="21514"
   DTS:MaxErrorCount="0"
   DTS:ObjectName="Package3"
-  DTS:VersionBuild="1"
-  DTS:VersionGUID="{8B40B4AD-AB70-46F7-8982-DE69AFA3F0B0}">
+  DTS:VersionBuild="2"
+  DTS:VersionGUID="{6A627108-663D-434C-B6B8-C9632731F7B9}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -28,7 +28,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAARHVuP+oaqkSvaKg8a4ToLQAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAAAvx7PgVeHIGwNfe8ozAzYEAAAAAASAAACgAAAAEAAAAF0B/htL07s2AkIKN0aBf2oYAAAA4j7sv2k3IMj3ufAYzW9UuME0sD/9gAaPFAAAAA/EEA5ndRr9wMGkEOQFjSjs30TP</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAARHVuP+oaqkSvaKg8a4ToLQAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAAByiB3kLBBymIEKUbDC4VWiAAAAAASAAACgAAAAEAAAAMmwjTI7Hb2y2uAr4buig0cYAAAAGqCiMfbeglbeRGq7wg38nyw2T7x45zLEFAAAANahk+aTQ3DMY7oyUYQWPXDsL1Lk</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -43,7 +43,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAARHVuP+oaqkSvaKg8a4ToLQAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAACrX6nrJzlY/E1YKXKCC8PNAAAAAASAAACgAAAAEAAAADLwqmzWMW/AJrkDnRZ82pQYAAAAtBuuuVALySxyFLXZ2L6U2MR/tNOhSiv/FAAAADwdYLSX3QESn0BdXHXmSAyJ3vYX</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAARHVuP+oaqkSvaKg8a4ToLQAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAADLt+i9jiw62mPP7/TP+o5WAAAAAASAAACgAAAAEAAAAJl/196JBwCRmv1XCzjBgTEYAAAAFmnsj87qM8rwK7fCyrx6Hqg2KOO+RD+HFAAAAIxGBtHIiJtKcYkkAcVQPnSrGdp7</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -1121,81 +1121,6 @@
               </outputs>
             </component>
             <component
-              refId="Package\Tarea Flujo de datos 1\Excel Source"
-              componentClassID="Microsoft.ExcelSource"
-              contactInfo="Excel Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
-              description="Excel Source"
-              name="Excel Source"
-              usesDispositions="true"
-              version="1">
-              <properties>
-                <property
-                  dataType="System.Int32"
-                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
-                  name="CommandTimeout">0</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset"></property>
-                <property
-                  dataType="System.String"
-                  description="Specifies the variable that contains the name of the database object used to open a rowset."
-                  name="OpenRowsetVariable"></property>
-                <property
-                  dataType="System.String"
-                  description="The SQL command to be executed."
-                  name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
-                <property
-                  dataType="System.String"
-                  description="The variable that contains the SQL command to be executed."
-                  name="SqlCommandVariable"></property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the mode used to access the database."
-                  name="AccessMode"
-                  typeConverter="AccessMode">0</property>
-                <property
-                  dataType="System.String"
-                  description="The mapping from parameters in the SQL command to variables."
-                  name="ParameterMapping"></property>
-              </properties>
-              <connections>
-                <connection
-                  refId="Package\Tarea Flujo de datos 1\Excel Source.Connections[OleDbConnection]"
-                  description="The OLE DB runtime connection used to access the database."
-                  name="OleDbConnection" />
-              </connections>
-              <outputs>
-                <output
-                  refId="Package\Tarea Flujo de datos 1\Excel Source.Outputs[Excel Source Output]"
-                  name="Excel Source Output">
-                  <externalMetadataColumns
-                    isUsed="True" />
-                </output>
-                <output
-                  refId="Package\Tarea Flujo de datos 1\Excel Source.Outputs[Excel Source Error Output]"
-                  isErrorOut="true"
-                  name="Excel Source Error Output">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Tarea Flujo de datos 1\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\Tarea Flujo de datos 1\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\Tarea Flujo de datos 1\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\Tarea Flujo de datos 1\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
               refId="Package\Tarea Flujo de datos 1\Origen - Consulta"
               componentClassID="Microsoft.OLEDBSource"
               contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
@@ -1964,10 +1889,6 @@ IM_trans_vals
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="139,42"
-          Id="Package\Tarea Flujo de datos 1\Excel Source"
-          TopLeft="358,33" />
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
