@@ -1,0 +1,3304 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="3/30/2021 5:40:43 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="XCB_XCBCPADI"
+  DTS:CreatorName="INTCOMEX\xcbcpadi"
+  DTS:DTSID="{EB74D75F-AF0F-4DD7-800C-132717455CE5}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.150"
+  DTS:LocaleID="9226"
+  DTS:ObjectName="Package"
+  DTS:PackageType="5"
+  DTS:VersionBuild="60"
+  DTS:VersionGUID="{921B4082-3336-4973-85D6-E04A7D6128AB}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[File_CustomerID]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{871A2D9D-45D5-44D5-A053-2018CF3E73C1}"
+      DTS:ObjectName="File_CustomerID">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">@[User::VStr_Ruta]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="9226"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Column 0"
+              DTS:DTSID="{DFA2B37E-2938-4C62-91D4-64060300107A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Column 1"
+              DTS:DTSID="{C7DC4D07-E483-47F9-9C1F-C6A03E76D1C7}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Procesados]"
+      DTS:CreationName="FILE"
+      DTS:DTSID="{4F37C310-13AC-4A2C-AAF1-8FA93328EDF3}"
+      DTS:ObjectName="Procesados">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:FileUsageType="1"
+          DTS:ConnectionString="C:\Users\xcbcpadi\Desktop\alistamiento\ETL_BK_Axesor\carpetaArchivo\Procesados" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[S91SQLUS.DWStaging]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{1CDD3620-FC53-44EA-97E3-7E775D66E441}"
+      DTS:ObjectName="S91SQLUS.DWStaging">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=S91SQLUS;Initial Catalog=DWStaging;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[SMTP Connection Manager]"
+      DTS:CreationName="SMTP"
+      DTS:DTSID="{CFD7000E-3B3D-453F-B978-A1726CF905C1}"
+      DTS:ObjectName="SMTP Connection Manager">
+      <DTS:ObjectData>
+        <SmtpConnectionManager
+          ConnectionString="SmtpServer=clientarrayus.intcomex.com;UseWindowsAuthentication=False;EnableSsl=False;"
+          ConnectByProxy="False" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[WebStore]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{547681FA-744E-47E8-BB9E-E9E8D94D4627}"
+      DTS:ObjectName="WebStore">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=PRESTOREDBDVLP;User ID=web_IntStore;Initial Catalog=IntcomexStore;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{A093B1F1-9CCD-47B4-8F06-4108BC734027}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="VStr_EmailCC">
+      <DTS:VariableValue
+        DTS:DataType="8">xcbcpadi@intcomex.com</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{0CBBBBA2-29A5-4613-986E-BE20B10DAC56}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="VStr_EmailTo">
+      <DTS:VariableValue
+        DTS:DataType="8">xcbcpadi@intcomex.com</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{C93D214A-FD51-4BDD-85B9-D9501396E5A8}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="VStr_Mensaje">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{3A30D173-B5D4-4764-A6BA-EDDB307498A3}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="VStr_Procesado">
+      <DTS:VariableValue
+        DTS:DataType="8">Procesados</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{F00A515A-7455-42FF-9464-368A268FDACA}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="VStr_Ruta">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{F181B8B9-4D32-4CE7-998C-283ECECE57AB}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="VStr_SubjectError">
+      <DTS:VariableValue
+        DTS:DataType="8">ERROR Execution !!!!  Admin ETL :</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Sequence Container"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{A2D78C0B-C3F5-4974-A75F-9179AC82D5EB}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Sequence Container">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Sequence Container\File System Task Procesados"
+          DTS:CreationName="Microsoft.FileSystemTask"
+          DTS:Description="File System Task"
+          DTS:DTSID="{E3D1E8F7-3570-491D-89B7-56E6917AB61C}"
+          DTS:ExecutableType="Microsoft.FileSystemTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="File System Task Procesados"
+          DTS:TaskContact="File System Task;Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <FileSystemData
+              TaskOperationType="CreateDirectory"
+              TaskOverwriteDestFile="True"
+              TaskSourcePath="{4F37C310-13AC-4A2C-AAF1-8FA93328EDF3}" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Sequence Container\Foreach Loop Container 1"
+          DTS:CreationName="STOCK:FOREACHLOOP"
+          DTS:Description="Foreach Loop Container"
+          DTS:DTSID="{3B18424F-6F4C-4BF7-9255-D0F3A01C5FF5}"
+          DTS:ExecutableType="STOCK:FOREACHLOOP"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Foreach Loop Container 1">
+          <DTS:ForEachEnumerator
+            DTS:CreationName="Microsoft.ForEachFileEnumerator"
+            DTS:DTSID="{3D2EF475-670D-491C-8D83-9E5D2F6A1370}"
+            DTS:ObjectName="{F4651F74-A99E-47D5-89D5-57ED12216A20}">
+            <DTS:ObjectData>
+              <ForEachFileEnumeratorProperties>
+                <FEFEProperty
+                  Folder="C:\Users\xcbcpadi\Desktop\alistamiento\ETL_BK_Axesor\carpetaArchivo" />
+                <FEFEProperty
+                  FileSpec="Update_Contacts*.csv" />
+                <FEFEProperty
+                  FileNameRetrievalType="0" />
+                <FEFEProperty
+                  Recurse="0" />
+              </ForEachFileEnumeratorProperties>
+            </DTS:ObjectData>
+          </DTS:ForEachEnumerator>
+          <DTS:Variables />
+          <DTS:Executables>
+            <DTS:Executable
+              DTS:refId="Package\Sequence Container\Foreach Loop Container 1\Load Table PermissionChangeEmail"
+              DTS:CreationName="Microsoft.Pipeline"
+              DTS:Description="Data Flow Task"
+              DTS:DTSID="{C9F3E79B-4FFC-45F0-8EA5-65761B5FCDE2}"
+              DTS:ExecutableType="Microsoft.Pipeline"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="Load Table PermissionChangeEmail"
+              DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <pipeline
+                  version="1">
+                  <components>
+                    <component
+                      refId="Package\Sequence Container\Foreach Loop Container 1\Load Table PermissionChangeEmail\Derived Column"
+                      componentClassID="Microsoft.DerivedColumn"
+                      contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                      description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+                      name="Derived Column"
+                      usesDispositions="true">
+                      <inputs>
+                        <input
+                          refId="Package\Sequence Container\Foreach Loop Container 1\Load Table PermissionChangeEmail\Derived Column.Inputs[Derived Column Input]"
+                          description="Input to the Derived Column Transformation"
+                          name="Derived Column Input">
+                          <inputColumns>
+                            <inputColumn
+                              refId="Package\Sequence Container\Foreach Loop Container 1\Load Table PermissionChangeEmail\Derived Column.Inputs[Derived Column Input].Columns[Column 0]"
+                              cachedDataType="wstr"
+                              cachedLength="50"
+                              cachedName="Column 0"
+                              lineageId="Package\Sequence Container\Foreach Loop Container 1\Load Table PermissionChangeEmail\Flat File Source.Outputs[Flat File Source Output].Columns[Column 0]" />
+                            <inputColumn
+                              refId="Package\Sequence Container\Foreach Loop Container 1\Load Table PermissionChangeEmail\Derived Column.Inputs[Derived Column Input].Columns[Column 1]"
+                              cachedDataType="wstr"
+                              cachedLength="50"
+                              cachedName="Column 1"
+                              lineageId="Package\Sequence Container\Foreach Loop Container 1\Load Table PermissionChangeEmail\Flat File Source.Outputs[Flat File Source Output].Columns[Column 1]" />
+                          </inputColumns>
+                          <externalMetadataColumns />
+                        </input>
+                      </inputs>
+                      <outputs>
+                        <output
+                          refId="Package\Sequence Container\Foreach Loop Container 1\Load Table PermissionChangeEmail\Derived Column.Outputs[Derived Column Output]"
+                          description="Default Output of the Derived Column Transformation"
+                          exclusionGroup="1"
+                          name="Derived Column Output"
+                          synchronousInputId="Package\Sequence Container\Foreach Loop Container 1\Load Table PermissionChangeEmail\Derived Column.Inputs[Derived Column Input]">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\Sequence Container\Foreach Loop Container 1\Load Table PermissionChangeEmail\Derived Column.Outputs[Derived Column Output].Columns[Files_Name]"
+                              codePage="1252"
+                              dataType="str"
+                              errorOrTruncationOperation="Computation"
+                              errorRowDisposition="FailComponent"
+                              length="150"
+                              lineageId="Package\Sequence Container\Foreach Loop Container 1\Load Table PermissionChangeEmail\Derived Column.Outputs[Derived Column Output].Columns[Files_Name]"
+                              name="Files_Name"
+                              truncationRowDisposition="FailComponent">
+                              <properties>
+                                <property
+                                  containsID="true"
+                                  dataType="System.String"
+                                  description="Derived Column Expression"
+                                  name="Expression">(DT_STR,150,1252)([SUBSTRING](@[User::VStr_Ruta],53,29))</property>
+                                <property
+                                  containsID="true"
+                                  dataType="System.String"
+                                  description="Derived Column Friendly Expression"
+                                  expressionType="Notify"
+                                  name="FriendlyExpression">(DT_STR,150,1252)(SUBSTRING(@[User::VStr_Ruta],53,29))</property>
+                              </properties>
+                            </outputColumn>
+                            <outputColumn
+                              refId="Package\Sequence Container\Foreach Loop Container 1\Load Table PermissionChangeEmail\Derived Column.Outputs[Derived Column Output].Columns[LastExtraction]"
+                              dataType="dbTimeStamp"
+                              errorOrTruncationOperation="Computation"
+                              errorRowDisposition="FailComponent"
+                              lineageId="Package\Sequence Container\Foreach Loop Container 1\Load Table PermissionChangeEmail\Derived Column.Outputs[Derived Column Output].Columns[LastExtraction]"
+                              name="LastExtraction"
+                              truncationRowDisposition="FailComponent">
+                              <properties>
+                                <property
+                                  containsID="true"
+                                  dataType="System.String"
+                                  description="Derived Column Expression"
+                                  name="Expression">[GETDATE]()</property>
+                                <property
+                                  containsID="true"
+                                  dataType="System.String"
+                                  description="Derived Column Friendly Expression"
+                                  expressionType="Notify"
+                                  name="FriendlyExpression">GETDATE()</property>
+                              </properties>
+                            </outputColumn>
+                            <outputColumn
+                              refId="Package\Sequence Container\Foreach Loop Container 1\Load Table PermissionChangeEmail\Derived Column.Outputs[Derived Column Output].Columns[StateInitial]"
+                              dataType="i4"
+                              errorOrTruncationOperation="Computation"
+                              errorRowDisposition="FailComponent"
+                              lineageId="Package\Sequence Container\Foreach Loop Container 1\Load Table PermissionChangeEmail\Derived Column.Outputs[Derived Column Output].Columns[StateInitial]"
+                              name="StateInitial"
+                              truncationRowDisposition="FailComponent">
+                              <properties>
+                                <property
+                                  containsID="true"
+                                  dataType="System.String"
+                                  description="Derived Column Expression"
+                                  name="Expression">1</property>
+                                <property
+                                  containsID="true"
+                                  dataType="System.String"
+                                  description="Derived Column Friendly Expression"
+                                  expressionType="Notify"
+                                  name="FriendlyExpression">1</property>
+                              </properties>
+                            </outputColumn>
+                            <outputColumn
+                              refId="Package\Sequence Container\Foreach Loop Container 1\Load Table PermissionChangeEmail\Derived Column.Outputs[Derived Column Output].Columns[CompanyID]"
+                              codePage="1252"
+                              dataType="str"
+                              errorOrTruncationOperation="Computation"
+                              errorRowDisposition="FailComponent"
+                              length="50"
+                              lineageId="Package\Sequence Container\Foreach Loop Container 1\Load Table PermissionChangeEmail\Derived Column.Outputs[Derived Column Output].Columns[CompanyID]"
+                              name="CompanyID"
+                              truncationRowDisposition="FailComponent">
+                              <properties>
+                                <property
+                                  containsID="true"
+                                  dataType="System.String"
+                                  description="Derived Column Expression"
+                                  name="Expression">(DT_STR,50,1252)#{Package\Sequence Container\Foreach Loop Container 1\Load Table PermissionChangeEmail\Flat File Source.Outputs[Flat File Source Output].Columns[Column 0]}</property>
+                                <property
+                                  containsID="true"
+                                  dataType="System.String"
+                                  description="Derived Column Friendly Expression"
+                                  expressionType="Notify"
+                                  name="FriendlyExpression">(DT_STR,50,1252)[Column 0]</property>
+                              </properties>
+                            </outputColumn>
+                            <outputColumn
+                              refId="Package\Sequence Container\Foreach Loop Container 1\Load Table PermissionChangeEmail\Derived Column.Outputs[Derived Column Output].Columns[CustomerID]"
+                              codePage="1252"
+                              dataType="str"
+                              errorOrTruncationOperation="Computation"
+                              errorRowDisposition="FailComponent"
+                              length="50"
+                              lineageId="Package\Sequence Container\Foreach Loop Container 1\Load Table PermissionChangeEmail\Derived Column.Outputs[Derived Column Output].Columns[CustomerID]"
+                              name="CustomerID"
+                              truncationRowDisposition="FailComponent">
+                              <properties>
+                                <property
+                                  containsID="true"
+                                  dataType="System.String"
+                                  description="Derived Column Expression"
+                                  name="Expression">(DT_STR,50,1252)#{Package\Sequence Container\Foreach Loop Container 1\Load Table PermissionChangeEmail\Flat File Source.Outputs[Flat File Source Output].Columns[Column 1]}</property>
+                                <property
+                                  containsID="true"
+                                  dataType="System.String"
+                                  description="Derived Column Friendly Expression"
+                                  expressionType="Notify"
+                                  name="FriendlyExpression">(DT_STR,50,1252)[Column 1]</property>
+                              </properties>
+                            </outputColumn>
+                          </outputColumns>
+                          <externalMetadataColumns />
+                        </output>
+                        <output
+                          refId="Package\Sequence Container\Foreach Loop Container 1\Load Table PermissionChangeEmail\Derived Column.Outputs[Derived Column Error Output]"
+                          description="Error Output of the Derived Column Transformation"
+                          exclusionGroup="1"
+                          isErrorOut="true"
+                          name="Derived Column Error Output"
+                          synchronousInputId="Package\Sequence Container\Foreach Loop Container 1\Load Table PermissionChangeEmail\Derived Column.Inputs[Derived Column Input]">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\Sequence Container\Foreach Loop Container 1\Load Table PermissionChangeEmail\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                              dataType="i4"
+                              lineageId="Package\Sequence Container\Foreach Loop Container 1\Load Table PermissionChangeEmail\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                              name="ErrorCode"
+                              specialFlags="1" />
+                            <outputColumn
+                              refId="Package\Sequence Container\Foreach Loop Container 1\Load Table PermissionChangeEmail\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                              dataType="i4"
+                              lineageId="Package\Sequence Container\Foreach Loop Container 1\Load Table PermissionChangeEmail\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                              name="ErrorColumn"
+                              specialFlags="2" />
+                          </outputColumns>
+                          <externalMetadataColumns />
+                        </output>
+                      </outputs>
+                    </component>
+                    <component
+                      refId="Package\Sequence Container\Foreach Loop Container 1\Load Table PermissionChangeEmail\Flat File Source"
+                      componentClassID="Microsoft.FlatFileSource"
+                      contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                      description="Flat File Source"
+                      localeId="9226"
+                      name="Flat File Source"
+                      usesDispositions="true"
+                      version="1">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Specifies whether zero-length columns are treated as null."
+                          name="RetainNulls">false</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                          name="FileNameColumnName"></property>
+                      </properties>
+                      <connections>
+                        <connection
+                          refId="Package\Sequence Container\Foreach Loop Container 1\Load Table PermissionChangeEmail\Flat File Source.Connections[FlatFileConnection]"
+                          connectionManagerID="Package.ConnectionManagers[File_CustomerID]"
+                          connectionManagerRefId="Package.ConnectionManagers[File_CustomerID]"
+                          name="FlatFileConnection" />
+                      </connections>
+                      <outputs>
+                        <output
+                          refId="Package\Sequence Container\Foreach Loop Container 1\Load Table PermissionChangeEmail\Flat File Source.Outputs[Flat File Source Output]"
+                          name="Flat File Source Output">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\Sequence Container\Foreach Loop Container 1\Load Table PermissionChangeEmail\Flat File Source.Outputs[Flat File Source Output].Columns[Column 0]"
+                              dataType="wstr"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\Sequence Container\Foreach Loop Container 1\Load Table PermissionChangeEmail\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Column 0]"
+                              length="50"
+                              lineageId="Package\Sequence Container\Foreach Loop Container 1\Load Table PermissionChangeEmail\Flat File Source.Outputs[Flat File Source Output].Columns[Column 0]"
+                              name="Column 0"
+                              truncationRowDisposition="FailComponent">
+                              <properties>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                                  name="FastParse">false</property>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the data is in binary format."
+                                  name="UseBinaryFormat">false</property>
+                              </properties>
+                            </outputColumn>
+                            <outputColumn
+                              refId="Package\Sequence Container\Foreach Loop Container 1\Load Table PermissionChangeEmail\Flat File Source.Outputs[Flat File Source Output].Columns[Column 1]"
+                              dataType="wstr"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\Sequence Container\Foreach Loop Container 1\Load Table PermissionChangeEmail\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Column 1]"
+                              length="50"
+                              lineageId="Package\Sequence Container\Foreach Loop Container 1\Load Table PermissionChangeEmail\Flat File Source.Outputs[Flat File Source Output].Columns[Column 1]"
+                              name="Column 1"
+                              truncationRowDisposition="FailComponent">
+                              <properties>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                                  name="FastParse">false</property>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the data is in binary format."
+                                  name="UseBinaryFormat">false</property>
+                              </properties>
+                            </outputColumn>
+                          </outputColumns>
+                          <externalMetadataColumns
+                            isUsed="True">
+                            <externalMetadataColumn
+                              refId="Package\Sequence Container\Foreach Loop Container 1\Load Table PermissionChangeEmail\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Column 0]"
+                              codePage="1252"
+                              dataType="str"
+                              length="50"
+                              name="Column 0" />
+                            <externalMetadataColumn
+                              refId="Package\Sequence Container\Foreach Loop Container 1\Load Table PermissionChangeEmail\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Column 1]"
+                              codePage="1252"
+                              dataType="str"
+                              length="50"
+                              name="Column 1" />
+                          </externalMetadataColumns>
+                        </output>
+                        <output
+                          refId="Package\Sequence Container\Foreach Loop Container 1\Load Table PermissionChangeEmail\Flat File Source.Outputs[Flat File Source Error Output]"
+                          isErrorOut="true"
+                          name="Flat File Source Error Output">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\Sequence Container\Foreach Loop Container 1\Load Table PermissionChangeEmail\Flat File Source.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                              codePage="1252"
+                              dataType="text"
+                              description="Flat File Source Error Output Column"
+                              lineageId="Package\Sequence Container\Foreach Loop Container 1\Load Table PermissionChangeEmail\Flat File Source.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                              name="Flat File Source Error Output Column" />
+                            <outputColumn
+                              refId="Package\Sequence Container\Foreach Loop Container 1\Load Table PermissionChangeEmail\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                              dataType="i4"
+                              lineageId="Package\Sequence Container\Foreach Loop Container 1\Load Table PermissionChangeEmail\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                              name="ErrorCode"
+                              specialFlags="1" />
+                            <outputColumn
+                              refId="Package\Sequence Container\Foreach Loop Container 1\Load Table PermissionChangeEmail\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                              dataType="i4"
+                              lineageId="Package\Sequence Container\Foreach Loop Container 1\Load Table PermissionChangeEmail\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                              name="ErrorColumn"
+                              specialFlags="2" />
+                          </outputColumns>
+                          <externalMetadataColumns />
+                        </output>
+                      </outputs>
+                    </component>
+                    <component
+                      refId="Package\Sequence Container\Foreach Loop Container 1\Load Table PermissionChangeEmail\Lookup"
+                      componentClassID="Microsoft.Lookup"
+                      contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+                      description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+                      name="Lookup"
+                      usesDispositions="true"
+                      version="6">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the SQL statement that generates the lookup table."
+                          expressionType="Notify"
+                          name="SqlCommand"
+                          UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[PermissionChangeEmail]</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                          expressionType="Notify"
+                          name="SqlCommandParam"
+                          UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[PermissionChangeEmail]) [refTable]
+where [refTable].[State] = ? and [refTable].[CompanyId] = ? and [refTable].[CustomerID] = ?</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the type of connection used to access the reference dataset."
+                          name="ConnectionType"
+                          typeConverter="LookupConnectionType">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the cache type of the lookup table."
+                          name="CacheType"
+                          typeConverter="CacheType">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                          name="NoMatchBehavior"
+                          typeConverter="LookupNoMatchBehavior">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                          name="NoMatchCachePercentage">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                          name="MaxMemoryUsage">25</property>
+                        <property
+                          dataType="System.Int64"
+                          description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                          name="MaxMemoryUsage64">25</property>
+                        <property
+                          dataType="System.String"
+                          description="Indicates whether to reference metadata in an XML format."
+                          name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="CompanyId" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="CustomerID" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="Token" dataType="DT_GUID" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="CreationDate" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="State" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                          name="ParameterMap">#{Package\Sequence Container\Foreach Loop Container 1\Load Table PermissionChangeEmail\Derived Column.Outputs[Derived Column Output].Columns[StateInitial]};#{Package\Sequence Container\Foreach Loop Container 1\Load Table PermissionChangeEmail\Derived Column.Outputs[Derived Column Output].Columns[CompanyID]};#{Package\Sequence Container\Foreach Loop Container 1\Load Table PermissionChangeEmail\Derived Column.Outputs[Derived Column Output].Columns[CustomerID]};</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the column code page to use when code page information is unavailable from the data source."
+                          name="DefaultCodePage">1252</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                          name="TreatDuplicateKeysAsError">false</property>
+                      </properties>
+                      <connections>
+                        <connection
+                          refId="Package\Sequence Container\Foreach Loop Container 1\Load Table PermissionChangeEmail\Lookup.Connections[OleDbConnection]"
+                          connectionManagerID="Package.ConnectionManagers[WebStore]"
+                          connectionManagerRefId="Package.ConnectionManagers[WebStore]"
+                          description="Connection manager used to access lookup data."
+                          name="OleDbConnection" />
+                      </connections>
+                      <inputs>
+                        <input
+                          refId="Package\Sequence Container\Foreach Loop Container 1\Load Table PermissionChangeEmail\Lookup.Inputs[Lookup Input]"
+                          name="Lookup Input">
+                          <inputColumns>
+                            <inputColumn
+                              refId="Package\Sequence Container\Foreach Loop Container 1\Load Table PermissionChangeEmail\Lookup.Inputs[Lookup Input].Columns[CompanyID]"
+                              cachedCodepage="1252"
+                              cachedDataType="str"
+                              cachedLength="50"
+                              cachedName="CompanyID"
+                              cachedSortKeyPosition="1"
+                              lineageId="Package\Sequence Container\Foreach Loop Container 1\Load Table PermissionChangeEmail\Sort.Outputs[Sort Output].Columns[CompanyID]">
+                              <properties>
+                                <property
+                                  dataType="System.String"
+                                  description="Specifies the column in the reference table that a column joins."
+                                  name="JoinToReferenceColumn">CompanyId</property>
+                                <property
+                                  dataType="System.Null"
+                                  description="Specifies the column in the reference table from which a column is copied."
+                                  name="CopyFromReferenceColumn" />
+                              </properties>
+                            </inputColumn>
+                            <inputColumn
+                              refId="Package\Sequence Container\Foreach Loop Container 1\Load Table PermissionChangeEmail\Lookup.Inputs[Lookup Input].Columns[CustomerID]"
+                              cachedCodepage="1252"
+                              cachedDataType="str"
+                              cachedLength="50"
+                              cachedName="CustomerID"
+                              cachedSortKeyPosition="2"
+                              lineageId="Package\Sequence Container\Foreach Loop Container 1\Load Table PermissionChangeEmail\Sort.Outputs[Sort Output].Columns[CustomerID]">
+                              <properties>
+                                <property
+                                  dataType="System.String"
+                                  description="Specifies the column in the reference table that a column joins."
+                                  name="JoinToReferenceColumn">CustomerID</property>
+                                <property
+                                  dataType="System.Null"
+                                  description="Specifies the column in the reference table from which a column is copied."
+                                  name="CopyFromReferenceColumn" />
+                              </properties>
+                            </inputColumn>
+                            <inputColumn
+                              refId="Package\Sequence Container\Foreach Loop Container 1\Load Table PermissionChangeEmail\Lookup.Inputs[Lookup Input].Columns[StateInitial]"
+                              cachedDataType="i4"
+                              cachedName="StateInitial"
+                              lineageId="Package\Sequence Container\Foreach Loop Container 1\Load Table PermissionChangeEmail\Sort.Outputs[Sort Output].Columns[StateInitial]">
+                              <properties>
+                                <property
+                                  dataType="System.String"
+                                  description="Specifies the column in the reference table that a column joins."
+                                  name="JoinToReferenceColumn">State</property>
+                                <property
+                                  dataType="System.Null"
+                                  description="Specifies the column in the reference table from which a column is copied."
+                                  name="CopyFromReferenceColumn" />
+                              </properties>
+                            </inputColumn>
+                          </inputColumns>
+                          <externalMetadataColumns />
+                        </input>
+                      </inputs>
+                      <outputs>
+                        <output
+                          refId="Package\Sequence Container\Foreach Loop Container 1\Load Table PermissionChangeEmail\Lookup.Outputs[Lookup Match Output]"
+                          errorOrTruncationOperation="Lookup"
+                          exclusionGroup="1"
+                          name="Lookup Match Output"
+                          synchronousInputId="Package\Sequence Container\Foreach Loop Container 1\Load Table PermissionChangeEmail\Lookup.Inputs[Lookup Input]">
+                          <externalMetadataColumns />
+                        </output>
+                        <output
+                          refId="Package\Sequence Container\Foreach Loop Container 1\Load Table PermissionChangeEmail\Lookup.Outputs[Lookup No Match Output]"
+                          description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                          exclusionGroup="1"
+                          name="Lookup No Match Output"
+                          synchronousInputId="Package\Sequence Container\Foreach Loop Container 1\Load Table PermissionChangeEmail\Lookup.Inputs[Lookup Input]">
+                          <externalMetadataColumns />
+                        </output>
+                        <output
+                          refId="Package\Sequence Container\Foreach Loop Container 1\Load Table PermissionChangeEmail\Lookup.Outputs[Lookup Error Output]"
+                          exclusionGroup="1"
+                          isErrorOut="true"
+                          name="Lookup Error Output"
+                          synchronousInputId="Package\Sequence Container\Foreach Loop Container 1\Load Table PermissionChangeEmail\Lookup.Inputs[Lookup Input]">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\Sequence Container\Foreach Loop Container 1\Load Table PermissionChangeEmail\Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                              dataType="i4"
+                              lineageId="Package\Sequence Container\Foreach Loop Container 1\Load Table PermissionChangeEmail\Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                              name="ErrorCode"
+                              specialFlags="1" />
+                            <outputColumn
+                              refId="Package\Sequence Container\Foreach Loop Container 1\Load Table PermissionChangeEmail\Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                              dataType="i4"
+                              lineageId="Package\Sequence Container\Foreach Loop Container 1\Load Table PermissionChangeEmail\Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                              name="ErrorColumn"
+                              specialFlags="2" />
+                          </outputColumns>
+                          <externalMetadataColumns />
+                        </output>
+                      </outputs>
+                    </component>
+                    <component
+                      refId="Package\Sequence Container\Foreach Loop Container 1\Load Table PermissionChangeEmail\OLE DB Destination"
+                      componentClassID="Microsoft.OLEDBDestination"
+                      contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                      description="OLE DB Destination"
+                      name="OLE DB Destination"
+                      usesDispositions="true"
+                      version="4">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                          name="CommandTimeout">0</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the name of the database object used to open a rowset."
+                          name="OpenRowset">[dbo].[PermissionChangeEmail]</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the variable that contains the name of the database object used to open a rowset."
+                          name="OpenRowsetVariable"></property>
+                        <property
+                          dataType="System.String"
+                          description="The SQL command to be executed."
+                          name="SqlCommand"
+                          UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the column code page to use when code page information is unavailable from the data source."
+                          name="DefaultCodePage">1252</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Forces the use of the DefaultCodePage property value when describing character data."
+                          name="AlwaysUseDefaultCodePage">false</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the mode used to access the database."
+                          name="AccessMode"
+                          typeConverter="AccessMode">3</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                          name="FastLoadKeepIdentity">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                          name="FastLoadKeepNulls">false</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                          name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                          name="FastLoadMaxInsertCommitSize">2147483647</property>
+                      </properties>
+                      <connections>
+                        <connection
+                          refId="Package\Sequence Container\Foreach Loop Container 1\Load Table PermissionChangeEmail\OLE DB Destination.Connections[OleDbConnection]"
+                          connectionManagerID="Package.ConnectionManagers[WebStore]"
+                          connectionManagerRefId="Package.ConnectionManagers[WebStore]"
+                          description="The OLE DB runtime connection used to access the database."
+                          name="OleDbConnection" />
+                      </connections>
+                      <inputs>
+                        <input
+                          refId="Package\Sequence Container\Foreach Loop Container 1\Load Table PermissionChangeEmail\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                          errorOrTruncationOperation="Insert"
+                          errorRowDisposition="FailComponent"
+                          hasSideEffects="true"
+                          name="OLE DB Destination Input">
+                          <inputColumns>
+                            <inputColumn
+                              refId="Package\Sequence Container\Foreach Loop Container 1\Load Table PermissionChangeEmail\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Token]"
+                              cachedDataType="guid"
+                              cachedName="Token"
+                              externalMetadataColumnId="Package\Sequence Container\Foreach Loop Container 1\Load Table PermissionChangeEmail\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Token]"
+                              lineageId="Package\Sequence Container\Foreach Loop Container 1\Load Table PermissionChangeEmail\Script Component.Outputs[Output 0].Columns[Token]" />
+                            <inputColumn
+                              refId="Package\Sequence Container\Foreach Loop Container 1\Load Table PermissionChangeEmail\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[LastExtraction]"
+                              cachedDataType="dbTimeStamp"
+                              cachedName="LastExtraction"
+                              externalMetadataColumnId="Package\Sequence Container\Foreach Loop Container 1\Load Table PermissionChangeEmail\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CreationDate]"
+                              lineageId="Package\Sequence Container\Foreach Loop Container 1\Load Table PermissionChangeEmail\Sort.Outputs[Sort Output].Columns[LastExtraction]" />
+                            <inputColumn
+                              refId="Package\Sequence Container\Foreach Loop Container 1\Load Table PermissionChangeEmail\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[StateInitial]"
+                              cachedDataType="i4"
+                              cachedName="StateInitial"
+                              externalMetadataColumnId="Package\Sequence Container\Foreach Loop Container 1\Load Table PermissionChangeEmail\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[State]"
+                              lineageId="Package\Sequence Container\Foreach Loop Container 1\Load Table PermissionChangeEmail\Sort.Outputs[Sort Output].Columns[StateInitial]" />
+                            <inputColumn
+                              refId="Package\Sequence Container\Foreach Loop Container 1\Load Table PermissionChangeEmail\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CompanyID]"
+                              cachedCodepage="1252"
+                              cachedDataType="str"
+                              cachedLength="50"
+                              cachedName="CompanyID"
+                              cachedSortKeyPosition="1"
+                              externalMetadataColumnId="Package\Sequence Container\Foreach Loop Container 1\Load Table PermissionChangeEmail\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CompanyId]"
+                              lineageId="Package\Sequence Container\Foreach Loop Container 1\Load Table PermissionChangeEmail\Sort.Outputs[Sort Output].Columns[CompanyID]" />
+                            <inputColumn
+                              refId="Package\Sequence Container\Foreach Loop Container 1\Load Table PermissionChangeEmail\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CustomerID]"
+                              cachedCodepage="1252"
+                              cachedDataType="str"
+                              cachedLength="50"
+                              cachedName="CustomerID"
+                              cachedSortKeyPosition="2"
+                              externalMetadataColumnId="Package\Sequence Container\Foreach Loop Container 1\Load Table PermissionChangeEmail\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CustomerID]"
+                              lineageId="Package\Sequence Container\Foreach Loop Container 1\Load Table PermissionChangeEmail\Sort.Outputs[Sort Output].Columns[CustomerID]" />
+                          </inputColumns>
+                          <externalMetadataColumns
+                            isUsed="True">
+                            <externalMetadataColumn
+                              refId="Package\Sequence Container\Foreach Loop Container 1\Load Table PermissionChangeEmail\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CompanyId]"
+                              codePage="1252"
+                              dataType="str"
+                              length="50"
+                              name="CompanyId" />
+                            <externalMetadataColumn
+                              refId="Package\Sequence Container\Foreach Loop Container 1\Load Table PermissionChangeEmail\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CustomerID]"
+                              codePage="1252"
+                              dataType="str"
+                              length="50"
+                              name="CustomerID" />
+                            <externalMetadataColumn
+                              refId="Package\Sequence Container\Foreach Loop Container 1\Load Table PermissionChangeEmail\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Token]"
+                              dataType="guid"
+                              name="Token" />
+                            <externalMetadataColumn
+                              refId="Package\Sequence Container\Foreach Loop Container 1\Load Table PermissionChangeEmail\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CreationDate]"
+                              dataType="dbTimeStamp"
+                              name="CreationDate" />
+                            <externalMetadataColumn
+                              refId="Package\Sequence Container\Foreach Loop Container 1\Load Table PermissionChangeEmail\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[State]"
+                              dataType="i4"
+                              name="State" />
+                          </externalMetadataColumns>
+                        </input>
+                      </inputs>
+                      <outputs>
+                        <output
+                          refId="Package\Sequence Container\Foreach Loop Container 1\Load Table PermissionChangeEmail\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                          exclusionGroup="1"
+                          isErrorOut="true"
+                          name="OLE DB Destination Error Output"
+                          synchronousInputId="Package\Sequence Container\Foreach Loop Container 1\Load Table PermissionChangeEmail\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\Sequence Container\Foreach Loop Container 1\Load Table PermissionChangeEmail\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                              dataType="i4"
+                              lineageId="Package\Sequence Container\Foreach Loop Container 1\Load Table PermissionChangeEmail\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                              name="ErrorCode"
+                              specialFlags="1" />
+                            <outputColumn
+                              refId="Package\Sequence Container\Foreach Loop Container 1\Load Table PermissionChangeEmail\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                              dataType="i4"
+                              lineageId="Package\Sequence Container\Foreach Loop Container 1\Load Table PermissionChangeEmail\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                              name="ErrorColumn"
+                              specialFlags="2" />
+                          </outputColumns>
+                          <externalMetadataColumns />
+                        </output>
+                      </outputs>
+                    </component>
+                    <component
+                      refId="Package\Sequence Container\Foreach Loop Container 1\Load Table PermissionChangeEmail\Script Component"
+                      componentClassID="Microsoft.ManagedComponentHost"
+                      contactInfo="Includes and runs custom script code. For example, apply a business rule that limits the range of valid values in an &quot;income&quot; column or add values in two columns and calculate the average of the sum.;Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;12"
+                      description="Includes and runs custom script code. For example, apply a business rule that limits the range of valid values in an &quot;income&quot; column or add values in two columns and calculate the average of the sum."
+                      name="Script Component"
+                      version="12">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Stores the source code of the component"
+                          isArray="true"
+                          name="SourceCode"
+                          state="cdata">
+                          <arrayElements
+                            arrayElementCount="30">
+                            <arrayElement
+                              dataType="System.String"><![CDATA[SC_9b488e31f2294a87892aaf6d2cb31df2.csproj]]></arrayElement>
+                            <arrayElement
+                              dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                            <arrayElement
+                              dataType="System.String"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectTypeGuids>{30D016F9-3734-4E33-A861-5E7D899E18F3};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{834c6ee8-305b-4705-9ce1-e1e342861215}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SC_9b488e31f2294a87892aaf6d2cb31df2</RootNamespace>
+    <AssemblyName>SC_9b488e31f2294a87892aaf6d2cb31df2</AssemblyName>
+    <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ResolveAssemblyReferenceIgnoreTargetFrameworkAttributeVersionMismatch>true</ResolveAssemblyReferenceIgnoreTargetFrameworkAttributeVersionMismatch>
+    <TargetFrameworkProfile></TargetFrameworkProfile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>.\bin\Debug\</OutputPath>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>false</DebugSymbols>
+    <Optimize>true</Optimize>
+    <OutputPath>.\bin\Release\</OutputPath>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.SqlServer.TxScript, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.SqlServer.DTSRuntimeWrap, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.SqlServer.DTSPipelineWrap, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.SqlServer.PipelineHost, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Compile Include="main.cs" />
+    <Compile Include="BufferWrapper.cs" />
+    <Compile Include="ComponentWrapper.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <AppDesigner Include="Properties\" />
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <!-- Include the build rules for a C# project.-->
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- This section defines VSTA properties that describe the host-changable project properties. -->
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{30D016F9-3734-4E33-A861-5E7D899E18F3}">
+        <ProjectProperties HostName="ScriptComponent" HostPackage="{B3A685AA-7EAF-4BC6-9940-57959FA5AC07}" ApplicationType="usd" Language="cs" TemplatesPath="" DebugInfoExeName="" DebugInfoCommandLine="" DebugInfoWorkingDir="" IconImageList="" />
+        <Host Name="ScriptComponent" GeneratedNamespace="SC_9b488e31f2294a87892aaf6d2cb31df2" IconIndex="0"></Host>
+        <ProjectClient>
+          <HostIdentifier>SSIS_SC150</HostIdentifier>
+        </ProjectClient>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>]]></arrayElement>
+                            <arrayElement
+                              dataType="System.String"><![CDATA[Properties\Resources.resx]]></arrayElement>
+                            <arrayElement
+                              dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                            <arrayElement
+                              dataType="System.String"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+</root>]]></arrayElement>
+                            <arrayElement
+                              dataType="System.String"><![CDATA[main.cs]]></arrayElement>
+                            <arrayElement
+                              dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                            <arrayElement
+                              dataType="System.String"><![CDATA[#region Help:  Introduction to the Script Component
+/* The Script Component allows you to perform virtually any operation that can be accomplished in
+ * a .Net application within the context of an Integration Services data flow.
+ *
+ * Expand the other regions which have "Help" prefixes for examples of specific ways to use
+ * Integration Services features within this script component. */
+#endregion
+
+#region Namespaces
+using System;
+using System.Data;
+using Microsoft.SqlServer.Dts.Pipeline.Wrapper;
+using Microsoft.SqlServer.Dts.Runtime.Wrapper;
+#endregion
+
+/// <summary>
+/// This is the class to which to add your code.  Do not change the name, attributes, or parent
+/// of this class.
+/// </summary>
+[Microsoft.SqlServer.Dts.Pipeline.SSISScriptComponentEntryPointAttribute]
+public class ScriptMain : UserComponent
+{
+    #region Help:  Using Integration Services variables and parameters
+    /* To use a variable in this script, first ensure that the variable has been added to
+     * either the list contained in the ReadOnlyVariables property or the list contained in
+     * the ReadWriteVariables property of this script component, according to whether or not your
+     * code needs to write into the variable.  To do so, save this script, close this instance of
+     * Visual Studio, and update the ReadOnlyVariables and ReadWriteVariables properties in the
+     * Script Transformation Editor window.
+     * To use a parameter in this script, follow the same steps. Parameters are always read-only.
+     *
+     * Example of reading from a variable or parameter:
+     *  DateTime startTime = Variables.MyStartTime;
+     *
+     * Example of writing to a variable:
+     *  Variables.myStringVariable = "new value";
+     */
+    #endregion
+
+    #region Help:  Using Integration Services Connnection Managers
+    /* Some types of connection managers can be used in this script component.  See the help topic
+     * "Working with Connection Managers Programatically" for details.
+     *
+     * To use a connection manager in this script, first ensure that the connection manager has
+     * been added to either the list of connection managers on the Connection Managers page of the
+     * script component editor.  To add the connection manager, save this script, close this instance of
+     * Visual Studio, and add the Connection Manager to the list.
+     *
+     * If the component needs to hold a connection open while processing rows, override the
+     * AcquireConnections and ReleaseConnections methods.
+     * 
+     * Example of using an ADO.Net connection manager to acquire a SqlConnection:
+     *  object rawConnection = Connections.SalesDB.AcquireConnection(transaction);
+     *  SqlConnection salesDBConn = (SqlConnection)rawConnection;
+     *
+     * Example of using a File connection manager to acquire a file path:
+     *  object rawConnection = Connections.Prices_zip.AcquireConnection(transaction);
+     *  string filePath = (string)rawConnection;
+     *
+     * Example of releasing a connection manager:
+     *  Connections.SalesDB.ReleaseConnection(rawConnection);
+     */
+    #endregion
+
+    #region Help:  Firing Integration Services Events
+    /* This script component can fire events.
+     *
+     * Example of firing an error event:
+     *  ComponentMetaData.FireError(10, "Process Values", "Bad value", "", 0, out cancel);
+     *
+     * Example of firing an information event:
+     *  ComponentMetaData.FireInformation(10, "Process Values", "Processing has started", "", 0, fireAgain);
+     *
+     * Example of firing a warning event:
+     *  ComponentMetaData.FireWarning(10, "Process Values", "No rows were received", "", 0);
+     */
+    #endregion
+
+    /// <summary>
+    /// This method is called once, before rows begin to be processed in the data flow.
+    ///
+    /// You can remove this method if you don't need to do anything here.
+    /// </summary>
+    public override void PreExecute()
+    {
+        base.PreExecute();
+        /*
+         * Add your code here
+         */
+    }
+
+    /// <summary>
+    /// This method is called after all the rows have passed through this component.
+    ///
+    /// You can delete this method if you don't need to do anything here.
+    /// </summary>
+    public override void PostExecute()
+    {
+        base.PostExecute();
+        /*
+         * Add your code here
+         */
+    }
+
+    /// <summary>
+    /// This method is called once for every row that passes through the component from Input0.
+    ///
+    /// Example of reading a value from a column in the the row:
+    ///  string zipCode = Row.ZipCode
+    ///
+    /// Example of writing a value to a column in the row:
+    ///  Row.ZipCode = zipCode
+    /// </summary>
+    /// <param name="Row">The row that is currently passing through the component</param>
+    public override void Input0_ProcessInputRow(Input0Buffer Row)
+    {
+        Row.Token = Guid.NewGuid();
+    }
+
+}
+]]></arrayElement>
+                            <arrayElement
+                              dataType="System.String"><![CDATA[BufferWrapper.cs]]></arrayElement>
+                            <arrayElement
+                              dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                            <arrayElement
+                              dataType="System.String"><![CDATA[/* THIS IS AUTO-GENERATED CODE THAT WILL BE OVERWRITTEN! DO NOT EDIT!
+*  Microsoft SQL Server Integration Services buffer wrappers
+*  This module defines classes for accessing data flow buffers
+*  THIS IS AUTO-GENERATED CODE THAT WILL BE OVERWRITTEN! DO NOT EDIT! */
+
+
+
+using System;
+using System.Data;
+using Microsoft.SqlServer.Dts.Pipeline;
+using Microsoft.SqlServer.Dts.Pipeline.Wrapper;
+
+public class Input0Buffer: ScriptBuffer
+
+{
+    public Input0Buffer(PipelineBuffer Buffer, int[] BufferColumnIndexes, OutputNameMap OutputMap)
+        : base(Buffer, BufferColumnIndexes, OutputMap)
+    {
+    }
+
+    public String CompanyID
+    {
+        get
+        {
+            return Buffer.GetString(BufferColumnIndexes[0]);
+        }
+    }
+    public bool CompanyID_IsNull
+    {
+        get
+        {
+            return IsNull(0);
+        }
+    }
+
+    public String CustomerID
+    {
+        get
+        {
+            return Buffer.GetString(BufferColumnIndexes[1]);
+        }
+    }
+    public bool CustomerID_IsNull
+    {
+        get
+        {
+            return IsNull(1);
+        }
+    }
+
+    public DateTime LastExtraction
+    {
+        get
+        {
+            return Buffer.GetDateTime(BufferColumnIndexes[2]);
+        }
+    }
+    public bool LastExtraction_IsNull
+    {
+        get
+        {
+            return IsNull(2);
+        }
+    }
+
+    public Guid Token
+    {
+        set
+        {
+            this[3] = value;
+        }
+    }
+    public bool Token_IsNull
+    {
+        set
+        {
+            if (value)
+            {
+                SetNull(3);
+            }
+            else
+            {
+                throw new InvalidOperationException("IsNull property cannot be set to False. Assign a value to the column instead.");
+            }
+        }
+    }
+
+    new public bool NextRow()
+    {
+        return base.NextRow();
+    }
+
+    new public bool EndOfRowset()
+    {
+        return base.EndOfRowset();
+    }
+
+}
+]]></arrayElement>
+                            <arrayElement
+                              dataType="System.String"><![CDATA[ComponentWrapper.cs]]></arrayElement>
+                            <arrayElement
+                              dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                            <arrayElement
+                              dataType="System.String"><![CDATA[/* THIS IS AUTO-GENERATED CODE THAT WILL BE OVERWRITTEN! DO NOT EDIT!
+*  Microsoft SQL Server Integration Services component wrapper
+*  This module defines the base class for your component
+*  THIS IS AUTO-GENERATED CODE THAT WILL BE OVERWRITTEN! DO NOT EDIT! */
+
+using System;
+using System.Data;
+using Microsoft.SqlServer.Dts.Pipeline;
+using Microsoft.SqlServer.Dts.Pipeline.Wrapper;
+using Microsoft.SqlServer.Dts.Runtime.Wrapper;
+
+public class UserComponent: ScriptComponent
+{
+    public Connections Connections;
+    public Variables Variables;
+    public UserComponent()
+    {
+        Connections = new Connections(this);
+        Variables = new Variables(this);
+    }
+
+    public override void ProcessInput(int InputID, string InputName, PipelineBuffer Buffer, OutputNameMap OutputMap)
+    {
+
+        if (InputName.Equals(@"Input 0", StringComparison.Ordinal))
+        {
+            Input0_ProcessInput(new Input0Buffer(Buffer, GetColumnIndexes(InputID), OutputMap));
+        }
+
+    }
+
+    public virtual void Input0_ProcessInput(Input0Buffer Buffer)
+    {
+        while (Buffer.NextRow())
+        {
+            Input0_ProcessInputRow(Buffer);
+        }
+    }
+
+    public virtual void Input0_ProcessInputRow(Input0Buffer Row)
+    {
+    }
+
+}
+
+public class Connections
+{
+    ScriptComponent ParentComponent;
+
+    public Connections(ScriptComponent Component)
+    {
+        ParentComponent = Component;
+    }
+
+}
+
+public class Variables
+{
+    ScriptComponent ParentComponent;
+
+    public Variables(ScriptComponent Component)
+    {
+        ParentComponent = Component;
+    }
+
+}
+]]></arrayElement>
+                            <arrayElement
+                              dataType="System.String"><![CDATA[Properties\Settings.Designer.cs]]></arrayElement>
+                            <arrayElement
+                              dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                            <arrayElement
+                              dataType="System.String"><![CDATA[//------------------------------------------------------------------------------
+// <auto-generated>
+//     This code was generated by a tool.
+//
+//     Changes to this file may cause incorrect behavior and will be lost if
+//     the code is regenerated.
+// </auto-generated>
+//------------------------------------------------------------------------------
+
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="SC_9b488e31f2294a87892aaf6d2cb31df2.Properties.Settings.get_Default():SC_9b488e31f2294a87892aaf6d2cb31df2.Properties.Sett" +
+    "ings")]
+
+namespace SC_9b488e31f2294a87892aaf6d2cb31df2.Properties {
+    
+    
+    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
+        
+        [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
+        private static Settings defaultInstance = new Settings();
+        
+        public static Settings Default {
+            get {
+                return defaultInstance;
+            }
+        }
+    }
+}
+]]></arrayElement>
+                            <arrayElement
+                              dataType="System.String"><![CDATA[Project]]></arrayElement>
+                            <arrayElement
+                              dataType="System.String"><![CDATA[UTF16LE]]></arrayElement>
+                            <arrayElement
+                              dataType="System.String"><![CDATA[<?xml version="1.0" encoding="UTF-16" standalone="yes"?>
+<c:Project xmlns:c="http://schemas.microsoft.com/codeprojectml/2010/08/main" xmlns:msb="http://schemas.microsoft.com/developer/msbuild/2003" runtimeVersion="4.0" schemaVersion="1.0">
+  <msb:PropertyGroup>
+    <msb:CodeName>SC_9b488e31f2294a87892aaf6d2cb31df2</msb:CodeName>
+    <msb:Language>msBuild</msb:Language>
+    <msb:DisplayName>SC_9b488e31f2294a87892aaf6d2cb31df2</msb:DisplayName>
+    <msb:ProjectId>{EF522F0D-DC83-4194-9285-97A6657677CE}</msb:ProjectId>
+  </msb:PropertyGroup>
+  <msb:ItemGroup>
+    <msb:Project Include="SC_9b488e31f2294a87892aaf6d2cb31df2.csproj" />
+    <msb:File Include="ComponentWrapper.cs" />
+    <msb:File Include="Properties\Settings.Designer.cs" />
+    <msb:File Include="main.cs" />
+    <msb:File Include="BufferWrapper.cs" />
+    <msb:File Include="Properties\Settings.settings" />
+    <msb:File Include="Properties\AssemblyInfo.cs" />
+    <msb:File Include="Properties\Resources.resx" />
+    <msb:File Include="Properties\Resources.Designer.cs" />
+  </msb:ItemGroup>
+</c:Project>]]></arrayElement>
+                            <arrayElement
+                              dataType="System.String"><![CDATA[Properties\AssemblyInfo.cs]]></arrayElement>
+                            <arrayElement
+                              dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                            <arrayElement
+                              dataType="System.String"><![CDATA[using System.Reflection;
+using System.Runtime.CompilerServices;
+
+//
+// General Information about an assembly is controlled through the following 
+// set of attributes. Change these attribute values to modify the information
+// associated with an assembly.
+//
+[assembly: AssemblyTitle("SC_9b488e31f2294a87892aaf6d2cb31df2")]
+[assembly: AssemblyDescription("")]
+[assembly: AssemblyConfiguration("")]
+[assembly: AssemblyCompany("")]
+[assembly: AssemblyProduct("SC_9b488e31f2294a87892aaf6d2cb31df2")]
+[assembly: AssemblyCopyright("Copyright @  2021")]
+[assembly: AssemblyTrademark("")]
+[assembly: AssemblyCulture("")]
+//
+// Version information for an assembly consists of the following four values:
+//
+//      Major Version
+//      Minor Version 
+//      Build Number
+//      Revision
+//
+// You can specify all the values or you can default the Revision and Build Numbers 
+// by using the '*' as shown below:
+
+[assembly: AssemblyVersion("1.0.0.0")]
+]]></arrayElement>
+                            <arrayElement
+                              dataType="System.String"><![CDATA[Properties\Settings.settings]]></arrayElement>
+                            <arrayElement
+                              dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                            <arrayElement
+                              dataType="System.String"><![CDATA[<?xml version='1.0' encoding='iso-8859-1'?>
+<SettingsFile xmlns="uri:settings" CurrentProfile="(Default)">
+  <Profiles>
+    <Profile Name="(Default)" />
+  </Profiles>
+  <Settings />
+</SettingsFile>]]></arrayElement>
+                            <arrayElement
+                              dataType="System.String"><![CDATA[Properties\Resources.Designer.cs]]></arrayElement>
+                            <arrayElement
+                              dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                            <arrayElement
+                              dataType="System.String"><![CDATA[//------------------------------------------------------------------------------
+// <auto-generated>
+//     This code was generated by a tool.
+//
+//     Changes to this file may cause incorrect behavior and will be lost if
+//     the code is regenerated.
+// </auto-generated>
+//------------------------------------------------------------------------------
+
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="SC_9b488e31f2294a87892aaf6d2cb31df2.Properties.Resources.get_ResourceManager():System.Resources.Resou" +
+    "rceManager")]
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="SC_9b488e31f2294a87892aaf6d2cb31df2.Properties.Resources.get_Culture():System.Globalization.CultureIn" +
+    "fo")]
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="SC_9b488e31f2294a87892aaf6d2cb31df2.Properties.Resources.set_Culture(System.Globalization.CultureInfo" +
+    "):Void")]
+
+namespace SC_9b488e31f2294a87892aaf6d2cb31df2.Properties {
+    
+    
+    /// <summary>
+    ///   A strongly-typed resource class, for looking up localized strings, etc.
+    /// </summary>
+    // This class was auto-generated by the StronglyTypedResourceBuilder
+    // class via a tool like ResGen or Visual Studio.
+    // To add or remove a member, edit your .ResX file then rerun ResGen
+    // with the /str option, or rebuild your VS project.
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+    internal class Resources {
+        
+        private static global::System.Resources.ResourceManager resourceMan;
+        
+        private static global::System.Globalization.CultureInfo resourceCulture;
+        
+        [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
+        internal Resources() {
+        }
+        
+        /// <summary>
+        ///   Returns the cached ResourceManager instance used by this class.
+        /// </summary>
+        [global::System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        internal static global::System.Resources.ResourceManager ResourceManager {
+            get {
+                if ((resourceMan == null)) {
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("SC_9b488e31f2294a87892aaf6d2cb31df2.Properties.Resources", typeof(Resources).Assembly);
+                    resourceMan = temp;
+                }
+                return resourceMan;
+            }
+        }
+        
+        /// <summary>
+        ///   Overrides the current thread's CurrentUICulture property for all
+        ///   resource lookups using this strongly typed resource class.
+        /// </summary>
+        [global::System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        internal static global::System.Globalization.CultureInfo Culture {
+            get {
+                return resourceCulture;
+            }
+            set {
+                resourceCulture = value;
+            }
+        }
+    }
+}
+]]></arrayElement>
+                          </arrayElements>
+                        </property>
+                        <property
+                          dataType="System.String"
+                          description="Stores the binary representation of the component"
+                          isArray="true"
+                          name="BinaryCode"
+                          state="cdata">
+                          <arrayElements
+                            arrayElementCount="2">
+                            <arrayElement
+                              dataType="System.String"><![CDATA[SC_9b488e31f2294a87892aaf6d2cb31df2.dll]]></arrayElement>
+                            <arrayElement
+                              dataType="System.String"><![CDATA[TVqQAAMAAAAEAAAA//8AALgAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAgAAAAA4fug4AtAnNIbgBTM0hVGhpcyBwcm9ncmFtIGNhbm5vdCBiZSBydW4gaW4gRE9TIG1v
+ZGUuDQ0KJAAAAAAAAABQRQAATAEDADexa2AAAAAAAAAAAOAAIiALATAAABQAAAAIAAAAAAAAzjIA
+AAAgAAAAQAAAAAAAEAAgAAAAAgAABAAAAAAAAAAGAAAAAAAAAACAAAAAAgAAAAAAAAMAYIUAABAA
+ABAAAAAAEAAAEAAAAAAAABAAAAAAAAAAAAAAAHwyAABPAAAAAEAAAEgEAAAAAAAAAAAAAAAAAAAA
+AAAAAGAAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAIAAACAAAAAAAAAAAAAAACCAAAEgAAAAAAAAAAAAAAC50ZXh0AAAA1BIAAAAgAAAAFAAAAAIA
+AAAAAAAAAAAAAAAAACAAAGAucnNyYwAAAEgEAAAAQAAAAAYAAAAWAAAAAAAAAAAAAAAAAABAAABA
+LnJlbG9jAAAMAAAAAGAAAAACAAAAHAAAAAAAAAAAAAAAAAAAQAAAQgAAAAAAAAAAAAAAAAAAAACw
+MgAAAAAAAEgAAAACAAUA6CEAANwPAAABAAAAAAAAAMQxAAC4AAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAB4CKBAAAAoqHgIoEQAACioyAygSAAAKbwwAAAYqHgIoEAAA
+BioqAgMEBSgTAAAKKlICexQAAAoCexUAAAoWlG8WAAAKKiICFigXAAAKKlICexQAAAoCexUAAAoX
+lG8WAAAKKiICFygXAAAKKlICexQAAAoCexUAAAoYlG8YAAAKKiICGCgXAAAKKjoCGQOMEgAAASgZ
+AAAKKloDLAgCGSgaAAAKKnIBAABwcxsAAAp6HgIoHAAACioeAigdAAAKKn4CKB4AAAoCAnMUAAAG
+fQEAAAQCAnMVAAAGfQIAAAQqkgRyngAAcBpvHwAACiwVAgUCAyggAAAKDgRzBQAABm8SAAAGKkor
+BwIDbxMAAAYDbw4AAAYt8SoGKjoCKCEAAAoCA30DAAAEKjoCKCEAAAoCA30EAAAEKh4CKCEAAAoq
+rn4FAAAELR5yrgAAcNAHAAACKCIAAApvIwAACnMkAAAKgAUAAAR+BQAABCoafgYAAAQqHgKABgAA
+BCoafgcAAAQqHgIoJQAACioucxsAAAaABwAABCoAAEJTSkIBAAEAAAAAAAwAAAB2NC4wLjMwMzE5
+AAAAAAUAbAAAAOQFAAAjfgAAUAYAAJgGAAAjU3RyaW5ncwAAAADoDAAAIAEAACNVUwAIDgAAEAAA
+ACNHVUlEAAAAGA4AAMQBAAAjQmxvYgAAAAAAAAACAAABVxWgAQkBAAAA+gEzABYAAAEAAAAhAAAA
+CAAAAAcAAAAcAAAADwAAACUAAAAQAAAAAwAAAAsAAAAMAAAAAQAAAAQAAAABAAAAAAAeAwEAAAAA
+AAYAFQLQBAYAqQLQBAYAYQG9BA8ARAUAAAYAjgESBAYA+AESBAYA2QESBAYAkAISBAYANQISBAYA
+TgISBAYApQESBAYAwAHkAgoAaQKuAAoAjwSuAA4AgASuAAoAWwSuAAYApQCtAwYAXwCtAwoACgau
+AAYAzQWtAwYARAG9BAYAoATwBAYATwTqAxIAFAEIAxIAdQEIAxIA/ADVAwYAKQHQBAYAJAStAwYA
+AQOtAwYAPgStAwYAzwCtAwYAdACtAwYAjwYSBAAAAAAlAAAAAAABAAEAAQAQAMoDAAAQAAEAAQAB
+ABAAcwQAADkAAQAFAAEAEADsBQAATQABABAAAQAQAMEFAABRAAMAFAABABAAggUAAFEABAAVAAAA
+EAD3BFMFUQAFABYAAAEQALEFUwVpAAcAGgAGAMEFgQAGAIIFhQABAPoFiQABAPoFiQARALQDjQAR
+AOwAkQARAGQAlQBQIAAAAADGAMcCBgABAFggAAAAAMYA0gIGAAEAYCAAAAAAxgBsBpkAAQBtIAAA
+AACGGLAEBgACAHUgAAAAAIYYsAQgAAIAgCAAAAAAhghFAJ8ABQCVIAAAAACGCFwDSAAFAJ4gAAAA
+AIYILgCfAAUAsyAAAAAAhghGA0gABQC8IAAAAACGCP8DowAFANEgAAAAAIYIggNIAAUA2iAAAAAA
+hgjAA6gABQDpIAAAAACGCHEDrgAGAAAhAAAAAIYAgwZIAAcACCEAAAAAhgDUBUgABwAQIQAAAACG
+GLAEBgAHADAhAAAAAMYAXwazAAcAVSEAAAAAxgFYBpkACwBoIQAAAADGAWwGmQAMAGohAAAAAIYY
+sAS9AA0AeSEAAAAAhhiwBL0ADgCIIQAAAACDGLAEBgAPAJAhAAAAAJMInATDAA8AvCEAAAAAkwjU
+AMgADwDDIQAAAACTCOAAzQAPAMshAAAAAJYI4AXTABAA0iEAAAAAhhiwBAYAEADaIQAAAACRGLYE
+2AAQAAAAAQCHBgAAAQCVBAAAAgCMBQAAAwBpBAAAAQDeAgAAAQDeAgAAAQA9AAAAAgCYAAAAAwCV
+BAAABABpBAAAAQCVBAAAAQCHBgAAAQAQBgAAAQAQBgAAAQDeAgkAsAQBABEAsAQGABkAsAQKACkA
+sAQQADEAsAQQADkAsAQQAEEAsAQQAEkAsAQQAFEAsAQQAFkAsAQQAGEAsAQQAGkAsAQGAKkAsAQG
+AMkAsAQVANkAsAQGAJkAxwIGAJkA0gIGAJEAXAAbAHEAsAQgAHEAlQQqAHEAjAUuAHkA/gIyAHEA
+lQM3AHkAogA8AHEApANCAHEAnAMBAOEAsAQQAHEAgwZIAHEA1AVIAJkAsAQGAOkAugVMAJkAoAVT
+AKEAsAQGAPkAhgBZAPkAiwZhALEAsARnANEAsAQGAC4ACwD9AC4AEwAGAS4AGwAlAS4AIwAuAS4A
+KwBXAS4AMwBXAS4AOwBXAS4AQwAuAS4ASwBdAS4AUwBXAS4AWwB0AUMAYwC+AeEAewC+AeMAawC+
+ASkBcwAlAUkBcwAlAQMAAQAHAAkACAALAAAASQDcAAAAYAPgAAAAMgDcAAAASgPgAAAAAwTkAAAA
+hgPgAAAAxAPpAAAAdQPgAAAAoATuAAAA9ADzAAAA5AX4AAIABgADAAIABwAFAAIACAAHAAIACQAJ
+AAIACgALAAIACwANAAEADAAPAAEADQARAAIAFwATAAIAGAAVAAEAGQAVAAIAGgAXAASAAAABAAAA
+AAAAAAAAAAAAAAEAAAAEAAAAAAAAAAAAAABvAFMAAAAAAA8AAAAAAAAAAAAAAHgAGgYAAAAADwAA
+AAAAAAAAAAAAeAA3BgAAAAAEAAAAAAAAAAAAAABvAK0DAAAAAAAAAAABAAAAAQUAAAAAAFNDXzli
+NDg4ZTMxZjIyOTRhODc4OTJhYWY2ZDJjYjMxZGYyADxNb2R1bGU+AGdldF9DdXN0b21lcklEAElu
+cHV0SUQAZ2V0X0NvbXBhbnlJRABtc2NvcmxpYgBOZXdHdWlkAGRlZmF1bHRJbnN0YW5jZQBSdW50
+aW1lVHlwZUhhbmRsZQBHZXRUeXBlRnJvbUhhbmRsZQBJbnB1dE5hbWUAR2V0RGF0ZVRpbWUATWlj
+cm9zb2Z0LlNxbFNlcnZlci5EdHMuUGlwZWxpbmUAVHlwZQBnZXRfQ3VsdHVyZQBzZXRfQ3VsdHVy
+ZQByZXNvdXJjZUN1bHR1cmUAQXBwbGljYXRpb25TZXR0aW5nc0Jhc2UARWRpdG9yQnJvd3NhYmxl
+U3RhdGUAQ29tcGlsZXJHZW5lcmF0ZWRBdHRyaWJ1dGUARGVidWdnZXJOb25Vc2VyQ29kZUF0dHJp
+YnV0ZQBEZWJ1Z2dhYmxlQXR0cmlidXRlAEVkaXRvckJyb3dzYWJsZUF0dHJpYnV0ZQBBc3NlbWJs
+eVRpdGxlQXR0cmlidXRlAEFzc2VtYmx5VHJhZGVtYXJrQXR0cmlidXRlAFRhcmdldEZyYW1ld29y
+a0F0dHJpYnV0ZQBBc3NlbWJseUNvbmZpZ3VyYXRpb25BdHRyaWJ1dGUAQXNzZW1ibHlEZXNjcmlw
+dGlvbkF0dHJpYnV0ZQBDb21waWxhdGlvblJlbGF4YXRpb25zQXR0cmlidXRlAEFzc2VtYmx5UHJv
+ZHVjdEF0dHJpYnV0ZQBBc3NlbWJseUNvcHlyaWdodEF0dHJpYnV0ZQBTU0lTU2NyaXB0Q29tcG9u
+ZW50RW50cnlQb2ludEF0dHJpYnV0ZQBBc3NlbWJseUNvbXBhbnlBdHRyaWJ1dGUAUnVudGltZUNv
+bXBhdGliaWxpdHlBdHRyaWJ1dGUAUHJlRXhlY3V0ZQBQb3N0RXhlY3V0ZQB2YWx1ZQBTeXN0ZW0u
+UnVudGltZS5WZXJzaW9uaW5nAEdldFN0cmluZwBTeXN0ZW0uQ29tcG9uZW50TW9kZWwAU0NfOWI0
+ODhlMzFmMjI5NGE4Nzg5MmFhZjZkMmNiMzFkZjIuZGxsAGdldF9DdXN0b21lcklEX0lzTnVsbABn
+ZXRfQ29tcGFueUlEX0lzTnVsbABzZXRfVG9rZW5fSXNOdWxsAGdldF9MYXN0RXh0cmFjdGlvbl9J
+c051bGwAU2V0TnVsbABzZXRfSXRlbQBTeXN0ZW0AcmVzb3VyY2VNYW4Ac2V0X1Rva2VuAFNjcmlw
+dE1haW4AU3lzdGVtLkNvbmZpZ3VyYXRpb24AU3lzdGVtLkdsb2JhbGl6YXRpb24AZ2V0X0xhc3RF
+eHRyYWN0aW9uAFN5c3RlbS5SZWZsZWN0aW9uAEludmFsaWRPcGVyYXRpb25FeGNlcHRpb24AU3Ry
+aW5nQ29tcGFyaXNvbgBDdWx0dXJlSW5mbwBPdXRwdXROYW1lTWFwAE91dHB1dE1hcABJbnB1dDBC
+dWZmZXIAUGlwZWxpbmVCdWZmZXIAU2NyaXB0QnVmZmVyAGdldF9SZXNvdXJjZU1hbmFnZXIALmN0
+b3IALmNjdG9yAFN5c3RlbS5EaWFnbm9zdGljcwBTeXN0ZW0uUnVudGltZS5Db21waWxlclNlcnZp
+Y2VzAFN5c3RlbS5SZXNvdXJjZXMAU0NfOWI0ODhlMzFmMjI5NGE4Nzg5MmFhZjZkMmNiMzFkZjIu
+UHJvcGVydGllcy5SZXNvdXJjZXMucmVzb3VyY2VzAERlYnVnZ2luZ01vZGVzAFNDXzliNDg4ZTMx
+ZjIyOTRhODc4OTJhYWY2ZDJjYjMxZGYyLlByb3BlcnRpZXMAVmFyaWFibGVzAEJ1ZmZlckNvbHVt
+bkluZGV4ZXMAR2V0Q29sdW1uSW5kZXhlcwBTZXR0aW5ncwBFcXVhbHMAQ29ubmVjdGlvbnMAT2Jq
+ZWN0AEVuZE9mUm93c2V0AGdldF9EZWZhdWx0AFVzZXJDb21wb25lbnQAUGFyZW50Q29tcG9uZW50
+AFNjcmlwdENvbXBvbmVudABNaWNyb3NvZnQuU3FsU2VydmVyLlR4U2NyaXB0AE1pY3Jvc29mdC5T
+cWxTZXJ2ZXIuUGlwZWxpbmVIb3N0AElucHV0MF9Qcm9jZXNzSW5wdXQASW5wdXQwX1Byb2Nlc3NJ
+bnB1dFJvdwBOZXh0Um93AGdldF9Bc3NlbWJseQAAgJtJAHMATgB1AGwAbAAgAHAAcgBvAHAAZQBy
+AHQAeQAgAGMAYQBuAG4AbwB0ACAAYgBlACAAcwBlAHQAIAB0AG8AIABGAGEAbABzAGUALgAgAEEA
+cwBzAGkAZwBuACAAYQAgAHYAYQBsAHUAZQAgAHQAbwAgAHQAaABlACAAYwBvAGwAdQBtAG4AIABp
+AG4AcwB0AGUAYQBkAC4AAA9JAG4AcAB1AHQAIAAwAABxUwBDAF8AOQBiADQAOAA4AGUAMwAxAGYA
+MgAyADkANABhADgANwA4ADkAMgBhAGEAZgA2AGQAMgBjAGIAMwAxAGQAZgAyAC4AUAByAG8AcABl
+AHIAdABpAGUAcwAuAFIAZQBzAG8AdQByAGMAZQBzAAD1jmtY/AvPSaiXjON7JR3ZAAQgAQEIAyAA
+AQUgAQEREQQgAQEOBSABARFhBAAAEUkJIAMBEj0dCBJBAwYSPQMGHQgEIAEOCAQgAQIIBSABEUUI
+BSACAQgcAyAAAgYgAgIOEXkFIAEdCAgHAAESfRGAgQUgABKAhQcgAgEOEoCFCLd6XFYZNOCJCImE
+Xc2AgMyRAwYSFAMGEhgDBhJNAwYSWQMGEl0DBhIgBSABARIMAyAADgQgABFFBSABARFJBCABAQIJ
+IAQBCA4SPRJBBSABARJNBAAAElkEAAASXQUAAQESXQQAABIgAwAAAQMoAA4DKAACBCgAEUUEKAAR
+SQQIABJZBAgAEl0ECAASIAgBAAgAAAAAAB4BAAEAVAIWV3JhcE5vbkV4Y2VwdGlvblRocm93cwEI
+AQACAAAAAAAoAQAjU0NfOWI0ODhlMzFmMjI5NGE4Nzg5MmFhZjZkMmNiMzFkZjIAAAUBAAAAABYB
+ABFDb3B5cmlnaHQgQCAgMjAyMQAASQEAGi5ORVRGcmFtZXdvcmssVmVyc2lvbj12NC43AQBUDhRG
+cmFtZXdvcmtEaXNwbGF5TmFtZRIuTkVUIEZyYW1ld29yayA0LjcEAQAAAAC0AAAAzsrvvgEAAACR
+AAAAbFN5c3RlbS5SZXNvdXJjZXMuUmVzb3VyY2VSZWFkZXIsIG1zY29ybGliLCBWZXJzaW9uPTQu
+MC4wLjAsIEN1bHR1cmU9bmV1dHJhbCwgUHVibGljS2V5VG9rZW49Yjc3YTVjNTYxOTM0ZTA4OSNT
+eXN0ZW0uUmVzb3VyY2VzLlJ1bnRpbWVSZXNvdXJjZVNldAIAAAAAAAAAAAAAAFBBRFBBRFC0AAAA
+pDIAAAAAAAAAAAAAvjIAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAALAyAAAAAAAAAAAAAAAAX0Nv
+ckRsbE1haW4AbXNjb3JlZS5kbGwAAAAAAP8lACAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAQAQAAAAGAAAgAAAAAAAAAAAAAAAAAAAAQABAAAAMAAAgAAAAAAAAAAAAAAAAAAAAQAAAAAA
+SAAAAFhAAADsAwAAAAAAAAAAAADsAzQAAABWAFMAXwBWAEUAUgBTAEkATwBOAF8ASQBOAEYATwAA
+AAAAvQTv/gAAAQAAAAEAAAAAAAAAAQAAAAAAPwAAAAAAAAAEAAAAAgAAAAAAAAAAAAAAAAAAAEQA
+AAABAFYAYQByAEYAaQBsAGUASQBuAGYAbwAAAAAAJAAEAAAAVAByAGEAbgBzAGwAYQB0AGkAbwBu
+AAAAAAAAALAETAMAAAEAUwB0AHIAaQBuAGcARgBpAGwAZQBJAG4AZgBvAAAAKAMAAAEAMAAwADAA
+MAAwADQAYgAwAAAAGgABAAEAQwBvAG0AbQBlAG4AdABzAAAAAAAAACIAAQABAEMAbwBtAHAAYQBu
+AHkATgBhAG0AZQAAAAAAAAAAAHAAJAABAEYAaQBsAGUARABlAHMAYwByAGkAcAB0AGkAbwBuAAAA
+AABTAEMAXwA5AGIANAA4ADgAZQAzADEAZgAyADIAOQA0AGEAOAA3ADgAOQAyAGEAYQBmADYAZAAy
+AGMAYgAzADEAZABmADIAAAAwAAgAAQBGAGkAbABlAFYAZQByAHMAaQBvAG4AAAAAADEALgAwAC4A
+MAAuADAAAABwACgAAQBJAG4AdABlAHIAbgBhAGwATgBhAG0AZQAAAFMAQwBfADkAYgA0ADgAOABl
+ADMAMQBmADIAMgA5ADQAYQA4ADcAOAA5ADIAYQBhAGYANgBkADIAYwBiADMAMQBkAGYAMgAuAGQA
+bABsAAAASAASAAEATABlAGcAYQBsAEMAbwBwAHkAcgBpAGcAaAB0AAAAQwBvAHAAeQByAGkAZwBo
+AHQAIABAACAAIAAyADAAMgAxAAAAKgABAAEATABlAGcAYQBsAFQAcgBhAGQAZQBtAGEAcgBrAHMA
+AAAAAAAAAAB4ACgAAQBPAHIAaQBnAGkAbgBhAGwARgBpAGwAZQBuAGEAbQBlAAAAUwBDAF8AOQBi
+ADQAOAA4AGUAMwAxAGYAMgAyADkANABhADgANwA4ADkAMgBhAGEAZgA2AGQAMgBjAGIAMwAxAGQA
+ZgAyAC4AZABsAGwAAABoACQAAQBQAHIAbwBkAHUAYwB0AE4AYQBtAGUAAAAAAFMAQwBfADkAYgA0
+ADgAOABlADMAMQBmADIAMgA5ADQAYQA4ADcAOAA5ADIAYQBhAGYANgBkADIAYwBiADMAMQBkAGYA
+MgAAADQACAABAFAAcgBvAGQAdQBjAHQAVgBlAHIAcwBpAG8AbgAAADEALgAwAC4AMAAuADAAAAA4
+AAgAAQBBAHMAcwBlAG0AYgBsAHkAIABWAGUAcgBzAGkAbwBuAAAAMQAuADAALgAwAC4AMAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAwAAAMAAAA0DIAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
+                          </arrayElements>
+                        </property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the name of the Microsoft Visual Studio Tools for Applications project. Project names must be unique within a package."
+                          name="VSTAProjectName"
+                          typeConverter="NOTBROWSABLE">SC_9b488e31f2294a87892aaf6d2cb31df2</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the programming language used by the script."
+                          name="ScriptLanguage"
+                          typeConverter="Microsoft.SqlServer.VSTAHosting.ScriptingLanguages">CSharp</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies a comma-separated list of read-only variables."
+                          name="ReadOnlyVariables"
+                          UITypeEditor="Microsoft.DataTransformationServices.Controls.ScriptUIVariablePickerDlg"></property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies a comma-separated list of read/write variables."
+                          name="ReadWriteVariables"
+                          UITypeEditor="Microsoft.DataTransformationServices.Controls.ScriptUIWriteableVariablePickerDlg"></property>
+                        <property
+                          dataType="System.String"
+                          description="List of breakpoints present on the script."
+                          isArray="true"
+                          name="BreakpointCollection"
+                          typeConverter="NOTBROWSABLE">
+                          <arrayElements
+                            arrayElementCount="0" />
+                        </property>
+                        <property
+                          dataType="System.String"
+                          description="Checksum to match component metedata against compiled codes."
+                          name="MetadataChecksum140"
+                          typeConverter="NOTBROWSABLE">62</property>
+                        <property
+                          dataType="System.String"
+                          name="UserComponentTypeName">Microsoft.ScriptComponentHost</property>
+                      </properties>
+                      <inputs>
+                        <input
+                          refId="Package\Sequence Container\Foreach Loop Container 1\Load Table PermissionChangeEmail\Script Component.Inputs[Input 0]"
+                          hasSideEffects="true"
+                          name="Input 0">
+                          <inputColumns>
+                            <inputColumn
+                              refId="Package\Sequence Container\Foreach Loop Container 1\Load Table PermissionChangeEmail\Script Component.Inputs[Input 0].Columns[CompanyID]"
+                              cachedCodepage="1252"
+                              cachedDataType="str"
+                              cachedLength="50"
+                              cachedName="CompanyID"
+                              cachedSortKeyPosition="1"
+                              lineageId="Package\Sequence Container\Foreach Loop Container 1\Load Table PermissionChangeEmail\Sort.Outputs[Sort Output].Columns[CompanyID]" />
+                            <inputColumn
+                              refId="Package\Sequence Container\Foreach Loop Container 1\Load Table PermissionChangeEmail\Script Component.Inputs[Input 0].Columns[CustomerID]"
+                              cachedCodepage="1252"
+                              cachedDataType="str"
+                              cachedLength="50"
+                              cachedName="CustomerID"
+                              cachedSortKeyPosition="2"
+                              lineageId="Package\Sequence Container\Foreach Loop Container 1\Load Table PermissionChangeEmail\Sort.Outputs[Sort Output].Columns[CustomerID]" />
+                            <inputColumn
+                              refId="Package\Sequence Container\Foreach Loop Container 1\Load Table PermissionChangeEmail\Script Component.Inputs[Input 0].Columns[LastExtraction]"
+                              cachedDataType="dbTimeStamp"
+                              cachedName="LastExtraction"
+                              lineageId="Package\Sequence Container\Foreach Loop Container 1\Load Table PermissionChangeEmail\Sort.Outputs[Sort Output].Columns[LastExtraction]" />
+                          </inputColumns>
+                          <externalMetadataColumns />
+                        </input>
+                      </inputs>
+                      <outputs>
+                        <output
+                          refId="Package\Sequence Container\Foreach Loop Container 1\Load Table PermissionChangeEmail\Script Component.Outputs[Output 0]"
+                          name="Output 0"
+                          synchronousInputId="Package\Sequence Container\Foreach Loop Container 1\Load Table PermissionChangeEmail\Script Component.Inputs[Input 0]">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\Sequence Container\Foreach Loop Container 1\Load Table PermissionChangeEmail\Script Component.Outputs[Output 0].Columns[Token]"
+                              dataType="guid"
+                              lineageId="Package\Sequence Container\Foreach Loop Container 1\Load Table PermissionChangeEmail\Script Component.Outputs[Output 0].Columns[Token]"
+                              name="Token" />
+                          </outputColumns>
+                          <externalMetadataColumns />
+                        </output>
+                      </outputs>
+                    </component>
+                    <component
+                      refId="Package\Sequence Container\Foreach Loop Container 1\Load Table PermissionChangeEmail\Sort"
+                      componentClassID="Microsoft.Sort"
+                      contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                      description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
+                      name="Sort"
+                      version="1">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the Sort transformation removes rows with duplicate sort values."
+                          name="EliminateDuplicates">true</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the maximum number of threads to use for sorting."
+                          expressionType="Notify"
+                          name="MaximumThreads">-1</property>
+                      </properties>
+                      <inputs>
+                        <input
+                          refId="Package\Sequence Container\Foreach Loop Container 1\Load Table PermissionChangeEmail\Sort.Inputs[Sort Input]"
+                          name="Sort Input">
+                          <inputColumns>
+                            <inputColumn
+                              refId="Package\Sequence Container\Foreach Loop Container 1\Load Table PermissionChangeEmail\Sort.Inputs[Sort Input].Columns[Column 0]"
+                              cachedDataType="wstr"
+                              cachedLength="50"
+                              cachedName="Column 0"
+                              lineageId="Package\Sequence Container\Foreach Loop Container 1\Load Table PermissionChangeEmail\Flat File Source.Outputs[Flat File Source Output].Columns[Column 0]">
+                              <properties>
+                                <property
+                                  dataType="System.Int32"
+                                  description="Specifies the comparison options for character data."
+                                  name="NewComparisonFlags">0</property>
+                                <property
+                                  dataType="System.Int32"
+                                  description="Specifies the sort order of the column."
+                                  name="NewSortKeyPosition">0</property>
+                              </properties>
+                            </inputColumn>
+                            <inputColumn
+                              refId="Package\Sequence Container\Foreach Loop Container 1\Load Table PermissionChangeEmail\Sort.Inputs[Sort Input].Columns[Column 1]"
+                              cachedDataType="wstr"
+                              cachedLength="50"
+                              cachedName="Column 1"
+                              lineageId="Package\Sequence Container\Foreach Loop Container 1\Load Table PermissionChangeEmail\Flat File Source.Outputs[Flat File Source Output].Columns[Column 1]">
+                              <properties>
+                                <property
+                                  dataType="System.Int32"
+                                  description="Specifies the comparison options for character data."
+                                  name="NewComparisonFlags">0</property>
+                                <property
+                                  dataType="System.Int32"
+                                  description="Specifies the sort order of the column."
+                                  name="NewSortKeyPosition">0</property>
+                              </properties>
+                            </inputColumn>
+                            <inputColumn
+                              refId="Package\Sequence Container\Foreach Loop Container 1\Load Table PermissionChangeEmail\Sort.Inputs[Sort Input].Columns[Files_Name]"
+                              cachedCodepage="1252"
+                              cachedDataType="str"
+                              cachedLength="150"
+                              cachedName="Files_Name"
+                              lineageId="Package\Sequence Container\Foreach Loop Container 1\Load Table PermissionChangeEmail\Derived Column.Outputs[Derived Column Output].Columns[Files_Name]">
+                              <properties>
+                                <property
+                                  dataType="System.Int32"
+                                  description="Specifies the comparison options for character data."
+                                  name="NewComparisonFlags">0</property>
+                                <property
+                                  dataType="System.Int32"
+                                  description="Specifies the sort order of the column."
+                                  name="NewSortKeyPosition">0</property>
+                              </properties>
+                            </inputColumn>
+                            <inputColumn
+                              refId="Package\Sequence Container\Foreach Loop Container 1\Load Table PermissionChangeEmail\Sort.Inputs[Sort Input].Columns[LastExtraction]"
+                              cachedDataType="dbTimeStamp"
+                              cachedName="LastExtraction"
+                              lineageId="Package\Sequence Container\Foreach Loop Container 1\Load Table PermissionChangeEmail\Derived Column.Outputs[Derived Column Output].Columns[LastExtraction]">
+                              <properties>
+                                <property
+                                  dataType="System.Int32"
+                                  description="Specifies the comparison options for character data."
+                                  name="NewComparisonFlags">0</property>
+                                <property
+                                  dataType="System.Int32"
+                                  description="Specifies the sort order of the column."
+                                  name="NewSortKeyPosition">0</property>
+                              </properties>
+                            </inputColumn>
+                            <inputColumn
+                              refId="Package\Sequence Container\Foreach Loop Container 1\Load Table PermissionChangeEmail\Sort.Inputs[Sort Input].Columns[StateInitial]"
+                              cachedDataType="i4"
+                              cachedName="StateInitial"
+                              lineageId="Package\Sequence Container\Foreach Loop Container 1\Load Table PermissionChangeEmail\Derived Column.Outputs[Derived Column Output].Columns[StateInitial]">
+                              <properties>
+                                <property
+                                  dataType="System.Int32"
+                                  description="Specifies the comparison options for character data."
+                                  name="NewComparisonFlags">0</property>
+                                <property
+                                  dataType="System.Int32"
+                                  description="Specifies the sort order of the column."
+                                  name="NewSortKeyPosition">0</property>
+                              </properties>
+                            </inputColumn>
+                            <inputColumn
+                              refId="Package\Sequence Container\Foreach Loop Container 1\Load Table PermissionChangeEmail\Sort.Inputs[Sort Input].Columns[CompanyID]"
+                              cachedCodepage="1252"
+                              cachedDataType="str"
+                              cachedLength="50"
+                              cachedName="CompanyID"
+                              lineageId="Package\Sequence Container\Foreach Loop Container 1\Load Table PermissionChangeEmail\Derived Column.Outputs[Derived Column Output].Columns[CompanyID]">
+                              <properties>
+                                <property
+                                  dataType="System.Int32"
+                                  description="Specifies the comparison options for character data."
+                                  name="NewComparisonFlags">0</property>
+                                <property
+                                  dataType="System.Int32"
+                                  description="Specifies the sort order of the column."
+                                  name="NewSortKeyPosition">1</property>
+                              </properties>
+                            </inputColumn>
+                            <inputColumn
+                              refId="Package\Sequence Container\Foreach Loop Container 1\Load Table PermissionChangeEmail\Sort.Inputs[Sort Input].Columns[CustomerID]"
+                              cachedCodepage="1252"
+                              cachedDataType="str"
+                              cachedLength="50"
+                              cachedName="CustomerID"
+                              lineageId="Package\Sequence Container\Foreach Loop Container 1\Load Table PermissionChangeEmail\Derived Column.Outputs[Derived Column Output].Columns[CustomerID]">
+                              <properties>
+                                <property
+                                  dataType="System.Int32"
+                                  description="Specifies the comparison options for character data."
+                                  name="NewComparisonFlags">0</property>
+                                <property
+                                  dataType="System.Int32"
+                                  description="Specifies the sort order of the column."
+                                  name="NewSortKeyPosition">2</property>
+                              </properties>
+                            </inputColumn>
+                          </inputColumns>
+                          <externalMetadataColumns />
+                        </input>
+                      </inputs>
+                      <outputs>
+                        <output
+                          refId="Package\Sequence Container\Foreach Loop Container 1\Load Table PermissionChangeEmail\Sort.Outputs[Sort Output]"
+                          isSorted="true"
+                          name="Sort Output">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\Sequence Container\Foreach Loop Container 1\Load Table PermissionChangeEmail\Sort.Outputs[Sort Output].Columns[Column 0]"
+                              dataType="wstr"
+                              length="50"
+                              lineageId="Package\Sequence Container\Foreach Loop Container 1\Load Table PermissionChangeEmail\Sort.Outputs[Sort Output].Columns[Column 0]"
+                              name="Column 0">
+                              <properties>
+                                <property
+                                  containsID="true"
+                                  dataType="System.Int32"
+                                  description="Specifies the lineage identifier of the input column that is associated with this output column."
+                                  name="SortColumnId">#{Package\Sequence Container\Foreach Loop Container 1\Load Table PermissionChangeEmail\Flat File Source.Outputs[Flat File Source Output].Columns[Column 0]}</property>
+                              </properties>
+                            </outputColumn>
+                            <outputColumn
+                              refId="Package\Sequence Container\Foreach Loop Container 1\Load Table PermissionChangeEmail\Sort.Outputs[Sort Output].Columns[Column 1]"
+                              dataType="wstr"
+                              length="50"
+                              lineageId="Package\Sequence Container\Foreach Loop Container 1\Load Table PermissionChangeEmail\Sort.Outputs[Sort Output].Columns[Column 1]"
+                              name="Column 1">
+                              <properties>
+                                <property
+                                  containsID="true"
+                                  dataType="System.Int32"
+                                  description="Specifies the lineage identifier of the input column that is associated with this output column."
+                                  name="SortColumnId">#{Package\Sequence Container\Foreach Loop Container 1\Load Table PermissionChangeEmail\Flat File Source.Outputs[Flat File Source Output].Columns[Column 1]}</property>
+                              </properties>
+                            </outputColumn>
+                            <outputColumn
+                              refId="Package\Sequence Container\Foreach Loop Container 1\Load Table PermissionChangeEmail\Sort.Outputs[Sort Output].Columns[Files_Name]"
+                              codePage="1252"
+                              dataType="str"
+                              length="150"
+                              lineageId="Package\Sequence Container\Foreach Loop Container 1\Load Table PermissionChangeEmail\Sort.Outputs[Sort Output].Columns[Files_Name]"
+                              name="Files_Name">
+                              <properties>
+                                <property
+                                  containsID="true"
+                                  dataType="System.Int32"
+                                  description="Specifies the lineage identifier of the input column that is associated with this output column."
+                                  name="SortColumnId">#{Package\Sequence Container\Foreach Loop Container 1\Load Table PermissionChangeEmail\Derived Column.Outputs[Derived Column Output].Columns[Files_Name]}</property>
+                              </properties>
+                            </outputColumn>
+                            <outputColumn
+                              refId="Package\Sequence Container\Foreach Loop Container 1\Load Table PermissionChangeEmail\Sort.Outputs[Sort Output].Columns[LastExtraction]"
+                              dataType="dbTimeStamp"
+                              lineageId="Package\Sequence Container\Foreach Loop Container 1\Load Table PermissionChangeEmail\Sort.Outputs[Sort Output].Columns[LastExtraction]"
+                              name="LastExtraction">
+                              <properties>
+                                <property
+                                  containsID="true"
+                                  dataType="System.Int32"
+                                  description="Specifies the lineage identifier of the input column that is associated with this output column."
+                                  name="SortColumnId">#{Package\Sequence Container\Foreach Loop Container 1\Load Table PermissionChangeEmail\Derived Column.Outputs[Derived Column Output].Columns[LastExtraction]}</property>
+                              </properties>
+                            </outputColumn>
+                            <outputColumn
+                              refId="Package\Sequence Container\Foreach Loop Container 1\Load Table PermissionChangeEmail\Sort.Outputs[Sort Output].Columns[StateInitial]"
+                              dataType="i4"
+                              lineageId="Package\Sequence Container\Foreach Loop Container 1\Load Table PermissionChangeEmail\Sort.Outputs[Sort Output].Columns[StateInitial]"
+                              name="StateInitial">
+                              <properties>
+                                <property
+                                  containsID="true"
+                                  dataType="System.Int32"
+                                  description="Specifies the lineage identifier of the input column that is associated with this output column."
+                                  name="SortColumnId">#{Package\Sequence Container\Foreach Loop Container 1\Load Table PermissionChangeEmail\Derived Column.Outputs[Derived Column Output].Columns[StateInitial]}</property>
+                              </properties>
+                            </outputColumn>
+                            <outputColumn
+                              refId="Package\Sequence Container\Foreach Loop Container 1\Load Table PermissionChangeEmail\Sort.Outputs[Sort Output].Columns[CompanyID]"
+                              codePage="1252"
+                              dataType="str"
+                              length="50"
+                              lineageId="Package\Sequence Container\Foreach Loop Container 1\Load Table PermissionChangeEmail\Sort.Outputs[Sort Output].Columns[CompanyID]"
+                              name="CompanyID"
+                              sortKeyPosition="1">
+                              <properties>
+                                <property
+                                  containsID="true"
+                                  dataType="System.Int32"
+                                  description="Specifies the lineage identifier of the input column that is associated with this output column."
+                                  name="SortColumnId">#{Package\Sequence Container\Foreach Loop Container 1\Load Table PermissionChangeEmail\Derived Column.Outputs[Derived Column Output].Columns[CompanyID]}</property>
+                              </properties>
+                            </outputColumn>
+                            <outputColumn
+                              refId="Package\Sequence Container\Foreach Loop Container 1\Load Table PermissionChangeEmail\Sort.Outputs[Sort Output].Columns[CustomerID]"
+                              codePage="1252"
+                              dataType="str"
+                              length="50"
+                              lineageId="Package\Sequence Container\Foreach Loop Container 1\Load Table PermissionChangeEmail\Sort.Outputs[Sort Output].Columns[CustomerID]"
+                              name="CustomerID"
+                              sortKeyPosition="2">
+                              <properties>
+                                <property
+                                  containsID="true"
+                                  dataType="System.Int32"
+                                  description="Specifies the lineage identifier of the input column that is associated with this output column."
+                                  name="SortColumnId">#{Package\Sequence Container\Foreach Loop Container 1\Load Table PermissionChangeEmail\Derived Column.Outputs[Derived Column Output].Columns[CustomerID]}</property>
+                              </properties>
+                            </outputColumn>
+                          </outputColumns>
+                          <externalMetadataColumns />
+                        </output>
+                      </outputs>
+                    </component>
+                  </components>
+                  <paths>
+                    <path
+                      refId="Package\Sequence Container\Foreach Loop Container 1\Load Table PermissionChangeEmail.Paths[Derived Column Output]"
+                      endId="Package\Sequence Container\Foreach Loop Container 1\Load Table PermissionChangeEmail\Sort.Inputs[Sort Input]"
+                      name="Derived Column Output"
+                      startId="Package\Sequence Container\Foreach Loop Container 1\Load Table PermissionChangeEmail\Derived Column.Outputs[Derived Column Output]" />
+                    <path
+                      refId="Package\Sequence Container\Foreach Loop Container 1\Load Table PermissionChangeEmail.Paths[Flat File Source Output]"
+                      endId="Package\Sequence Container\Foreach Loop Container 1\Load Table PermissionChangeEmail\Derived Column.Inputs[Derived Column Input]"
+                      name="Flat File Source Output"
+                      startId="Package\Sequence Container\Foreach Loop Container 1\Load Table PermissionChangeEmail\Flat File Source.Outputs[Flat File Source Output]" />
+                    <path
+                      refId="Package\Sequence Container\Foreach Loop Container 1\Load Table PermissionChangeEmail.Paths[Lookup No Match Output]"
+                      endId="Package\Sequence Container\Foreach Loop Container 1\Load Table PermissionChangeEmail\Script Component.Inputs[Input 0]"
+                      name="Lookup No Match Output"
+                      startId="Package\Sequence Container\Foreach Loop Container 1\Load Table PermissionChangeEmail\Lookup.Outputs[Lookup No Match Output]" />
+                    <path
+                      refId="Package\Sequence Container\Foreach Loop Container 1\Load Table PermissionChangeEmail.Paths[Output 0]"
+                      endId="Package\Sequence Container\Foreach Loop Container 1\Load Table PermissionChangeEmail\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                      name="Output 0"
+                      startId="Package\Sequence Container\Foreach Loop Container 1\Load Table PermissionChangeEmail\Script Component.Outputs[Output 0]" />
+                    <path
+                      refId="Package\Sequence Container\Foreach Loop Container 1\Load Table PermissionChangeEmail.Paths[Sort Output]"
+                      endId="Package\Sequence Container\Foreach Loop Container 1\Load Table PermissionChangeEmail\Lookup.Inputs[Lookup Input]"
+                      name="Sort Output"
+                      startId="Package\Sequence Container\Foreach Loop Container 1\Load Table PermissionChangeEmail\Sort.Outputs[Sort Output]" />
+                  </paths>
+                </pipeline>
+              </DTS:ObjectData>
+            </DTS:Executable>
+            <DTS:Executable
+              DTS:refId="Package\Sequence Container\Foreach Loop Container 1\Script Task"
+              DTS:CreationName="Microsoft.ScriptTask"
+              DTS:Description="Script Task"
+              DTS:DTSID="{9A8ED0AA-22F5-496A-A6F6-6FE0720258E8}"
+              DTS:ExecutableType="Microsoft.ScriptTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="Script Task"
+              DTS:ThreadHint="0">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <ScriptProject
+                  Name="ST_785df70153274b1bbca9c236374e34e7"
+                  VSTAMajorVersion="15"
+                  VSTAMinorVersion="0"
+                  Language="CSharp"
+                  ReadWriteVariables="User::VStr_Procesado,User::VStr_Ruta">
+                  <ProjectItem
+                    Name="Properties\AssemblyInfo.cs"
+                    Encoding="UTF8"><![CDATA[using System.Reflection;
+using System.Runtime.CompilerServices;
+
+//
+// General Information about an assembly is controlled through the following 
+// set of attributes. Change these attribute values to modify the information
+// associated with an assembly.
+//
+[assembly: AssemblyTitle("ST_785df70153274b1bbca9c236374e34e7")]
+[assembly: AssemblyDescription("")]
+[assembly: AssemblyConfiguration("")]
+[assembly: AssemblyCompany("")]
+[assembly: AssemblyProduct("ST_785df70153274b1bbca9c236374e34e7")]
+[assembly: AssemblyCopyright("Copyright @  2021")]
+[assembly: AssemblyTrademark("")]
+[assembly: AssemblyCulture("")]
+//
+// Version information for an assembly consists of the following four values:
+//
+//      Major Version
+//      Minor Version 
+//      Build Number
+//      Revision
+//
+// You can specify all the values or you can default the Revision and Build Numbers 
+// by using the '*' as shown below:
+
+[assembly: AssemblyVersion("1.0.*")]]]></ProjectItem>
+                  <ProjectItem
+                    Name="Properties\Resources.resx"
+                    Encoding="UTF8"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+</root>]]></ProjectItem>
+                  <ProjectItem
+                    Name="Properties\Settings.settings"
+                    Encoding="UTF8"><![CDATA[<?xml version='1.0' encoding='iso-8859-1'?>
+<SettingsFile xmlns="uri:settings" CurrentProfile="(Default)">
+  <Profiles>
+    <Profile Name="(Default)" />
+  </Profiles>
+  <Settings />
+</SettingsFile>]]></ProjectItem>
+                  <ProjectItem
+                    Name="ScriptMain.cs"
+                    Encoding="UTF8"><![CDATA[#region Help:  Introduction to the script task
+/* The Script Task allows you to perform virtually any operation that can be accomplished in
+ * a .Net application within the context of an Integration Services control flow. 
+ * 
+ * Expand the other regions which have "Help" prefixes for examples of specific ways to use
+ * Integration Services features within this script task. */
+#endregion
+
+
+#region Namespaces
+using System;
+using System.Data;
+using Microsoft.SqlServer.Dts.Runtime;
+using System.Windows.Forms;
+#endregion
+
+namespace ST_785df70153274b1bbca9c236374e34e7
+{
+    /// <summary>
+    /// ScriptMain is the entry point class of the script.  Do not change the name, attributes,
+    /// or parent of this class.
+    /// </summary>
+	[Microsoft.SqlServer.Dts.Tasks.ScriptTask.SSISScriptTaskEntryPointAttribute]
+    public partial class ScriptMain : Microsoft.SqlServer.Dts.Tasks.ScriptTask.VSTARTScriptObjectModelBase
+    {
+        #region Help:  Using Integration Services variables and parameters in a script
+        /* To use a variable in this script, first ensure that the variable has been added to 
+         * either the list contained in the ReadOnlyVariables property or the list contained in 
+         * the ReadWriteVariables property of this script task, according to whether or not your
+         * code needs to write to the variable.  To add the variable, save this script, close this instance of
+         * Visual Studio, and update the ReadOnlyVariables and 
+         * ReadWriteVariables properties in the Script Transformation Editor window.
+         * To use a parameter in this script, follow the same steps. Parameters are always read-only.
+         * 
+         * Example of reading from a variable:
+         *  DateTime startTime = (DateTime) Dts.Variables["System::StartTime"].Value;
+         * 
+         * Example of writing to a variable:
+         *  Dts.Variables["User::myStringVariable"].Value = "new value";
+         * 
+         * Example of reading from a package parameter:
+         *  int batchId = (int) Dts.Variables["$Package::batchId"].Value;
+         *  
+         * Example of reading from a project parameter:
+         *  int batchId = (int) Dts.Variables["$Project::batchId"].Value;
+         * 
+         * Example of reading from a sensitive project parameter:
+         *  int batchId = (int) Dts.Variables["$Project::batchId"].GetSensitiveValue();
+         * */
+
+        #endregion
+
+        #region Help:  Firing Integration Services events from a script
+        /* This script task can fire events for logging purposes.
+         * 
+         * Example of firing an error event:
+         *  Dts.Events.FireError(18, "Process Values", "Bad value", "", 0);
+         * 
+         * Example of firing an information event:
+         *  Dts.Events.FireInformation(3, "Process Values", "Processing has started", "", 0, ref fireAgain)
+         * 
+         * Example of firing a warning event:
+         *  Dts.Events.FireWarning(14, "Process Values", "No values received for input", "", 0);
+         * */
+        #endregion
+
+        #region Help:  Using Integration Services connection managers in a script
+        /* Some types of connection managers can be used in this script task.  See the topic 
+         * "Working with Connection Managers Programatically" for details.
+         * 
+         * Example of using an ADO.Net connection manager:
+         *  object rawConnection = Dts.Connections["Sales DB"].AcquireConnection(Dts.Transaction);
+         *  SqlConnection myADONETConnection = (SqlConnection)rawConnection;
+         *  //Use the connection in some code here, then release the connection
+         *  Dts.Connections["Sales DB"].ReleaseConnection(rawConnection);
+         *
+         * Example of using a File connection manager
+         *  object rawConnection = Dts.Connections["Prices.zip"].AcquireConnection(Dts.Transaction);
+         *  string filePath = (string)rawConnection;
+         *  //Use the connection in some code here, then release the connection
+         *  Dts.Connections["Prices.zip"].ReleaseConnection(rawConnection);
+         * */
+        #endregion
+
+
+        /// <summary>
+        /// This method is called when this script task executes in the control flow.
+        /// Before returning from this method, set the value of Dts.TaskResult to indicate success or failure.
+        /// To open Help, press F1.
+        /// </summary>
+        public void Main()
+        {
+            // TODO: Add your code here
+
+            if (Dts.Variables.Contains("VStr_Ruta") && Dts.Variables.Contains("VStr_Procesado"))
+            {
+                string path = (string)Dts.Variables["VStr_Ruta"].Value;
+                string folder = (string)Dts.Variables["VStr_Procesado"].Value;
+                string[] parts = path.Split('\\');
+                string pathMove = path.Replace(parts[parts.Length - 1], folder)+"\\" + parts[parts.Length - 1];
+                pathMove = pathMove.Replace(".csv",DateTime.Now.ToString("yyyyMMddTHHmmss") + ".csv" );
+
+
+                System.IO.File.Move(path, pathMove);
+            }
+            else
+            {
+                Dts.TaskResult = (int)ScriptResults.Failure;
+            }
+            Dts.TaskResult = (int)ScriptResults.Success;
+        }
+
+        #region ScriptResults declaration
+        /// <summary>
+        /// This enum provides a convenient shorthand within the scope of this class for setting the
+        /// result of the script.
+        /// 
+        /// This code was generated automatically.
+        /// </summary>
+        enum ScriptResults
+        {
+            Success = Microsoft.SqlServer.Dts.Runtime.DTSExecResult.Success,
+            Failure = Microsoft.SqlServer.Dts.Runtime.DTSExecResult.Failure
+        };
+        #endregion
+
+    }
+}]]></ProjectItem>
+                  <ProjectItem
+                    Name="Project"
+                    Encoding="UTF16LE"><![CDATA[<?xml version="1.0" encoding="UTF-16" standalone="yes"?>
+<c:Project xmlns:c="http://schemas.microsoft.com/codeprojectml/2010/08/main" xmlns:msb="http://schemas.microsoft.com/developer/msbuild/2003" runtimeVersion="4.0" schemaVersion="1.0">
+  <msb:PropertyGroup>
+    <msb:CodeName>ST_785df70153274b1bbca9c236374e34e7</msb:CodeName>
+    <msb:Language>msBuild</msb:Language>
+    <msb:DisplayName>ST_785df70153274b1bbca9c236374e34e7</msb:DisplayName>
+    <msb:ProjectId>{95635237-D0EC-4D15-B2E5-13C6D39C9F48}</msb:ProjectId>
+  </msb:PropertyGroup>
+  <msb:ItemGroup>
+    <msb:Project Include="ST_785df70153274b1bbca9c236374e34e7.csproj" />
+    <msb:File Include="Properties\Settings.settings" />
+    <msb:File Include="Properties\AssemblyInfo.cs" />
+    <msb:File Include="Properties\Resources.resx" />
+    <msb:File Include="Properties\Resources.Designer.cs" />
+    <msb:File Include="Properties\Settings.Designer.cs" />
+    <msb:File Include="ScriptMain.cs" />
+  </msb:ItemGroup>
+</c:Project>]]></ProjectItem>
+                  <ProjectItem
+                    Name="Properties\Settings.Designer.cs"
+                    Encoding="UTF8"><![CDATA[//------------------------------------------------------------------------------
+// <auto-generated>
+//     This code was generated by a tool.
+//
+//     Changes to this file may cause incorrect behavior and will be lost if
+//     the code is regenerated.
+// </auto-generated>
+//------------------------------------------------------------------------------
+
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="ST_785df70153274b1bbca9c236374e34e7.Properties.Settings.get_Default():ST_785df70153274b1bbca9c236374e34e7.Properties.Sett" +
+    "ings")]
+
+namespace ST_785df70153274b1bbca9c236374e34e7.Properties {
+    
+    
+    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
+        
+        [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
+        private static Settings defaultInstance = new Settings();
+        
+        public static Settings Default {
+            get {
+                return defaultInstance;
+            }
+        }
+    }
+}]]></ProjectItem>
+                  <ProjectItem
+                    Name="ST_785df70153274b1bbca9c236374e34e7.csproj"
+                    Encoding="UTF8"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectTypeGuids>{30D016F9-3734-4E33-A861-5E7D899E18F3};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{27F383E6-1EB3-4286-8420-7436AAA5BFD9}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ST_785df70153274b1bbca9c236374e34e7</RootNamespace>
+    <AssemblyName>ST_785df70153274b1bbca9c236374e34e7</AssemblyName>
+    <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ResolveAssemblyReferenceIgnoreTargetFrameworkAttributeVersionMismatch>true</ResolveAssemblyReferenceIgnoreTargetFrameworkAttributeVersionMismatch>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>.\bin\Debug\</OutputPath>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>false</DebugSymbols>
+    <Optimize>true</Optimize>
+    <OutputPath>.\bin\Release\</OutputPath>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.SqlServer.ManagedDTS, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.SqlServer.ScriptTask, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+  </ItemGroup>
+  <ItemGroup>
+    <AppDesigner Include="Properties\" />
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="ScriptMain.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <!-- Include the build rules for a C# project.-->
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{30D016F9-3734-4E33-A861-5E7D899E18F3}">
+        <ProjectProperties HostName="VSTAHostName" HostPackage="{B3A685AA-7EAF-4BC6-9940-57959FA5AC07}" ApplicationType="usd" Language="cs" TemplatesPath="" />
+        <Host Name="ScriptTask" />
+        <ProjectClient>
+          <HostIdentifier>SSIS_ST150</HostIdentifier>
+        </ProjectClient>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>]]></ProjectItem>
+                  <ProjectItem
+                    Name="Properties\Resources.Designer.cs"
+                    Encoding="UTF8"><![CDATA[//------------------------------------------------------------------------------
+// <auto-generated>
+//     This code was generated by a tool.
+//
+//     Changes to this file may cause incorrect behavior and will be lost if
+//     the code is regenerated.
+// </auto-generated>
+//------------------------------------------------------------------------------
+
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="ST_785df70153274b1bbca9c236374e34e7.Properties.Resources.get_ResourceManager():System.Resources.Resou" +
+    "rceManager")]
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="ST_785df70153274b1bbca9c236374e34e7.Properties.Resources.get_Culture():System.Globalization.CultureIn" +
+    "fo")]
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="ST_785df70153274b1bbca9c236374e34e7.Properties.Resources.set_Culture(System.Globalization.CultureInfo" +
+    "):Void")]
+
+namespace ST_785df70153274b1bbca9c236374e34e7.Properties {
+    
+    
+    /// <summary>
+    ///   A strongly-typed resource class, for looking up localized strings, etc.
+    /// </summary>
+    // This class was auto-generated by the StronglyTypedResourceBuilder
+    // class via a tool like ResGen or Visual Studio.
+    // To add or remove a member, edit your .ResX file then rerun ResGen
+    // with the /str option, or rebuild your VS project.
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+    internal class Resources {
+        
+        private static global::System.Resources.ResourceManager resourceMan;
+        
+        private static global::System.Globalization.CultureInfo resourceCulture;
+        
+        [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
+        internal Resources() {
+        }
+        
+        /// <summary>
+        ///   Returns the cached ResourceManager instance used by this class.
+        /// </summary>
+        [global::System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        internal static global::System.Resources.ResourceManager ResourceManager {
+            get {
+                if ((resourceMan == null)) {
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("ST_785df70153274b1bbca9c236374e34e7.Properties.Resources", typeof(Resources).Assembly);
+                    resourceMan = temp;
+                }
+                return resourceMan;
+            }
+        }
+        
+        /// <summary>
+        ///   Overrides the current thread's CurrentUICulture property for all
+        ///   resource lookups using this strongly typed resource class.
+        /// </summary>
+        [global::System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        internal static global::System.Globalization.CultureInfo Culture {
+            get {
+                return resourceCulture;
+            }
+            set {
+                resourceCulture = value;
+            }
+        }
+    }
+}]]></ProjectItem>
+                  <BinaryItem
+                    Name="ST_785df70153274b1bbca9c236374e34e7.dll">TVqQAAMAAAAEAAAA//8AALgAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAgAAAAA4fug4AtAnNIbgBTM0hVGhpcyBwcm9ncmFtIGNhbm5vdCBiZSBydW4gaW4gRE9TIG1v
+ZGUuDQ0KJAAAAAAAAABQRQAATAEDAMHZhmAAAAAAAAAAAOAAIiALATAAABAAAAAIAAAAAAAASi8A
+AAAgAAAAQAAAAAAAEAAgAAAAAgAABAAAAAAAAAAGAAAAAAAAAACAAAAAAgAAAAAAAAMAYIUAABAA
+ABAAAAAAEAAAEAAAAAAAABAAAAAAAAAAAAAAAPguAABPAAAAAEAAAHgEAAAAAAAAAAAAAAAAAAAA
+AAAAAGAAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAIAAACAAAAAAAAAAAAAAACCAAAEgAAAAAAAAAAAAAAC50ZXh0AAAAUA8AAAAgAAAAEAAAAAIA
+AAAAAAAAAAAAAAAAACAAAGAucnNyYwAAAHgEAAAAQAAAAAYAAAASAAAAAAAAAAAAAAAAAABAAABA
+LnJlbG9jAAAMAAAAAGAAAAACAAAAGAAAAAAAAAAAAAAAAAAAQAAAQgAAAAAAAAAAAAAAAAAAAAAs
+LwAAAAAAAEgAAAACAAUAtCEAAIwMAAABAAAAAAAAAEAuAAC4AAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAABMwBQDxAAAAAQAAEQIoEAAACm8RAAAKcgEAAHBvEgAACjm+
+AAAAAigQAAAKbxEAAApyFQAAcG8SAAAKOaQAAAACKBAAAApvEQAACnIBAABwbxMAAApvFAAACnQc
+AAABCgIoEAAACm8RAAAKchUAAHBvEwAACm8UAAAKdBwAAAELBheNHQAAASUWH1ydbxUAAAoMBggI
+jmkXWZoHbxYAAApyMwAAcAgIjmkXWZooFwAACg0JcjcAAHAoGAAAChMEEgRyQQAAcCgZAAAKcjcA
+AHAoGgAACm8WAAAKDQYJKBsAAAorDAIoEAAAChdvHAAACgIoEAAAChZvHAAACioeAigdAAAKKh4C
+KB4AAAoqrn4BAAAELR5yYQAAcNADAAACKB8AAApvIAAACnMhAAAKgAEAAAR+AQAABCoafgIAAAQq
+HgKAAgAABCoafgMAAAQqHgIoIgAACioucwgAAAaAAwAABCoAQlNKQgEAAQAAAAAADAAAAHY0LjAu
+MzAzMTkAAAAABQBsAAAAAAQAACN+AABsBAAApAUAACNTdHJpbmdzAAAAABAKAADUAAAAI1VTAOQK
+AAAQAAAAI0dVSUQAAAD0CgAAmAEAACNCbG9iAAAAAAAAAAIAAAFXHaIBCQMAAAD6ATMAFgAAAQAA
+ACEAAAAFAAAABgAAAAkAAAABAAAAIgAAAAIAAAAQAAAAAQAAAAIAAAADAAAABAAAAAEAAAAEAAAA
+AQAAAAEAAAAAAJoDAQAAAAAABgBFAm8EBgDUAm8EBgCRAVwEDwDjBAAABgC+ARgEBgAoAhgEBgAJ
+AhgEBgC7AhgEBgBlAhgEBgB+AhgEBgDVARgEBgDwAQcDCgCZAkkDCgAQAUkDBgCyAMsDBgDSA8sD
+BgB0AVwEBgBmBcsDBgA/BI8EBgAqBAMEDgBEAYQDDgClAYQDDgAsAe4DBgBZAW8ECgByA0kDEgAl
+BbsAEgCAALsABgAjA8sDBgA2BMsDBgCtAC4ABgDbAMsDBgCJAMsDBgCaBRgEAAAAACUAAAAAAAEA
+AQABABAA4wMBADkAAQABAAAAEACWBPIESQABAAMAAAEQAC8F8gRdAAMABwADAQAAUQUAAEEABAAK
+ABEA1wOaABEAAAGeABEAcACiAAYGVwCmAFaAQQWpAFaA4ACpAFAgAAAAAIYA6QMGAAEATSEAAAAA
+hhhPBAYAAQBVIQAAAACDGE8EBgABAF0hAAAAAJMIOwStAAEAiSEAAAAAkwjoALIAAQCQIQAAAACT
+CPQAtwABAJghAAAAAJYIcwW9AAIAnyEAAAAAhhhPBAYAAgCnIQAAAACRGFUEwgACAAAAAQD8AgkA
+TwQBABEATwQGABkATwQKACkATwQQADEATwQQADkATwQQAEEATwQQAEkATwQQAFEATwQQAFkATwQQ
+AGEATwQQAGkATwQGAIkATwQGALEATwQVAMEATwQGAHEASQUlAMkAIQUqANEAOAUvANEAwgM0ANkA
+8gI6AOEAbQU+AOEAaABFAOEAXwVLAHkAjgVSAHkAIQNXAOEAXwVcAPEAAgNiAMkAfwUBAHEATwQG
+AJEATwQGAPkAmwBoAPkAlgVwAJkATwR2ALkATwQGAAgAFACQAAgAGACVACkAcwD9AC4ACwDVAC4A
+EwDeAC4AGwD9AC4AIwAGAS4AKwAvAS4AMwAvAS4AOwAvAS4AQwAGAS4ASwA1AS4AUwAvAS4AWwBM
+AUMAYwCVAEkAcwD9AGEAewCVAGMAawCVABsAAwABAAQAAwAAAD8ExgAAAAgBywAAAHcF0AACAAQA
+AwACAAUABQABAAYABQACAAcABwAEgAAAAQAAAGoeeEgAAAAAAAABAAAABAAAAAAAAAAAAAAAfgBf
+AAAAAAAPAAAAAAAAAAAAAACHACoDAAAAAAQAAAAAAAAAAAAAAH4AywMAAAAADwAAAAAAAAAAAAAA
+hwA4AAAAAAAAAAAAAQAAAKAEAAAFAAIAAAAAAABTVF83ODVkZjcwMTUzMjc0YjFiYmNhOWMyMzYz
+NzRlMzRlNwA8TW9kdWxlPgBTeXN0ZW0uSU8ATWljcm9zb2Z0LlNxbFNlcnZlci5NYW5hZ2VkRFRT
+AHZhbHVlX18AbXNjb3JsaWIAUmVwbGFjZQBkZWZhdWx0SW5zdGFuY2UAVmFyaWFibGUAUnVudGlt
+ZVR5cGVIYW5kbGUAR2V0VHlwZUZyb21IYW5kbGUARmlsZQBEYXRlVGltZQBNaWNyb3NvZnQuU3Fs
+U2VydmVyLkR0cy5SdW50aW1lAFR5cGUARmFpbHVyZQBnZXRfQ3VsdHVyZQBzZXRfQ3VsdHVyZQBy
+ZXNvdXJjZUN1bHR1cmUAVlNUQVJUU2NyaXB0T2JqZWN0TW9kZWxCYXNlAEFwcGxpY2F0aW9uU2V0
+dGluZ3NCYXNlAEVkaXRvckJyb3dzYWJsZVN0YXRlAENvbXBpbGVyR2VuZXJhdGVkQXR0cmlidXRl
+AERlYnVnZ2VyTm9uVXNlckNvZGVBdHRyaWJ1dGUARGVidWdnYWJsZUF0dHJpYnV0ZQBFZGl0b3JC
+cm93c2FibGVBdHRyaWJ1dGUAQXNzZW1ibHlUaXRsZUF0dHJpYnV0ZQBBc3NlbWJseVRyYWRlbWFy
+a0F0dHJpYnV0ZQBUYXJnZXRGcmFtZXdvcmtBdHRyaWJ1dGUAQXNzZW1ibHlDb25maWd1cmF0aW9u
+QXR0cmlidXRlAEFzc2VtYmx5RGVzY3JpcHRpb25BdHRyaWJ1dGUAQ29tcGlsYXRpb25SZWxheGF0
+aW9uc0F0dHJpYnV0ZQBBc3NlbWJseVByb2R1Y3RBdHRyaWJ1dGUAQXNzZW1ibHlDb3B5cmlnaHRB
+dHRyaWJ1dGUAU1NJU1NjcmlwdFRhc2tFbnRyeVBvaW50QXR0cmlidXRlAEFzc2VtYmx5Q29tcGFu
+eUF0dHJpYnV0ZQBSdW50aW1lQ29tcGF0aWJpbGl0eUF0dHJpYnV0ZQBnZXRfVmFsdWUAdmFsdWUA
+TW92ZQBTeXN0ZW0uUnVudGltZS5WZXJzaW9uaW5nAFRvU3RyaW5nAE1pY3Jvc29mdC5TcWxTZXJ2
+ZXIuU2NyaXB0VGFzawBNaWNyb3NvZnQuU3FsU2VydmVyLkR0cy5UYXNrcy5TY3JpcHRUYXNrAFNj
+cmlwdE9iamVjdE1vZGVsAFN5c3RlbS5Db21wb25lbnRNb2RlbABTVF83ODVkZjcwMTUzMjc0YjFi
+YmNhOWMyMzYzNzRlMzRlNy5kbGwAZ2V0X0l0ZW0AU3lzdGVtAEVudW0AcmVzb3VyY2VNYW4AU2Ny
+aXB0TWFpbgBTeXN0ZW0uQ29uZmlndXJhdGlvbgBTeXN0ZW0uR2xvYmFsaXphdGlvbgBTeXN0ZW0u
+UmVmbGVjdGlvbgBDdWx0dXJlSW5mbwBDaGFyAGdldF9SZXNvdXJjZU1hbmFnZXIALmN0b3IALmNj
+dG9yAFN5c3RlbS5EaWFnbm9zdGljcwBTeXN0ZW0uUnVudGltZS5Db21waWxlclNlcnZpY2VzAFN5
+c3RlbS5SZXNvdXJjZXMAU1RfNzg1ZGY3MDE1MzI3NGIxYmJjYTljMjM2Mzc0ZTM0ZTcuUHJvcGVy
+dGllcy5SZXNvdXJjZXMucmVzb3VyY2VzAERlYnVnZ2luZ01vZGVzAFNUXzc4NWRmNzAxNTMyNzRi
+MWJiY2E5YzIzNjM3NGUzNGU3LlByb3BlcnRpZXMAZ2V0X1ZhcmlhYmxlcwBTZXR0aW5ncwBDb250
+YWlucwBTdWNjZXNzAGdldF9EdHMAU2NyaXB0UmVzdWx0cwBDb25jYXQAT2JqZWN0AFNwbGl0AGdl
+dF9EZWZhdWx0AHNldF9UYXNrUmVzdWx0AGdldF9Ob3cAZ2V0X0Fzc2VtYmx5AAAAE1YAUwB0AHIA
+XwBSAHUAdABhAAAdVgBTAHQAcgBfAFAAcgBvAGMAZQBzAGEAZABvAAADXAAACS4AYwBzAHYAAB95
+AHkAeQB5AE0ATQBkAGQAVABIAEgAbQBtAHMAcwAAcVMAVABfADcAOAA1AGQAZgA3ADAAMQA1ADMA
+MgA3ADQAYgAxAGIAYgBjAGEAOQBjADIAMwA2ADMANwA0AGUAMwA0AGUANwAuAFAAcgBvAHAAZQBy
+AHQAaQBlAHMALgBSAGUAcwBvAHUAcgBjAGUAcwAAAI5fcVQb2URGtNquLDY5MK0ABCABAQgDIAAB
+BSABARERBCABAQ4FIAEBEVUJBwUODh0ODhE9BCAAEmUEIAASaQQgAQIcBSABEm0cAyAAHAYgAR0O
+HQMFIAIODg4GAAMODg4OBAAAET0EIAEODgUAAg4ODgUAAgEODgcAARJ9EYCBBSAAEoCFByACAQ4S
+gIUIt3pcVhk04IkIiYRdzYCAzJEEAAAAAAQBAAAAAwYSTQMGElEDBhIQAgYIAwYRFAQAABJNBAAA
+ElEFAAEBElEEAAASEAMAAAEECAASTQQIABJRBAgAEhAIAQAIAAAAAAAeAQABAFQCFldyYXBOb25F
+eGNlcHRpb25UaHJvd3MBCAEAAgAAAAAAKAEAI1NUXzc4NWRmNzAxNTMyNzRiMWJiY2E5YzIzNjM3
+NGUzNGU3AAAFAQAAAAAWAQARQ29weXJpZ2h0IEAgIDIwMjEAAEkBABouTkVURnJhbWV3b3JrLFZl
+cnNpb249djQuNwEAVA4URnJhbWV3b3JrRGlzcGxheU5hbWUSLk5FVCBGcmFtZXdvcmsgNC43AAC0
+AAAAzsrvvgEAAACRAAAAbFN5c3RlbS5SZXNvdXJjZXMuUmVzb3VyY2VSZWFkZXIsIG1zY29ybGli
+LCBWZXJzaW9uPTQuMC4wLjAsIEN1bHR1cmU9bmV1dHJhbCwgUHVibGljS2V5VG9rZW49Yjc3YTVj
+NTYxOTM0ZTA4OSNTeXN0ZW0uUmVzb3VyY2VzLlJ1bnRpbWVSZXNvdXJjZVNldAIAAAAAAAAAAAAA
+AFBBRFBBRFC0AAAAIC8AAAAAAAAAAAAAOi8AAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAACwvAAAA
+AAAAAAAAAAAAX0NvckRsbE1haW4AbXNjb3JlZS5kbGwAAAAAAP8lACAAEAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAABABAAAAAYAACAAAAAAAAAAAAAAAAAAAABAAEAAAAwAACAAAAAAAAAAAAAAAAAAAABAAAA
+AABIAAAAWEAAABoEAAAAAAAAAAAAABoENAAAAFYAUwBfAFYARQBSAFMASQBPAE4AXwBJAE4ARgBP
+AAAAAAC9BO/+AAABAAAAAQB4SGoeAAABAHhIah4/AAAAAAAAAAQAAAACAAAAAAAAAAAAAAAAAAAA
+RAAAAAEAVgBhAHIARgBpAGwAZQBJAG4AZgBvAAAAAAAkAAQAAABUAHIAYQBuAHMAbABhAHQAaQBv
+AG4AAAAAAAAAsAR6AwAAAQBTAHQAcgBpAG4AZwBGAGkAbABlAEkAbgBmAG8AAABWAwAAAQAwADAA
+MAAwADAANABiADAAAAAaAAEAAQBDAG8AbQBtAGUAbgB0AHMAAAAAAAAAIgABAAEAQwBvAG0AcABh
+AG4AeQBOAGEAbQBlAAAAAAAAAAAAcAAkAAEARgBpAGwAZQBEAGUAcwBjAHIAaQBwAHQAaQBvAG4A
+AAAAAFMAVABfADcAOAA1AGQAZgA3ADAAMQA1ADMAMgA3ADQAYgAxAGIAYgBjAGEAOQBjADIAMwA2
+ADMANwA0AGUAMwA0AGUANwAAAD4ADwABAEYAaQBsAGUAVgBlAHIAcwBpAG8AbgAAAAAAMQAuADAA
+LgA3ADcAOAA2AC4AMQA4ADUANQAyAAAAAABwACgAAQBJAG4AdABlAHIAbgBhAGwATgBhAG0AZQAA
+AFMAVABfADcAOAA1AGQAZgA3ADAAMQA1ADMAMgA3ADQAYgAxAGIAYgBjAGEAOQBjADIAMwA2ADMA
+NwA0AGUAMwA0AGUANwAuAGQAbABsAAAASAASAAEATABlAGcAYQBsAEMAbwBwAHkAcgBpAGcAaAB0
+AAAAQwBvAHAAeQByAGkAZwBoAHQAIABAACAAIAAyADAAMgAxAAAAKgABAAEATABlAGcAYQBsAFQA
+cgBhAGQAZQBtAGEAcgBrAHMAAAAAAAAAAAB4ACgAAQBPAHIAaQBnAGkAbgBhAGwARgBpAGwAZQBu
+AGEAbQBlAAAAUwBUAF8ANwA4ADUAZABmADcAMAAxADUAMwAyADcANABiADEAYgBiAGMAYQA5AGMA
+MgAzADYAMwA3ADQAZQAzADQAZQA3AC4AZABsAGwAAABoACQAAQBQAHIAbwBkAHUAYwB0AE4AYQBt
+AGUAAAAAAFMAVABfADcAOAA1AGQAZgA3ADAAMQA1ADMAMgA3ADQAYgAxAGIAYgBjAGEAOQBjADIA
+MwA2ADMANwA0AGUAMwA0AGUANwAAAEIADwABAFAAcgBvAGQAdQBjAHQAVgBlAHIAcwBpAG8AbgAA
+ADEALgAwAC4ANwA3ADgANgAuADEAOAA1ADUAMgAAAAAARgAPAAEAQQBzAHMAZQBtAGIAbAB5ACAA
+VgBlAHIAcwBpAG8AbgAAADEALgAwAC4ANwA3ADgANgAuADEAOAA1ADUAMgAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAwAAABMPwAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
+                </ScriptProject>
+              </DTS:ObjectData>
+            </DTS:Executable>
+          </DTS:Executables>
+          <DTS:PrecedenceConstraints>
+            <DTS:PrecedenceConstraint
+              DTS:refId="Package\Sequence Container\Foreach Loop Container 1.PrecedenceConstraints[Constraint]"
+              DTS:CreationName=""
+              DTS:DTSID="{3F2F82DC-9655-4EFE-A69B-2FDA5024D565}"
+              DTS:From="Package\Sequence Container\Foreach Loop Container 1\Load Table PermissionChangeEmail"
+              DTS:LogicalAnd="True"
+              DTS:ObjectName="Constraint"
+              DTS:To="Package\Sequence Container\Foreach Loop Container 1\Script Task" />
+          </DTS:PrecedenceConstraints>
+          <DTS:ForEachVariableMappings>
+            <DTS:ForEachVariableMapping
+              DTS:CreationName=""
+              DTS:DTSID="{225DA853-F19D-493B-8672-CD21244143D5}"
+              DTS:ObjectName="{225DA853-F19D-493B-8672-CD21244143D5}"
+              DTS:ValueIndex="0"
+              DTS:VariableName="User::VStr_Ruta" />
+          </DTS:ForEachVariableMappings>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Sequence Container\SFTP Transfer"
+          DTS:CreationName="Microsoft.ExecuteProcess"
+          DTS:Description="Execute Process Task"
+          DTS:DTSID="{83FEE679-44FD-4829-8A46-B46E70E6EBBD}"
+          DTS:ExecutableType="Microsoft.ExecuteProcess"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="SFTP Transfer"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecuteProcessData
+              Executable="C:\Users\xcbcpadi\Desktop\alistamiento\ETL_BK_Axesor\SFTP_Transfer.bat" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Sequence Container.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{CCAD8D1C-4EA6-4C15-9D0A-D3E87A2A48E1}"
+          DTS:From="Package\Sequence Container\SFTP Transfer"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\Sequence Container\File System Task Procesados" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Sequence Container.PrecedenceConstraints[Constraint 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{B461C479-59FF-40BB-BDD9-4B4587156060}"
+          DTS:From="Package\Sequence Container\File System Task Procesados"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 1"
+          DTS:To="Package\Sequence Container\Foreach Loop Container 1" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:EventHandlers>
+    <DTS:EventHandler
+      DTS:refId="Package.EventHandlers[OnError]"
+      DTS:CreationName="OnError"
+      DTS:DTSID="{08ECD4D0-6E7E-440D-95A5-597D566ACF8E}"
+      DTS:EventID="1761637888"
+      DTS:EventName="OnError"
+      DTS:LocaleID="-1">
+      <DTS:Variables>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:Description="The propagate property of the event"
+          DTS:DTSID="{6BB394B8-067D-4FF6-B8FF-5EB434EF88F2}"
+          DTS:IncludeInDebugDump="6789"
+          DTS:Namespace="System"
+          DTS:ObjectName="Propagate">
+          <DTS:VariableValue
+            DTS:DataType="11">-1</DTS:VariableValue>
+        </DTS:Variable>
+      </DTS:Variables>
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package.EventHandlers[OnError]\Evento Error"
+          DTS:CreationName="STOCK:SEQUENCE"
+          DTS:Description="Sequence Container"
+          DTS:DTSID="{A717E0AF-59E0-4CD0-A341-08C5C0161FBD}"
+          DTS:ExecutableType="STOCK:SEQUENCE"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Evento Error">
+          <DTS:Variables />
+          <DTS:Executables>
+            <DTS:Executable
+              DTS:refId="Package.EventHandlers[OnError]\Evento Error\Mensaje"
+              DTS:CreationName="Microsoft.ExecuteSQLTask"
+              DTS:Description="Execute SQL Task"
+              DTS:DTSID="{2B224888-8C51-4721-A03B-7465575A1046}"
+              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="Mensaje"
+              DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+              <DTS:Variables />
+              <DTS:PropertyExpression
+                DTS:Name="Name">"Mensaje"</DTS:PropertyExpression>
+              <DTS:PropertyExpression
+                DTS:Name="SqlStatementSource">"Declare @Error varchar (500)
+Declare @Paquete varchar (100)
+Set @Error=(select Descripcion_Event from  ETL.LOG_Evento where Pk_Evento=(select MAX(Pk_Evento) from ETL.LOG_Evento )) 
+set @Paquete=?
+select  'Se a Presentado Un Fallo en el Paquete '+@Paquete+'   El mensaje de Error es :' 
++ @Error"</DTS:PropertyExpression>
+              <DTS:ObjectData>
+                <SQLTask:SqlTaskData
+                  SQLTask:Connection="{1CDD3620-FC53-44EA-97E3-7E775D66E441}"
+                  SQLTask:SqlStatementSource="Declare @Error varchar (500)&#xA;Declare @Paquete varchar (100)&#xA;Set @Error=(select Descripcion_Event from  ETL.LOG_Evento where Pk_Evento=(select MAX(Pk_Evento) from ETL.LOG_Evento )) &#xA;set @Paquete=?&#xA;select  'Se a Presentado Un Fallo en el Paquete '+@Paquete+'   El mensaje de Error es :' &#xA;+ @Error"
+                  SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+                  <SQLTask:ResultBinding
+                    SQLTask:ResultName="0"
+                    SQLTask:DtsVariableName="User::VStr_Mensaje" />
+                  <SQLTask:ParameterBinding
+                    SQLTask:ParameterName="0"
+                    SQLTask:DtsVariableName="System::PackageName"
+                    SQLTask:ParameterDirection="Input"
+                    SQLTask:DataType="129"
+                    SQLTask:ParameterSize="-1" />
+                </SQLTask:SqlTaskData>
+              </DTS:ObjectData>
+            </DTS:Executable>
+            <DTS:Executable
+              DTS:refId="Package.EventHandlers[OnError]\Evento Error\Send error email"
+              DTS:CreationName="Microsoft.SendMailTask"
+              DTS:Description="Send Mail Task"
+              DTS:DTSID="{EFB7B39D-666B-4A98-9071-D55716895D60}"
+              DTS:ExecutableType="Microsoft.SendMailTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="Send error email"
+              DTS:TaskContact="Send Mail Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+              <DTS:Variables />
+              <DTS:PropertyExpression
+                DTS:Name="MessageSource">@[User::VStr_Mensaje]</DTS:PropertyExpression>
+              <DTS:PropertyExpression
+                DTS:Name="Subject">@[User::VStr_SubjectError]+ @[System::PackageName]</DTS:PropertyExpression>
+              <DTS:PropertyExpression
+                DTS:Name="ToLine">@[User::VStr_EmailTo]</DTS:PropertyExpression>
+              <DTS:ObjectData>
+                <SendMailTask:SendMailTaskData
+                  SendMailTask:SMTPServer="{CFD7000E-3B3D-453F-B978-A1726CF905C1}"
+                  SendMailTask:From="sqladmin@intcomex.com"
+                  SendMailTask:To="xcbcpadi@intcomex.com"
+                  SendMailTask:Subject="ERROR Execution !!!!  Admin ETL :Package" xmlns:SendMailTask="www.microsoft.com/sqlserver/dts/tasks/sendmailtask" />
+              </DTS:ObjectData>
+            </DTS:Executable>
+          </DTS:Executables>
+          <DTS:PrecedenceConstraints>
+            <DTS:PrecedenceConstraint
+              DTS:refId="Package.EventHandlers[OnError]\Evento Error.PrecedenceConstraints[Constraint]"
+              DTS:CreationName=""
+              DTS:DTSID="{5C8C7746-2572-4D10-A322-E9FD394156DB}"
+              DTS:From="Package.EventHandlers[OnError]\Evento Error\Mensaje"
+              DTS:LogicalAnd="True"
+              DTS:ObjectName="Constraint"
+              DTS:To="Package.EventHandlers[OnError]\Evento Error\Send error email" />
+          </DTS:PrecedenceConstraints>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package.EventHandlers[OnError]\Tarea Evento Fallo"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{98072921-37EB-4383-8103-2D7115A552FF}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Tarea Evento Fallo"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:PropertyExpression
+            DTS:Name="Name">"Tarea Evento Fallo"</DTS:PropertyExpression>
+          <DTS:PropertyExpression
+            DTS:Name="SqlStatementSource">"Declare @Fecha Datetime
+Set @Fecha=Getdate(); 
+Insert Into ETL.Log_Evento
+values (@FECHA,?,'Error',?)"</DTS:PropertyExpression>
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{1CDD3620-FC53-44EA-97E3-7E775D66E441}"
+              SQLTask:SqlStatementSource="Declare @Fecha Datetime&#xA;Set @Fecha=Getdate(); &#xA;Insert Into ETL.Log_Evento&#xA;values (@FECHA,?,'Error',?)" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="System::PackageName"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="129"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="1"
+                SQLTask:DtsVariableName="System::ErrorDescription"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="129"
+                SQLTask:ParameterSize="-1" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package.EventHandlers[OnError].PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{52F49E62-15D3-4306-B5FC-7FBE6D7E3EBB}"
+          DTS:From="Package.EventHandlers[OnError]\Tarea Evento Fallo"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package.EventHandlers[OnError]\Evento Error" />
+      </DTS:PrecedenceConstraints>
+    </DTS:EventHandler>
+  </DTS:EventHandlers>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="224,42"
+          Id="Package\Sequence Container\File System Task Procesados"
+          TopLeft="75,80" />
+        <NodeLayout
+          Size="258,42"
+          Id="Package\Sequence Container\Foreach Loop Container 1\Load Table PermissionChangeEmail"
+          TopLeft="59,15" />
+        <NodeLayout
+          Size="134,42"
+          Id="Package\Sequence Container\Foreach Loop Container 1\Script Task"
+          TopLeft="116,87" />
+        <EdgeLayout
+          Id="Package\Sequence Container\Foreach Loop Container 1.PrecedenceConstraints[Constraint]"
+          TopLeft="185.5,57">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,30"
+              Start="0,0"
+              End="0,22.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,22.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="353,201"
+          Size="353,244"
+          Id="Package\Sequence Container\Foreach Loop Container 1"
+          TopLeft="14.5,146" />
+        <NodeLayout
+          Size="145,42"
+          Id="Package\Sequence Container\SFTP Transfer"
+          TopLeft="116,8.5" />
+        <EdgeLayout
+          Id="Package\Sequence Container.PrecedenceConstraints[Constraint]"
+          TopLeft="187.75,50.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,29.5"
+              Start="0,0"
+              End="0,22">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,22" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Sequence Container.PrecedenceConstraints[Constraint 1]"
+          TopLeft="189,122">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,24"
+              Start="0,0"
+              End="0,16.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="386,555"
+          Size="386,598"
+          Id="Package\Sequence Container"
+          TopLeft="188.75,91.5" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <DtsEventHandler
+    design-time-name="Package.EventHandlers[OnError]">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="121,42"
+          Id="Package.EventHandlers[OnError]\Evento Error\Mensaje"
+          TopLeft="25,5.5" />
+        <NodeLayout
+          Size="160,42"
+          Id="Package.EventHandlers[OnError]\Evento Error\Send error email"
+          TopLeft="5.50000000000001,107.5" />
+        <EdgeLayout
+          Id="Package.EventHandlers[OnError]\Evento Error.PrecedenceConstraints[Constraint]"
+          TopLeft="85.5,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="171,204"
+          Size="171,248"
+          Id="Package.EventHandlers[OnError]\Evento Error"
+          TopLeft="6.00000000000003,107.5" />
+        <NodeLayout
+          Size="172,42"
+          Id="Package.EventHandlers[OnError]\Tarea Evento Fallo"
+          TopLeft="5.5,5.5" />
+        <EdgeLayout
+          Id="Package.EventHandlers[OnError].PrecedenceConstraints[Constraint]"
+          TopLeft="91.5,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </DtsEventHandler>
+  <TaskHost
+    design-time-name="Package\Sequence Container\Foreach Loop Container 1\Load Table PermissionChangeEmail">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="167,56"
+          Id="Package\Sequence Container\Foreach Loop Container 1\Load Table PermissionChangeEmail\Script Component"
+          TopLeft="55,291" />
+        <NodeLayout
+          Size="99,42"
+          Id="Package\Sequence Container\Foreach Loop Container 1\Load Table PermissionChangeEmail\Sort"
+          TopLeft="87,153" />
+        <NodeLayout
+          Size="157,44"
+          Id="Package\Sequence Container\Foreach Loop Container 1\Load Table PermissionChangeEmail\Lookup"
+          TopLeft="60,218" />
+        <NodeLayout
+          Size="165,42"
+          Id="Package\Sequence Container\Foreach Loop Container 1\Load Table PermissionChangeEmail\Flat File Source"
+          TopLeft="57,8" />
+        <NodeLayout
+          Size="171,42"
+          Id="Package\Sequence Container\Foreach Loop Container 1\Load Table PermissionChangeEmail\OLE DB Destination"
+          TopLeft="56,383" />
+        <NodeLayout
+          Size="154,42"
+          Id="Package\Sequence Container\Foreach Loop Container 1\Load Table PermissionChangeEmail\Derived Column"
+          TopLeft="64,86" />
+        <EdgeLayout
+          Id="Package\Sequence Container\Foreach Loop Container 1\Load Table PermissionChangeEmail.Paths[Sort Output]"
+          TopLeft="137.5,195">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,23"
+              Start="0,0"
+              End="0,15.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,15.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Sequence Container\Foreach Loop Container 1\Load Table PermissionChangeEmail.Paths[Output 0]"
+          TopLeft="140,347">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,36"
+              Start="0,0"
+              End="0,28.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,28.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Sequence Container\Foreach Loop Container 1\Load Table PermissionChangeEmail.Paths[Lookup No Match Output]"
+          TopLeft="138.5,262">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,29"
+              Start="0,0"
+              End="0,21.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-55.80638671875,4.9453125,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Sequence Container\Foreach Loop Container 1\Load Table PermissionChangeEmail.Paths[Flat File Source Output]"
+          TopLeft="139.25,50">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,36"
+              Start="0,0"
+              End="0,28.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,28.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Sequence Container\Foreach Loop Container 1\Load Table PermissionChangeEmail.Paths[Derived Column Output]"
+          TopLeft="138.75,128">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,25"
+              Start="0,0"
+              End="0,17.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,17.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Sequence Container\Foreach Loop Container 1\Load Table PermissionChangeEmail\Lookup">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[PermissionChangeEmail]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Sequence Container\Foreach Loop Container 1\Load Table PermissionChangeEmail\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

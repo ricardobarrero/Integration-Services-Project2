@@ -1,0 +1,2471 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="5/12/2021 9:05:18 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="XCB-XCBRBARR"
+  DTS:CreatorName="INTCOMEX\xcbrbarr"
+  DTS:DTSID="{73987226-6067-447D-801E-3B0251031B74}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.150"
+  DTS:LocaleID="21514"
+  DTS:ObjectName="DWH-DIFERENCIASERIALIZACION"
+  DTS:PackageType="5"
+  DTS:VersionBuild="48"
+  DTS:VersionGUID="{5E9EF37C-0E2E-4413-A57F-3098BE0370B8}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Administrador de conexiones de archivos planos]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{8F135F03-87DE-420A-815D-B26DF77B5B33}"
+      DTS:ObjectName="Administrador de conexiones de archivos planos">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="21514"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x0022_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\Users\xcbrbarr\Documents\PruebaETL\prodserext.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="&quot;Product&quot;"
+              DTS:DTSID="{420369E1-831E-41B0-960D-9764558AE705}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="&quot;Icmx-ctrl&quot;"
+              DTS:DTSID="{4006AE54-907B-4CE8-B470-9C982210293F}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="&quot;Icmx-loc-id&quot;"
+              DTS:DTSID="{E22BD7A5-74E1-4FD4-B811-E1B9C593ACAA}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="&quot;Icmx-status&quot;"
+              DTS:DTSID="{DD39AE65-2C17-487F-BDE1-C1EE0B8F85C8}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="&quot;Icmx-type&quot;"
+              DTS:DTSID="{204CD107-4765-45A7-8887-29D886EA2EA1}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="&quot;IX-ctrl&quot;"
+              DTS:DTSID="{8D4FA75B-32DD-4BC0-A04B-FFBDED9619FD}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="&quot;IX-loc-id&quot;"
+              DTS:DTSID="{B8186A9A-3670-430D-8422-1E98DBAF79EB}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="&quot;IX-status&quot;"
+              DTS:DTSID="{6EA466F5-2C90-4A15-9BAA-AC1FFDE73B67}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="&quot;IX-type&quot;"
+              DTS:DTSID="{2816ED7D-D527-484F-90F0-BD545A2E42A6}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="&quot;Time-Stamp&quot;"
+              DTS:DTSID="{D1C611DE-9E98-4E1D-8579-D2DE1B584C2D}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[S91SQLUS.DWStaging]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{B318E69A-7361-48A0-81F3-1B15E0E02765}"
+      DTS:ObjectName="S91SQLUS.DWStaging">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=S91SQLUS;Initial Catalog=DWStaging;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[S91SQLUS.INTXDW]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{C078D4F0-0AA2-4B07-96BF-35D67B9A43F7}"
+      DTS:ObjectName="S91SQLUS.INTXDW">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=S91SQLUS;User ID=ETLUSER;Initial Catalog=INTXDW;Provider=SQLNCLI11.1;Auto Translate=False;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAARHVuP+oaqkSvaKg8a4ToLQAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAAApXUDjLcdtjcChnvsIrSJMAAAAAASAAACgAAAAEAAAAFWoD6Xe2bIdmkyN37zGy6sYAAAAlZfJu3zYyfkA4IGpZk58D8i8/qWkJlWLFAAAAKpI+A52K+Bjv+7ih+79geDPUMb1</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{0B4EE555-838C-4480-869F-5554CA9DC11C}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="VInt_Ejecucion">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{C35A5B55-1E09-4D4A-8F7A-1C9A396A4EEC}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="VInt_TipoEjecucion">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{8EDCCAA2-8D56-4DA1-AE1C-6AD3258CBDC4}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="VStr_EmailTo">
+      <DTS:VariableValue
+        DTS:DataType="8">ETLSupport@intcomex.com</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{50048AE5-93B6-4B52-AB09-EFCD85B23976}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="VStr_Mensaje">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{F8076992-E030-43C2-B3C3-066927748483}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="VStr_Subject">
+      <DTS:VariableValue
+        DTS:DataType="8">Correct Execution Admin ETL :</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{AF831C09-449A-40B5-A9E1-6AA9485F813A}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="VStr_SubjectError">
+      <DTS:VariableValue
+        DTS:DataType="8">ERROR Execution !!!!  Admin ETL :</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\A - Execution Control"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execution Control"
+      DTS:DTSID="{6ad76a19-48aa-424a-826b-086d34e8f5c8}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="A - Execution Control"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server v9; © 2004 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:FilterKind="0"
+        DTS:LoggingMode="2" />
+      <DTS:PropertyExpression
+        DTS:Name="Name">"A - Execution Control"</DTS:PropertyExpression>
+      <DTS:PropertyExpression
+        DTS:Name="SqlStatementSource">"Declare @Ejecucion int  IF (Select Ejecucion From ETL.Log_Ejecucion where Paquete = '"+@[System::PackageName]+"')= 0 Set @Ejecucion=1 Else  Set @Ejecucion=0 select @ejecucion"</DTS:PropertyExpression>
+      <DTS:EventHandlers>
+        <DTS:EventHandler
+          DTS:refId="Package\A - Execution Control.EventHandlers[OnError]"
+          DTS:CreationName="OnError"
+          DTS:DTSID="{aacd43bc-1c0b-4dfd-bbe2-054e7d738003}"
+          DTS:EventID="0"
+          DTS:EventName="OnError"
+          DTS:LocaleID="-1">
+          <DTS:Variables>
+            <DTS:Variable
+              DTS:CreationName=""
+              DTS:Description="The propagate property of the event"
+              DTS:DTSID="{94cc1cc0-0178-4365-89c6-885d6f1e1bf5}"
+              DTS:IncludeInDebugDump="6789"
+              DTS:Namespace="System"
+              DTS:ObjectName="Propagate">
+              <DTS:VariableValue
+                DTS:DataType="11">-1</DTS:VariableValue>
+            </DTS:Variable>
+          </DTS:Variables>
+          <DTS:Executables />
+        </DTS:EventHandler>
+        <DTS:EventHandler
+          DTS:refId="Package\A - Execution Control.EventHandlers[OnPostExecute]"
+          DTS:CreationName="OnPostExecute"
+          DTS:DTSID="{eaff11e0-938e-47b0-8ed8-900512a29e3d}"
+          DTS:EventID="0"
+          DTS:EventName="OnPostExecute"
+          DTS:LocaleID="-1">
+          <DTS:Variables>
+            <DTS:Variable
+              DTS:CreationName=""
+              DTS:Description="The propagate property of the event"
+              DTS:DTSID="{3a5baf09-be64-4ff2-b6bd-dfbe107ded9c}"
+              DTS:IncludeInDebugDump="6789"
+              DTS:Namespace="System"
+              DTS:ObjectName="Propagate">
+              <DTS:VariableValue
+                DTS:DataType="11">-1</DTS:VariableValue>
+            </DTS:Variable>
+          </DTS:Variables>
+          <DTS:Executables />
+        </DTS:EventHandler>
+        <DTS:EventHandler
+          DTS:refId="Package\A - Execution Control.EventHandlers[OnPreExecute]"
+          DTS:CreationName="OnPreExecute"
+          DTS:DTSID="{8694db63-5866-4288-8c78-d5ae4bb3613b}"
+          DTS:EventID="0"
+          DTS:EventName="OnPreExecute"
+          DTS:LocaleID="-1">
+          <DTS:Variables>
+            <DTS:Variable
+              DTS:CreationName=""
+              DTS:Description="The propagate property of the event"
+              DTS:DTSID="{fdab76d4-7d85-41ab-bcef-8a6043543f16}"
+              DTS:IncludeInDebugDump="6789"
+              DTS:Namespace="System"
+              DTS:ObjectName="Propagate">
+              <DTS:VariableValue
+                DTS:DataType="11">-1</DTS:VariableValue>
+            </DTS:Variable>
+          </DTS:Variables>
+          <DTS:Executables />
+        </DTS:EventHandler>
+      </DTS:EventHandlers>
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{B318E69A-7361-48A0-81F3-1B15E0E02765}"
+          SQLTask:BypassPrepare="False"
+          SQLTask:SqlStatementSource="Declare @Ejecucion int  IF (Select Ejecucion From ETL.Log_Ejecucion where Paquete = 'DWH-DIFERENCIASERIALIZACION')= 0 Set @Ejecucion=1 Else  Set @Ejecucion=0 select @ejecucion"
+          SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="0"
+            SQLTask:DtsVariableName="User::VInt_Ejecucion" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="0"
+            SQLTask:DtsVariableName="System::PackageName"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="129"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\B - Task Home DWH-DIFERENCIASERIALIZACION"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Task Home "
+      DTS:DTSID="{bb769c56-af01-4e49-9c59-9a27f52dc0a6}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="B - Task Home DWH-DIFERENCIASERIALIZACION"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server v9; © 2004 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:FilterKind="0"
+        DTS:LoggingMode="2" />
+      <DTS:PropertyExpression
+        DTS:Name="Name">"B - Task Home "+ @[System::PackageName]</DTS:PropertyExpression>
+      <DTS:PropertyExpression
+        DTS:Name="SqlStatementSource">"Update ETL.Log_Ejecucion
+Set Ejecucion = 1, Fecha_inicio = GETDATE()
+Where Paquete = ?"</DTS:PropertyExpression>
+      <DTS:EventHandlers>
+        <DTS:EventHandler
+          DTS:refId="Package\B - Task Home DWH-DIFERENCIASERIALIZACION.EventHandlers[OnError]"
+          DTS:CreationName="OnError"
+          DTS:DTSID="{0cfb8a9b-64f0-48c7-9415-eca81844868b}"
+          DTS:EventID="0"
+          DTS:EventName="OnError"
+          DTS:LocaleID="-1">
+          <DTS:Variables>
+            <DTS:Variable
+              DTS:CreationName=""
+              DTS:Description="The propagate property of the event"
+              DTS:DTSID="{90049362-e2d8-47e1-be50-c3010fdbf5c9}"
+              DTS:IncludeInDebugDump="6789"
+              DTS:Namespace="System"
+              DTS:ObjectName="Propagate">
+              <DTS:VariableValue
+                DTS:DataType="11">-1</DTS:VariableValue>
+            </DTS:Variable>
+          </DTS:Variables>
+          <DTS:Executables />
+        </DTS:EventHandler>
+        <DTS:EventHandler
+          DTS:refId="Package\B - Task Home DWH-DIFERENCIASERIALIZACION.EventHandlers[OnPostExecute]"
+          DTS:CreationName="OnPostExecute"
+          DTS:DTSID="{25c240f5-8654-4e86-9792-914e70a04ca4}"
+          DTS:EventID="0"
+          DTS:EventName="OnPostExecute"
+          DTS:LocaleID="-1">
+          <DTS:Variables>
+            <DTS:Variable
+              DTS:CreationName=""
+              DTS:Description="The propagate property of the event"
+              DTS:DTSID="{dff0a680-06ce-4b37-888d-30103359267c}"
+              DTS:IncludeInDebugDump="6789"
+              DTS:Namespace="System"
+              DTS:ObjectName="Propagate">
+              <DTS:VariableValue
+                DTS:DataType="11">-1</DTS:VariableValue>
+            </DTS:Variable>
+          </DTS:Variables>
+          <DTS:Executables />
+        </DTS:EventHandler>
+        <DTS:EventHandler
+          DTS:refId="Package\B - Task Home DWH-DIFERENCIASERIALIZACION.EventHandlers[OnPreExecute]"
+          DTS:CreationName="OnPreExecute"
+          DTS:DTSID="{eef883d0-37fc-4d98-b734-59f729e2ccba}"
+          DTS:EventID="2097267"
+          DTS:EventName="OnPreExecute"
+          DTS:LocaleID="-1">
+          <DTS:Variables>
+            <DTS:Variable
+              DTS:CreationName=""
+              DTS:Description="The propagate property of the event"
+              DTS:DTSID="{f2f0ec6c-cb23-4219-8a72-f569b180e145}"
+              DTS:IncludeInDebugDump="6789"
+              DTS:Namespace="System"
+              DTS:ObjectName="Propagate">
+              <DTS:VariableValue
+                DTS:DataType="11">-1</DTS:VariableValue>
+            </DTS:Variable>
+          </DTS:Variables>
+          <DTS:Executables />
+        </DTS:EventHandler>
+      </DTS:EventHandlers>
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{B318E69A-7361-48A0-81F3-1B15E0E02765}"
+          SQLTask:SqlStatementSource="Update ETL.Log_Ejecucion&#xA;Set Ejecucion = 1, Fecha_inicio = GETDATE()&#xA;Where Paquete = ?" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="0"
+            SQLTask:DtsVariableName="System::PackageName"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="129"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\C  - Download prodserext File FTP"
+      DTS:CreationName="Microsoft.ExecuteProcess"
+      DTS:Description="Execute Process Task"
+      DTS:DTSID="{71739a95-b246-43bf-afaa-4de23d7cf4db}"
+      DTS:ExecutableType="Microsoft.ExecuteProcess"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="C  - Download prodserext File FTP"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <ExecuteProcessData
+          Executable="C:\Users\xcbrbarr\Documents\PruebaETL\Sentai_Transfer_POSOLINK.cmd" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\D-Load Tables FACT_DIFERENCIASERIALIZACION"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Contenedor de secuencias"
+      DTS:DTSID="{6c9fbc19-72ec-4ed3-aff3-5dac98eadfca}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="D-Load Tables FACT_DIFERENCIASERIALIZACION">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\D-Load Tables FACT_DIFERENCIASERIALIZACION\Data Flow Task"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{deb1970a-e4ce-4108-ac0c-f1ad750eb8d3}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Data Flow Task"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\D-Load Tables FACT_DIFERENCIASERIALIZACION\Data Flow Task\Data Conversion"
+                  componentClassID="Microsoft.DataConvert"
+                  contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Data Conversion"
+                  name="Data Conversion"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\D-Load Tables FACT_DIFERENCIASERIALIZACION\Data Flow Task\Data Conversion.Inputs[Data Conversion Input]"
+                      name="Data Conversion Input">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\D-Load Tables FACT_DIFERENCIASERIALIZACION\Data Flow Task\Data Conversion.Outputs[Data Conversion Output]"
+                      exclusionGroup="1"
+                      name="Data Conversion Output"
+                      synchronousInputId="Package\D-Load Tables FACT_DIFERENCIASERIALIZACION\Data Flow Task\Data Conversion.Inputs[Data Conversion Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\D-Load Tables FACT_DIFERENCIASERIALIZACION\Data Flow Task\Data Conversion.Outputs[Data Conversion Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Data Conversion Error Output"
+                      synchronousInputId="Package\D-Load Tables FACT_DIFERENCIASERIALIZACION\Data Flow Task\Data Conversion.Inputs[Data Conversion Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\D-Load Tables FACT_DIFERENCIASERIALIZACION\Data Flow Task\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\D-Load Tables FACT_DIFERENCIASERIALIZACION\Data Flow Task\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\D-Load Tables FACT_DIFERENCIASERIALIZACION\Data Flow Task\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\D-Load Tables FACT_DIFERENCIASERIALIZACION\Data Flow Task\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\D-Load Tables FACT_DIFERENCIASERIALIZACION\Data Flow Task\Derived Column"
+                  componentClassID="Microsoft.DerivedColumn"
+                  contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+                  name="Derived Column"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\D-Load Tables FACT_DIFERENCIASERIALIZACION\Data Flow Task\Derived Column.Inputs[Derived Column Input]"
+                      description="Input to the Derived Column Transformation"
+                      name="Derived Column Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\D-Load Tables FACT_DIFERENCIASERIALIZACION\Data Flow Task\Derived Column.Inputs[Derived Column Input].Columns[&quot;IX-loc-id&quot;]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="&quot;IX-loc-id&quot;"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\D-Load Tables FACT_DIFERENCIASERIALIZACION\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[&quot;IX-loc-id&quot;]"
+                          truncationRowDisposition="FailComponent"
+                          usageType="readWrite">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">(#{Package\D-Load Tables FACT_DIFERENCIASERIALIZACION\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns["IX-loc-id"]} == "" ? (DT_STR,50,1252)NULL(DT_STR,50,1252) : [LOWER](#{Package\D-Load Tables FACT_DIFERENCIASERIALIZACION\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns["IX-loc-id"]}))</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">(["IX-loc-id"] == "" ? (DT_STR,50,1252)NULL(DT_STR,50,1252) : LOWER(["IX-loc-id"]))</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\D-Load Tables FACT_DIFERENCIASERIALIZACION\Data Flow Task\Derived Column.Inputs[Derived Column Input].Columns[&quot;IX-status&quot;]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="&quot;IX-status&quot;"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\D-Load Tables FACT_DIFERENCIASERIALIZACION\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[&quot;IX-status&quot;]"
+                          truncationRowDisposition="FailComponent"
+                          usageType="readWrite">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">(#{Package\D-Load Tables FACT_DIFERENCIASERIALIZACION\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns["IX-status"]} == "" ? (DT_STR,50,1252)NULL(DT_STR,50,1252) : [LOWER](#{Package\D-Load Tables FACT_DIFERENCIASERIALIZACION\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns["IX-status"]}))</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">(["IX-status"] == "" ? (DT_STR,50,1252)NULL(DT_STR,50,1252) : LOWER(["IX-status"]))</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\D-Load Tables FACT_DIFERENCIASERIALIZACION\Data Flow Task\Derived Column.Inputs[Derived Column Input].Columns[&quot;IX-type&quot;]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="&quot;IX-type&quot;"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\D-Load Tables FACT_DIFERENCIASERIALIZACION\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[&quot;IX-type&quot;]"
+                          truncationRowDisposition="FailComponent"
+                          usageType="readWrite">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">(#{Package\D-Load Tables FACT_DIFERENCIASERIALIZACION\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns["IX-type"]} == "" ? (DT_STR,50,1252)NULL(DT_STR,50,1252) : [UPPER](#{Package\D-Load Tables FACT_DIFERENCIASERIALIZACION\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns["IX-type"]}))</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">(["IX-type"] == "" ? (DT_STR,50,1252)NULL(DT_STR,50,1252) : UPPER(["IX-type"]))</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\D-Load Tables FACT_DIFERENCIASERIALIZACION\Data Flow Task\Derived Column.Inputs[Derived Column Input].Columns[&quot;Product&quot;]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="&quot;Product&quot;"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\D-Load Tables FACT_DIFERENCIASERIALIZACION\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[&quot;Product&quot;]"
+                          truncationRowDisposition="FailComponent"
+                          usageType="readWrite">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">[UPPER](#{Package\D-Load Tables FACT_DIFERENCIASERIALIZACION\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns["Product"]})</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">UPPER(["Product"])</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\D-Load Tables FACT_DIFERENCIASERIALIZACION\Data Flow Task\Derived Column.Inputs[Derived Column Input].Columns[&quot;Icmx-ctrl&quot;]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="&quot;Icmx-ctrl&quot;"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\D-Load Tables FACT_DIFERENCIASERIALIZACION\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[&quot;Icmx-ctrl&quot;]"
+                          truncationRowDisposition="FailComponent"
+                          usageType="readWrite">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">[UPPER](#{Package\D-Load Tables FACT_DIFERENCIASERIALIZACION\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns["Icmx-ctrl"]})</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">UPPER(["Icmx-ctrl"])</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\D-Load Tables FACT_DIFERENCIASERIALIZACION\Data Flow Task\Derived Column.Inputs[Derived Column Input].Columns[&quot;Icmx-loc-id&quot;]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="&quot;Icmx-loc-id&quot;"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\D-Load Tables FACT_DIFERENCIASERIALIZACION\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[&quot;Icmx-loc-id&quot;]"
+                          truncationRowDisposition="FailComponent"
+                          usageType="readWrite">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">[LOWER](#{Package\D-Load Tables FACT_DIFERENCIASERIALIZACION\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns["Icmx-loc-id"]})</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">LOWER(["Icmx-loc-id"])</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\D-Load Tables FACT_DIFERENCIASERIALIZACION\Data Flow Task\Derived Column.Inputs[Derived Column Input].Columns[&quot;Icmx-status&quot;]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="&quot;Icmx-status&quot;"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\D-Load Tables FACT_DIFERENCIASERIALIZACION\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[&quot;Icmx-status&quot;]"
+                          truncationRowDisposition="FailComponent"
+                          usageType="readWrite">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">[LOWER](#{Package\D-Load Tables FACT_DIFERENCIASERIALIZACION\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns["Icmx-status"]})</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">LOWER(["Icmx-status"])</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\D-Load Tables FACT_DIFERENCIASERIALIZACION\Data Flow Task\Derived Column.Inputs[Derived Column Input].Columns[&quot;Icmx-type&quot;]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="&quot;Icmx-type&quot;"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\D-Load Tables FACT_DIFERENCIASERIALIZACION\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[&quot;Icmx-type&quot;]"
+                          truncationRowDisposition="FailComponent"
+                          usageType="readWrite">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">[UPPER](#{Package\D-Load Tables FACT_DIFERENCIASERIALIZACION\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns["Icmx-type"]})</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">UPPER(["Icmx-type"])</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\D-Load Tables FACT_DIFERENCIASERIALIZACION\Data Flow Task\Derived Column.Inputs[Derived Column Input].Columns[&quot;IX-ctrl&quot;]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="&quot;IX-ctrl&quot;"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\D-Load Tables FACT_DIFERENCIASERIALIZACION\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[&quot;IX-ctrl&quot;]"
+                          truncationRowDisposition="FailComponent"
+                          usageType="readWrite">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">[UPPER](#{Package\D-Load Tables FACT_DIFERENCIASERIALIZACION\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns["IX-ctrl"]})</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">UPPER(["IX-ctrl"])</property>
+                          </properties>
+                        </inputColumn>
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\D-Load Tables FACT_DIFERENCIASERIALIZACION\Data Flow Task\Derived Column.Outputs[Derived Column Output]"
+                      description="Default Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      name="Derived Column Output"
+                      synchronousInputId="Package\D-Load Tables FACT_DIFERENCIASERIALIZACION\Data Flow Task\Derived Column.Inputs[Derived Column Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\D-Load Tables FACT_DIFERENCIASERIALIZACION\Data Flow Task\Derived Column.Outputs[Derived Column Error Output]"
+                      description="Error Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Derived Column Error Output"
+                      synchronousInputId="Package\D-Load Tables FACT_DIFERENCIASERIALIZACION\Data Flow Task\Derived Column.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\D-Load Tables FACT_DIFERENCIASERIALIZACION\Data Flow Task\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\D-Load Tables FACT_DIFERENCIASERIALIZACION\Data Flow Task\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\D-Load Tables FACT_DIFERENCIASERIALIZACION\Data Flow Task\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\D-Load Tables FACT_DIFERENCIASERIALIZACION\Data Flow Task\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\D-Load Tables FACT_DIFERENCIASERIALIZACION\Data Flow Task\Flat File Source"
+                  componentClassID="Microsoft.FlatFileSource"
+                  contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                  description="Flat File Source"
+                  localeId="21514"
+                  name="Flat File Source"
+                  usesDispositions="true"
+                  version="1">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      description="Specifies whether zero-length columns are treated as null."
+                      name="RetainNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                      name="FileNameColumnName"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\D-Load Tables FACT_DIFERENCIASERIALIZACION\Data Flow Task\Flat File Source.Connections[FlatFileConnection]"
+                      connectionManagerID="Package.ConnectionManagers[Administrador de conexiones de archivos planos]"
+                      connectionManagerRefId="Package.ConnectionManagers[Administrador de conexiones de archivos planos]"
+                      name="FlatFileConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\D-Load Tables FACT_DIFERENCIASERIALIZACION\Data Flow Task\Flat File Source.Outputs[Flat File Source Output]"
+                      name="Flat File Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\D-Load Tables FACT_DIFERENCIASERIALIZACION\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[&quot;Product&quot;]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\D-Load Tables FACT_DIFERENCIASERIALIZACION\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[&quot;Product&quot;]"
+                          length="50"
+                          lineageId="Package\D-Load Tables FACT_DIFERENCIASERIALIZACION\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[&quot;Product&quot;]"
+                          name="&quot;Product&quot;"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\D-Load Tables FACT_DIFERENCIASERIALIZACION\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[&quot;Icmx-ctrl&quot;]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\D-Load Tables FACT_DIFERENCIASERIALIZACION\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[&quot;Icmx-ctrl&quot;]"
+                          length="50"
+                          lineageId="Package\D-Load Tables FACT_DIFERENCIASERIALIZACION\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[&quot;Icmx-ctrl&quot;]"
+                          name="&quot;Icmx-ctrl&quot;"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\D-Load Tables FACT_DIFERENCIASERIALIZACION\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[&quot;Icmx-loc-id&quot;]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\D-Load Tables FACT_DIFERENCIASERIALIZACION\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[&quot;Icmx-loc-id&quot;]"
+                          length="50"
+                          lineageId="Package\D-Load Tables FACT_DIFERENCIASERIALIZACION\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[&quot;Icmx-loc-id&quot;]"
+                          name="&quot;Icmx-loc-id&quot;"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\D-Load Tables FACT_DIFERENCIASERIALIZACION\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[&quot;Icmx-status&quot;]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\D-Load Tables FACT_DIFERENCIASERIALIZACION\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[&quot;Icmx-status&quot;]"
+                          length="50"
+                          lineageId="Package\D-Load Tables FACT_DIFERENCIASERIALIZACION\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[&quot;Icmx-status&quot;]"
+                          name="&quot;Icmx-status&quot;"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\D-Load Tables FACT_DIFERENCIASERIALIZACION\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[&quot;Icmx-type&quot;]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\D-Load Tables FACT_DIFERENCIASERIALIZACION\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[&quot;Icmx-type&quot;]"
+                          length="50"
+                          lineageId="Package\D-Load Tables FACT_DIFERENCIASERIALIZACION\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[&quot;Icmx-type&quot;]"
+                          name="&quot;Icmx-type&quot;"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\D-Load Tables FACT_DIFERENCIASERIALIZACION\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[&quot;IX-ctrl&quot;]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\D-Load Tables FACT_DIFERENCIASERIALIZACION\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[&quot;IX-ctrl&quot;]"
+                          length="50"
+                          lineageId="Package\D-Load Tables FACT_DIFERENCIASERIALIZACION\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[&quot;IX-ctrl&quot;]"
+                          name="&quot;IX-ctrl&quot;"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\D-Load Tables FACT_DIFERENCIASERIALIZACION\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[&quot;IX-loc-id&quot;]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\D-Load Tables FACT_DIFERENCIASERIALIZACION\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[&quot;IX-loc-id&quot;]"
+                          length="50"
+                          lineageId="Package\D-Load Tables FACT_DIFERENCIASERIALIZACION\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[&quot;IX-loc-id&quot;]"
+                          name="&quot;IX-loc-id&quot;"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\D-Load Tables FACT_DIFERENCIASERIALIZACION\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[&quot;IX-status&quot;]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\D-Load Tables FACT_DIFERENCIASERIALIZACION\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[&quot;IX-status&quot;]"
+                          length="50"
+                          lineageId="Package\D-Load Tables FACT_DIFERENCIASERIALIZACION\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[&quot;IX-status&quot;]"
+                          name="&quot;IX-status&quot;"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\D-Load Tables FACT_DIFERENCIASERIALIZACION\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[&quot;IX-type&quot;]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\D-Load Tables FACT_DIFERENCIASERIALIZACION\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[&quot;IX-type&quot;]"
+                          length="50"
+                          lineageId="Package\D-Load Tables FACT_DIFERENCIASERIALIZACION\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[&quot;IX-type&quot;]"
+                          name="&quot;IX-type&quot;"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\D-Load Tables FACT_DIFERENCIASERIALIZACION\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[&quot;Time-Stamp&quot;]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\D-Load Tables FACT_DIFERENCIASERIALIZACION\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[&quot;Time-Stamp&quot;]"
+                          length="50"
+                          lineageId="Package\D-Load Tables FACT_DIFERENCIASERIALIZACION\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[&quot;Time-Stamp&quot;]"
+                          name="&quot;Time-Stamp&quot;"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\D-Load Tables FACT_DIFERENCIASERIALIZACION\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[&quot;Product&quot;]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="&quot;Product&quot;" />
+                        <externalMetadataColumn
+                          refId="Package\D-Load Tables FACT_DIFERENCIASERIALIZACION\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[&quot;Icmx-ctrl&quot;]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="&quot;Icmx-ctrl&quot;" />
+                        <externalMetadataColumn
+                          refId="Package\D-Load Tables FACT_DIFERENCIASERIALIZACION\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[&quot;Icmx-loc-id&quot;]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="&quot;Icmx-loc-id&quot;" />
+                        <externalMetadataColumn
+                          refId="Package\D-Load Tables FACT_DIFERENCIASERIALIZACION\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[&quot;Icmx-status&quot;]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="&quot;Icmx-status&quot;" />
+                        <externalMetadataColumn
+                          refId="Package\D-Load Tables FACT_DIFERENCIASERIALIZACION\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[&quot;Icmx-type&quot;]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="&quot;Icmx-type&quot;" />
+                        <externalMetadataColumn
+                          refId="Package\D-Load Tables FACT_DIFERENCIASERIALIZACION\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[&quot;IX-ctrl&quot;]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="&quot;IX-ctrl&quot;" />
+                        <externalMetadataColumn
+                          refId="Package\D-Load Tables FACT_DIFERENCIASERIALIZACION\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[&quot;IX-loc-id&quot;]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="&quot;IX-loc-id&quot;" />
+                        <externalMetadataColumn
+                          refId="Package\D-Load Tables FACT_DIFERENCIASERIALIZACION\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[&quot;IX-status&quot;]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="&quot;IX-status&quot;" />
+                        <externalMetadataColumn
+                          refId="Package\D-Load Tables FACT_DIFERENCIASERIALIZACION\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[&quot;IX-type&quot;]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="&quot;IX-type&quot;" />
+                        <externalMetadataColumn
+                          refId="Package\D-Load Tables FACT_DIFERENCIASERIALIZACION\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[&quot;Time-Stamp&quot;]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="&quot;Time-Stamp&quot;" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\D-Load Tables FACT_DIFERENCIASERIALIZACION\Data Flow Task\Flat File Source.Outputs[Flat File Source Error Output]"
+                      isErrorOut="true"
+                      name="Flat File Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\D-Load Tables FACT_DIFERENCIASERIALIZACION\Data Flow Task\Flat File Source.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                          codePage="1252"
+                          dataType="text"
+                          description="Flat File Source Error Output Column"
+                          lineageId="Package\D-Load Tables FACT_DIFERENCIASERIALIZACION\Data Flow Task\Flat File Source.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                          name="Flat File Source Error Output Column" />
+                        <outputColumn
+                          refId="Package\D-Load Tables FACT_DIFERENCIASERIALIZACION\Data Flow Task\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\D-Load Tables FACT_DIFERENCIASERIALIZACION\Data Flow Task\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\D-Load Tables FACT_DIFERENCIASERIALIZACION\Data Flow Task\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\D-Load Tables FACT_DIFERENCIASERIALIZACION\Data Flow Task\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\D-Load Tables FACT_DIFERENCIASERIALIZACION\Data Flow Task\OLE DB Destination"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="OLE DB Destination"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[FACT_DIFERENCIASERIALIZACION]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">true</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\D-Load Tables FACT_DIFERENCIASERIALIZACION\Data Flow Task\OLE DB Destination.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[S91SQLUS.INTXDW]"
+                      connectionManagerRefId="Package.ConnectionManagers[S91SQLUS.INTXDW]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\D-Load Tables FACT_DIFERENCIASERIALIZACION\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\D-Load Tables FACT_DIFERENCIASERIALIZACION\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[&quot;Time-Stamp&quot;]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="&quot;Time-Stamp&quot;"
+                          externalMetadataColumnId="Package\D-Load Tables FACT_DIFERENCIASERIALIZACION\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LastExtraction]"
+                          lineageId="Package\D-Load Tables FACT_DIFERENCIASERIALIZACION\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[&quot;Time-Stamp&quot;]" />
+                        <inputColumn
+                          refId="Package\D-Load Tables FACT_DIFERENCIASERIALIZACION\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[&quot;Product&quot;]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="&quot;Product&quot;"
+                          externalMetadataColumnId="Package\D-Load Tables FACT_DIFERENCIASERIALIZACION\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Localsku]"
+                          lineageId="Package\D-Load Tables FACT_DIFERENCIASERIALIZACION\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[&quot;Product&quot;]" />
+                        <inputColumn
+                          refId="Package\D-Load Tables FACT_DIFERENCIASERIALIZACION\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[&quot;Icmx-ctrl&quot;]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="&quot;Icmx-ctrl&quot;"
+                          externalMetadataColumnId="Package\D-Load Tables FACT_DIFERENCIASERIALIZACION\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CompanyID]"
+                          lineageId="Package\D-Load Tables FACT_DIFERENCIASERIALIZACION\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[&quot;Icmx-ctrl&quot;]" />
+                        <inputColumn
+                          refId="Package\D-Load Tables FACT_DIFERENCIASERIALIZACION\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[&quot;Icmx-loc-id&quot;]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="&quot;Icmx-loc-id&quot;"
+                          externalMetadataColumnId="Package\D-Load Tables FACT_DIFERENCIASERIALIZACION\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LocationID]"
+                          lineageId="Package\D-Load Tables FACT_DIFERENCIASERIALIZACION\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[&quot;Icmx-loc-id&quot;]" />
+                        <inputColumn
+                          refId="Package\D-Load Tables FACT_DIFERENCIASERIALIZACION\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[&quot;Icmx-status&quot;]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="&quot;Icmx-status&quot;"
+                          externalMetadataColumnId="Package\D-Load Tables FACT_DIFERENCIASERIALIZACION\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Status]"
+                          lineageId="Package\D-Load Tables FACT_DIFERENCIASERIALIZACION\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[&quot;Icmx-status&quot;]" />
+                        <inputColumn
+                          refId="Package\D-Load Tables FACT_DIFERENCIASERIALIZACION\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[&quot;Icmx-type&quot;]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="&quot;Icmx-type&quot;"
+                          externalMetadataColumnId="Package\D-Load Tables FACT_DIFERENCIASERIALIZACION\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Serialized]"
+                          lineageId="Package\D-Load Tables FACT_DIFERENCIASERIALIZACION\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[&quot;Icmx-type&quot;]" />
+                        <inputColumn
+                          refId="Package\D-Load Tables FACT_DIFERENCIASERIALIZACION\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[&quot;IX-ctrl&quot;]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="&quot;IX-ctrl&quot;"
+                          externalMetadataColumnId="Package\D-Load Tables FACT_DIFERENCIASERIALIZACION\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[IX_CompanyID]"
+                          lineageId="Package\D-Load Tables FACT_DIFERENCIASERIALIZACION\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[&quot;IX-ctrl&quot;]" />
+                        <inputColumn
+                          refId="Package\D-Load Tables FACT_DIFERENCIASERIALIZACION\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[&quot;IX-loc-id&quot;]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="&quot;IX-loc-id&quot;"
+                          externalMetadataColumnId="Package\D-Load Tables FACT_DIFERENCIASERIALIZACION\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[IX_LocationID]"
+                          lineageId="Package\D-Load Tables FACT_DIFERENCIASERIALIZACION\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[&quot;IX-loc-id&quot;]" />
+                        <inputColumn
+                          refId="Package\D-Load Tables FACT_DIFERENCIASERIALIZACION\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[&quot;IX-status&quot;]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="&quot;IX-status&quot;"
+                          externalMetadataColumnId="Package\D-Load Tables FACT_DIFERENCIASERIALIZACION\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[IX_Status]"
+                          lineageId="Package\D-Load Tables FACT_DIFERENCIASERIALIZACION\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[&quot;IX-status&quot;]" />
+                        <inputColumn
+                          refId="Package\D-Load Tables FACT_DIFERENCIASERIALIZACION\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[&quot;IX-type&quot;]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="&quot;IX-type&quot;"
+                          externalMetadataColumnId="Package\D-Load Tables FACT_DIFERENCIASERIALIZACION\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[IX_Serializes]"
+                          lineageId="Package\D-Load Tables FACT_DIFERENCIASERIALIZACION\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[&quot;IX-type&quot;]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\D-Load Tables FACT_DIFERENCIASERIALIZACION\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LastUpdate]"
+                          dataType="dbTimeStamp"
+                          name="LastUpdate" />
+                        <externalMetadataColumn
+                          refId="Package\D-Load Tables FACT_DIFERENCIASERIALIZACION\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LastExtraction]"
+                          dataType="dbTimeStamp"
+                          name="LastExtraction" />
+                        <externalMetadataColumn
+                          refId="Package\D-Load Tables FACT_DIFERENCIASERIALIZACION\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Localsku]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          name="Localsku" />
+                        <externalMetadataColumn
+                          refId="Package\D-Load Tables FACT_DIFERENCIASERIALIZACION\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CompanyID]"
+                          codePage="1252"
+                          dataType="str"
+                          length="5"
+                          name="CompanyID" />
+                        <externalMetadataColumn
+                          refId="Package\D-Load Tables FACT_DIFERENCIASERIALIZACION\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LocationID]"
+                          codePage="1252"
+                          dataType="str"
+                          length="10"
+                          name="LocationID" />
+                        <externalMetadataColumn
+                          refId="Package\D-Load Tables FACT_DIFERENCIASERIALIZACION\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Status]"
+                          codePage="1252"
+                          dataType="str"
+                          length="5"
+                          name="Status" />
+                        <externalMetadataColumn
+                          refId="Package\D-Load Tables FACT_DIFERENCIASERIALIZACION\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Serialized]"
+                          codePage="1252"
+                          dataType="str"
+                          length="5"
+                          name="Serialized" />
+                        <externalMetadataColumn
+                          refId="Package\D-Load Tables FACT_DIFERENCIASERIALIZACION\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[IX_CompanyID]"
+                          codePage="1252"
+                          dataType="str"
+                          length="5"
+                          name="IX_CompanyID" />
+                        <externalMetadataColumn
+                          refId="Package\D-Load Tables FACT_DIFERENCIASERIALIZACION\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[IX_LocationID]"
+                          codePage="1252"
+                          dataType="str"
+                          length="10"
+                          name="IX_LocationID" />
+                        <externalMetadataColumn
+                          refId="Package\D-Load Tables FACT_DIFERENCIASERIALIZACION\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[IX_Status]"
+                          codePage="1252"
+                          dataType="str"
+                          length="5"
+                          name="IX_Status" />
+                        <externalMetadataColumn
+                          refId="Package\D-Load Tables FACT_DIFERENCIASERIALIZACION\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[IX_Serializes]"
+                          codePage="1252"
+                          dataType="str"
+                          length="5"
+                          name="IX_Serializes" />
+                        <externalMetadataColumn
+                          refId="Package\D-Load Tables FACT_DIFERENCIASERIALIZACION\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CreationDate]"
+                          dataType="dbTimeStamp"
+                          name="CreationDate" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\D-Load Tables FACT_DIFERENCIASERIALIZACION\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\D-Load Tables FACT_DIFERENCIASERIALIZACION\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\D-Load Tables FACT_DIFERENCIASERIALIZACION\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\D-Load Tables FACT_DIFERENCIASERIALIZACION\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\D-Load Tables FACT_DIFERENCIASERIALIZACION\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\D-Load Tables FACT_DIFERENCIASERIALIZACION\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\D-Load Tables FACT_DIFERENCIASERIALIZACION\Data Flow Task.Paths[Data Conversion Output]"
+                  endId="Package\D-Load Tables FACT_DIFERENCIASERIALIZACION\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  name="Data Conversion Output"
+                  startId="Package\D-Load Tables FACT_DIFERENCIASERIALIZACION\Data Flow Task\Data Conversion.Outputs[Data Conversion Output]" />
+                <path
+                  refId="Package\D-Load Tables FACT_DIFERENCIASERIALIZACION\Data Flow Task.Paths[Derived Column Output]"
+                  endId="Package\D-Load Tables FACT_DIFERENCIASERIALIZACION\Data Flow Task\Data Conversion.Inputs[Data Conversion Input]"
+                  name="Derived Column Output"
+                  startId="Package\D-Load Tables FACT_DIFERENCIASERIALIZACION\Data Flow Task\Derived Column.Outputs[Derived Column Output]" />
+                <path
+                  refId="Package\D-Load Tables FACT_DIFERENCIASERIALIZACION\Data Flow Task.Paths[Flat File Source Output]"
+                  endId="Package\D-Load Tables FACT_DIFERENCIASERIALIZACION\Data Flow Task\Derived Column.Inputs[Derived Column Input]"
+                  name="Flat File Source Output"
+                  startId="Package\D-Load Tables FACT_DIFERENCIASERIALIZACION\Data Flow Task\Flat File Source.Outputs[Flat File Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\D-Load Tables FACT_DIFERENCIASERIALIZACION\Truncate FACT_DIFERENCIASERIALIZACION"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Tarea Ejecutar SQL"
+          DTS:DTSID="{513be10a-70c7-404e-8ba6-ea7b1887e20f}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Truncate FACT_DIFERENCIASERIALIZACION"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{C078D4F0-0AA2-4B07-96BF-35D67B9A43F7}"
+              SQLTask:SqlStatementSource="truncate table [dbo].FACT_DIFERENCIASERIALIZACION" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\D-Load Tables FACT_DIFERENCIASERIALIZACION\Update FACT_DIFERENCIASERIALIZACION fechas"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Tarea Ejecutar SQL"
+          DTS:DTSID="{6c8b73ed-e50d-4956-8b79-23da9b335294}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Update FACT_DIFERENCIASERIALIZACION fechas"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{C078D4F0-0AA2-4B07-96BF-35D67B9A43F7}"
+              SQLTask:SqlStatementSource="update FACT_DIFERENCIASERIALIZACION set creationdate=getdate(), lastupdate=getdate()" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\D-Load Tables FACT_DIFERENCIASERIALIZACION.PrecedenceConstraints[Restricción]"
+          DTS:CreationName=""
+          DTS:DTSID="{668a1dbd-e664-41e5-965b-862528ae31c0}"
+          DTS:From="Package\D-Load Tables FACT_DIFERENCIASERIALIZACION\Truncate FACT_DIFERENCIASERIALIZACION"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Restricción"
+          DTS:To="Package\D-Load Tables FACT_DIFERENCIASERIALIZACION\Data Flow Task" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\D-Load Tables FACT_DIFERENCIASERIALIZACION.PrecedenceConstraints[Restricción 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{44881725-DDC0-45C3-BCC4-6D69D35D93A7}"
+          DTS:From="Package\D-Load Tables FACT_DIFERENCIASERIALIZACION\Data Flow Task"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Restricción 1"
+          DTS:To="Package\D-Load Tables FACT_DIFERENCIASERIALIZACION\Update FACT_DIFERENCIASERIALIZACION fechas" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\X - Reset Process Variables"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Reset Process Variables"
+      DTS:DTSID="{89e3056b-38e5-425d-ae8c-a28c6ecacce9}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="X - Reset Process Variables">
+      <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:FilterKind="0" />
+      <DTS:PropertyExpression
+        DTS:Name="Name">"X - Reset Process Variables"</DTS:PropertyExpression>
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\X - Reset Process Variables\Tarea Reset Ejecucion DWH-DIFERENCIASERIALIZACION"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{9f386cc3-5a8f-4ddb-b73c-602d7b54e058}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Tarea Reset Ejecucion DWH-DIFERENCIASERIALIZACION"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server v9; © 2004 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:LoggingOptions
+            DTS:FilterKind="0" />
+          <DTS:PropertyExpression
+            DTS:Name="Name">"Tarea Reset Ejecucion "+ @[System::PackageName]</DTS:PropertyExpression>
+          <DTS:PropertyExpression
+            DTS:Name="SqlStatementSource">"Update ETL.Log_Ejecucion
+Set Ejecucion = 0, Fecha_Fin = GETDATE()
+Where Paquete = ?"</DTS:PropertyExpression>
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{B318E69A-7361-48A0-81F3-1B15E0E02765}"
+              SQLTask:SqlStatementSource="Update ETL.Log_Ejecucion&#xA;Set Ejecucion = 0, Fecha_Fin = GETDATE()&#xA;Where Paquete = ?" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="System::PackageName"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="129"
+                SQLTask:ParameterSize="-1" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Y - Correct Event Task"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Correct Event Task"
+      DTS:DTSID="{c34b9c29-7e56-4469-912a-c87beea4620d}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Y - Correct Event Task"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server v9; © 2004 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:FilterKind="0" />
+      <DTS:PropertyExpression
+        DTS:Name="Name">"Y - Correct Event Task"</DTS:PropertyExpression>
+      <DTS:PropertyExpression
+        DTS:Name="SqlStatementSource">"Declare @Fecha Datetime
+Set @Fecha=Getdate(); 
+
+Insert Into ETL.Log_Evento
+values (@FECHA,?,'Correcto','Ejecucion Correcta')"</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{B318E69A-7361-48A0-81F3-1B15E0E02765}"
+          SQLTask:SqlStatementSource="Declare @Fecha Datetime&#xA;Set @Fecha=Getdate(); &#xA;&#xA;Insert Into ETL.Log_Evento&#xA;values (@FECHA,?,'Correcto','Ejecucion Correcta')" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="0"
+            SQLTask:DtsVariableName="System::PackageName"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="129"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Z - Correct Event"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Send Mail  Correct Event"
+      DTS:DTSID="{568bcce1-d53d-4281-9dca-587715de5d1a}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Z - Correct Event">
+      <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:FilterKind="0" />
+      <DTS:PropertyExpression
+        DTS:Name="Name">"Z - Correct Event"</DTS:PropertyExpression>
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Z - Correct Event\Mensaje"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{5a4c5649-765c-4aa0-98c4-0fa81118e3bb}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Mensaje"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:LoggingOptions
+            DTS:FilterKind="0" />
+          <DTS:PropertyExpression
+            DTS:Name="Name">"Mensaje"</DTS:PropertyExpression>
+          <DTS:PropertyExpression
+            DTS:Name="SqlStatementSource">"Select  'Se a ejecutado  el Paquete "+ @[System::PackageName]+"  Correctamente' "</DTS:PropertyExpression>
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{B318E69A-7361-48A0-81F3-1B15E0E02765}"
+              SQLTask:SqlStatementSource="Select  'Se a ejecutado  el Paquete DWH-DIFERENCIASERIALIZACION  Correctamente' "
+              SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ResultBinding
+                SQLTask:ResultName="0"
+                SQLTask:DtsVariableName="User::VStr_Mensaje" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="System::PackageName"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="129"
+                SQLTask:ParameterSize="-1" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Z - Correct Event\Send Mail Task"
+          DTS:CreationName="Microsoft.SendMailTask"
+          DTS:Description="Send Mail Task"
+          DTS:DTSID="{fb21e582-b78b-4889-84f6-6aa4afe6aa0e}"
+          DTS:ExecutableType="Microsoft.SendMailTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Send Mail Task"
+          DTS:TaskContact="Send Mail Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:LoggingOptions
+            DTS:FilterKind="0" />
+          <DTS:PropertyExpression
+            DTS:Name="MessageSource">@[User::VStr_Mensaje]</DTS:PropertyExpression>
+          <DTS:PropertyExpression
+            DTS:Name="Subject">@[User::VStr_Subject] + @[System::PackageName]</DTS:PropertyExpression>
+          <DTS:PropertyExpression
+            DTS:Name="ToLine">@[User::VStr_EmailTo]</DTS:PropertyExpression>
+          <DTS:ObjectData>
+            <SendMailTask:SendMailTaskData
+              SendMailTask:SMTPServer="{F6E9BCB2-5A0A-46AC-B120-8EE4F7DC6F98}"
+              SendMailTask:From="sqladmin@intcomex.com"
+              SendMailTask:To="ETLSupport@intcomex.com"
+              SendMailTask:Subject="Correct Execution Admin ETL :DWH-DIFERENCIASERIALIZACION" xmlns:SendMailTask="www.microsoft.com/sqlserver/dts/tasks/sendmailtask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Z - Correct Event.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{44f12a17-54af-4fbd-861c-3597d508ba8f}"
+          DTS:From="Package\Z - Correct Event\Mensaje"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\Z - Correct Event\Send Mail Task" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{2656ea35-464a-43ca-bf03-d13ca9bbc3f7}"
+      DTS:EvalOp="3"
+      DTS:Expression="@VInt_Ejecucion==1"
+      DTS:From="Package\A - Execution Control"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\B - Task Home DWH-DIFERENCIASERIALIZACION" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Restricción]"
+      DTS:CreationName=""
+      DTS:DTSID="{09E08E78-719E-4003-89EB-08013A067770}"
+      DTS:From="Package\C  - Download prodserext File FTP"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Restricción"
+      DTS:To="Package\D-Load Tables FACT_DIFERENCIASERIALIZACION" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Restricción 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{B0B9D8D9-5EDE-49ED-BB13-2D2C25C63552}"
+      DTS:From="Package\Y - Correct Event Task"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Restricción 1"
+      DTS:To="Package\Z - Correct Event" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Restricción 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{B0483AB7-9B18-417E-BD8E-0A8C7C767BC7}"
+      DTS:From="Package\X - Reset Process Variables"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Restricción 2"
+      DTS:To="Package\Y - Correct Event Task" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Restricción 3]"
+      DTS:CreationName=""
+      DTS:DTSID="{b4f5c48c-3933-4d4f-bea9-7f6cac8c5bfe}"
+      DTS:From="Package\B - Task Home DWH-DIFERENCIASERIALIZACION"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Restricción 3"
+      DTS:To="Package\C  - Download prodserext File FTP" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Restricción 4]"
+      DTS:CreationName=""
+      DTS:DTSID="{2F0FF138-8289-406B-BFDD-02EA22110A76}"
+      DTS:From="Package\D-Load Tables FACT_DIFERENCIASERIALIZACION"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Restricción 4"
+      DTS:To="Package\X - Reset Process Variables" />
+  </DTS:PrecedenceConstraints>
+  <DTS:EventHandlers>
+    <DTS:EventHandler
+      DTS:refId="Package.EventHandlers[OnError]"
+      DTS:CreationName="OnError"
+      DTS:DTSID="{061D186F-3A4C-464D-8938-B271A5C75DAC}"
+      DTS:EventID="0"
+      DTS:EventName="OnError"
+      DTS:LocaleID="-1">
+      <DTS:Variables>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:Description="The propagate property of the event"
+          DTS:DTSID="{A2410DAD-7B8B-4C3C-BAB2-E96B0BDE320B}"
+          DTS:IncludeInDebugDump="6789"
+          DTS:Namespace="System"
+          DTS:ObjectName="Propagate">
+          <DTS:VariableValue
+            DTS:DataType="11">-1</DTS:VariableValue>
+        </DTS:Variable>
+      </DTS:Variables>
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package.EventHandlers[OnError]\Event Error"
+          DTS:CreationName="STOCK:SEQUENCE"
+          DTS:Description="Send Mail  Error Event"
+          DTS:DTSID="{e6d09e15-4450-4c39-920d-0868e8ae952c}"
+          DTS:ExecutableType="STOCK:SEQUENCE"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Event Error">
+          <DTS:Variables />
+          <DTS:PropertyExpression
+            DTS:Name="Name">"Event Error"</DTS:PropertyExpression>
+          <DTS:Executables>
+            <DTS:Executable
+              DTS:refId="Package.EventHandlers[OnError]\Event Error\Mensaje"
+              DTS:CreationName="Microsoft.ExecuteSQLTask"
+              DTS:Description="Execute SQL Task"
+              DTS:DTSID="{b0799c7e-4f2c-42ba-85d2-49966758ddea}"
+              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="Mensaje"
+              DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+              <DTS:Variables />
+              <DTS:PropertyExpression
+                DTS:Name="Name">"Mensaje"</DTS:PropertyExpression>
+              <DTS:PropertyExpression
+                DTS:Name="SqlStatementSource">"Declare @Error varchar (500)
+Declare @Paquete varchar (100)
+Set @Error=(select Descripcion_Event from  ETL.LOG_Evento where Pk_Evento=(select MAX(Pk_Evento) from ETL.LOG_Evento )) 
+set @Paquete=?
+select  'Se a Presentado Un Fallo en el Paquete '+@Paquete+'   El mensaje de Error es :' 
++ @Error"</DTS:PropertyExpression>
+              <DTS:ObjectData>
+                <SQLTask:SqlTaskData
+                  SQLTask:Connection="{B318E69A-7361-48A0-81F3-1B15E0E02765}"
+                  SQLTask:SqlStatementSource="Declare @Error varchar (500)&#xA;Declare @Paquete varchar (100)&#xA;Set @Error=(select Descripcion_Event from  ETL.LOG_Evento where Pk_Evento=(select MAX(Pk_Evento) from ETL.LOG_Evento )) &#xA;set @Paquete=?&#xA;select  'Se a Presentado Un Fallo en el Paquete '+@Paquete+'   El mensaje de Error es :' &#xA;+ @Error"
+                  SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+                  <SQLTask:ResultBinding
+                    SQLTask:ResultName="0"
+                    SQLTask:DtsVariableName="User::VStr_Mensaje" />
+                  <SQLTask:ParameterBinding
+                    SQLTask:ParameterName="0"
+                    SQLTask:DtsVariableName="System::PackageName"
+                    SQLTask:ParameterDirection="Input"
+                    SQLTask:DataType="129"
+                    SQLTask:ParameterSize="-1" />
+                </SQLTask:SqlTaskData>
+              </DTS:ObjectData>
+            </DTS:Executable>
+            <DTS:Executable
+              DTS:refId="Package.EventHandlers[OnError]\Event Error\Send Mail Task"
+              DTS:CreationName="Microsoft.SendMailTask"
+              DTS:Description="Send Mail Task"
+              DTS:DTSID="{c05b4b02-04f2-483d-a3ec-ba3c47c9dc05}"
+              DTS:ExecutableType="Microsoft.SendMailTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="Send Mail Task"
+              DTS:TaskContact="Send Mail Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+              <DTS:Variables />
+              <DTS:PropertyExpression
+                DTS:Name="MessageSource">@[User::VStr_Mensaje]</DTS:PropertyExpression>
+              <DTS:PropertyExpression
+                DTS:Name="Subject">@[User::VStr_SubjectError] + @[System::PackageName]</DTS:PropertyExpression>
+              <DTS:PropertyExpression
+                DTS:Name="ToLine">@[User::VStr_EmailTo]</DTS:PropertyExpression>
+              <DTS:ObjectData>
+                <SendMailTask:SendMailTaskData
+                  SendMailTask:SMTPServer="{F6E9BCB2-5A0A-46AC-B120-8EE4F7DC6F98}"
+                  SendMailTask:From="sqladmin@intcomex.com"
+                  SendMailTask:To="ETLSupport@intcomex.com"
+                  SendMailTask:Subject="ERROR Execution !!!!  Admin ETL :DWH-DIFERENCIASERIALIZACION" xmlns:SendMailTask="www.microsoft.com/sqlserver/dts/tasks/sendmailtask" />
+              </DTS:ObjectData>
+            </DTS:Executable>
+          </DTS:Executables>
+          <DTS:PrecedenceConstraints>
+            <DTS:PrecedenceConstraint
+              DTS:refId="Package.EventHandlers[OnError]\Event Error.PrecedenceConstraints[Constraint]"
+              DTS:CreationName=""
+              DTS:DTSID="{715a8ffa-76e6-40e9-943f-015b8bdd622d}"
+              DTS:From="Package.EventHandlers[OnError]\Event Error\Mensaje"
+              DTS:LogicalAnd="True"
+              DTS:ObjectName="Constraint"
+              DTS:To="Package.EventHandlers[OnError]\Event Error\Send Mail Task" />
+          </DTS:PrecedenceConstraints>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package.EventHandlers[OnError]\Process Control Errors"
+          DTS:CreationName="STOCK:SEQUENCE"
+          DTS:Description="Task Error Event"
+          DTS:DTSID="{6b33b5bd-56a9-451f-afb2-ab71772e7b00}"
+          DTS:ExecutableType="STOCK:SEQUENCE"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Process Control Errors">
+          <DTS:Variables />
+          <DTS:PropertyExpression
+            DTS:Name="Name">"Process Control Errors"</DTS:PropertyExpression>
+          <DTS:Executables>
+            <DTS:Executable
+              DTS:refId="Package.EventHandlers[OnError]\Process Control Errors\Tarea Evento Fallo"
+              DTS:CreationName="Microsoft.ExecuteSQLTask"
+              DTS:Description="Execute SQL Task"
+              DTS:DTSID="{344280a8-fd7a-4a0b-b59d-c1fe7a2dcc1f}"
+              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="Tarea Evento Fallo"
+              DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server v9; © 2004 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+              <DTS:Variables />
+              <DTS:PropertyExpression
+                DTS:Name="Name">"Tarea Evento Fallo"</DTS:PropertyExpression>
+              <DTS:PropertyExpression
+                DTS:Name="SqlStatementSource">"Declare @Fecha Datetime
+Set @Fecha=Getdate(); 
+Insert Into ETL.Log_Evento
+values (@FECHA,?,'Error',?)"</DTS:PropertyExpression>
+              <DTS:ObjectData>
+                <SQLTask:SqlTaskData
+                  SQLTask:Connection="{C831DBD2-DF9C-4CA1-B875-C3718DD6032D}"
+                  SQLTask:SqlStatementSource="Declare @Fecha Datetime&#xA;Set @Fecha=Getdate(); &#xA;Insert Into ETL.Log_Evento&#xA;values (@FECHA,?,'Error',?)" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+                  <SQLTask:ParameterBinding
+                    SQLTask:ParameterName="0"
+                    SQLTask:DtsVariableName="System::PackageName"
+                    SQLTask:ParameterDirection="Input"
+                    SQLTask:DataType="129"
+                    SQLTask:ParameterSize="-1" />
+                  <SQLTask:ParameterBinding
+                    SQLTask:ParameterName="1"
+                    SQLTask:DtsVariableName="System::ErrorDescription"
+                    SQLTask:ParameterDirection="Input"
+                    SQLTask:DataType="129"
+                    SQLTask:ParameterSize="-1" />
+                </SQLTask:SqlTaskData>
+              </DTS:ObjectData>
+            </DTS:Executable>
+            <DTS:Executable
+              DTS:refId="Package.EventHandlers[OnError]\Process Control Errors\Tarea Reset Ejecucion DWH-DIFERENCIASERIALIZACION"
+              DTS:CreationName="Microsoft.ExecuteSQLTask"
+              DTS:Description="Execute SQL Task"
+              DTS:DTSID="{8ad99c63-0145-497b-bb16-dc605392256b}"
+              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="Tarea Reset Ejecucion DWH-DIFERENCIASERIALIZACION"
+              DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server v9; © 2004 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+              <DTS:Variables />
+              <DTS:LoggingOptions
+                DTS:FilterKind="0" />
+              <DTS:PropertyExpression
+                DTS:Name="Name">"Tarea Reset Ejecucion "+ @[System::PackageName]</DTS:PropertyExpression>
+              <DTS:PropertyExpression
+                DTS:Name="SqlStatementSource">"Update ETL.Log_Ejecucion
+Set Ejecucion = 0, Fecha_Fin = GETDATE()
+Where Paquete = ?"</DTS:PropertyExpression>
+              <DTS:ObjectData>
+                <SQLTask:SqlTaskData
+                  SQLTask:Connection="{C831DBD2-DF9C-4CA1-B875-C3718DD6032D}"
+                  SQLTask:SqlStatementSource="Update ETL.Log_Ejecucion&#xA;Set Ejecucion = 0, Fecha_Fin = GETDATE()&#xA;Where Paquete = ?" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+                  <SQLTask:ParameterBinding
+                    SQLTask:ParameterName="0"
+                    SQLTask:DtsVariableName="System::PackageName"
+                    SQLTask:ParameterDirection="Input"
+                    SQLTask:DataType="129"
+                    SQLTask:ParameterSize="-1" />
+                </SQLTask:SqlTaskData>
+              </DTS:ObjectData>
+            </DTS:Executable>
+          </DTS:Executables>
+          <DTS:PrecedenceConstraints>
+            <DTS:PrecedenceConstraint
+              DTS:refId="Package.EventHandlers[OnError]\Process Control Errors.PrecedenceConstraints[Restricción]"
+              DTS:CreationName=""
+              DTS:DTSID="{bb1934af-5bff-4db0-9954-939a864ba833}"
+              DTS:From="Package.EventHandlers[OnError]\Process Control Errors\Tarea Reset Ejecucion DWH-DIFERENCIASERIALIZACION"
+              DTS:LogicalAnd="True"
+              DTS:ObjectName="Restricción"
+              DTS:To="Package.EventHandlers[OnError]\Process Control Errors\Tarea Evento Fallo" />
+          </DTS:PrecedenceConstraints>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package.EventHandlers[OnError].PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{647ff1de-eac0-4f68-b745-5ffce0584b80}"
+          DTS:From="Package.EventHandlers[OnError]\Process Control Errors"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package.EventHandlers[OnError]\Event Error" />
+      </DTS:PrecedenceConstraints>
+    </DTS:EventHandler>
+  </DTS:EventHandlers>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Esta sección CDATA contiene la información de diseño del paquete. Esta sección incluye información como, por ejemplo, las coordenadas (x,y), el ancho y el alto.-->
+<!--Si edita manualmente esta sección y comete un error, puede eliminarlo. -->
+<!--El paquete podrá cargarse normalmente, pero se perderá la información de diseño anterior y el diseñador reorganizará los elementos automáticamente en la superficie de diseño.-->
+<Objects
+  Version="8">
+  <!--Cada uno de los nodos siguientes contiene propiedades que no afectan al comportamiento en tiempo de ejecución.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="179,42"
+          Id="Package\A - Execution Control"
+          TopLeft="460,49" />
+        <NodeLayout
+          Size="197,42"
+          Id="Package\B - Task Home DWH-DIFERENCIASERIALIZACION"
+          TopLeft="452,144" />
+        <NodeLayout
+          Size="240,42"
+          Id="Package\C  - Download prodserext File FTP"
+          TopLeft="431,227" />
+        <NodeLayout
+          Size="151,42"
+          Id="Package\D-Load Tables FACT_DIFERENCIASERIALIZACION\Data Flow Task"
+          TopLeft="114,100" />
+        <NodeLayout
+          Size="289,42"
+          Id="Package\D-Load Tables FACT_DIFERENCIASERIALIZACION\Truncate FACT_DIFERENCIASERIALIZACION"
+          TopLeft="47,28" />
+        <NodeLayout
+          Size="315,42"
+          Id="Package\D-Load Tables FACT_DIFERENCIASERIALIZACION\Update FACT_DIFERENCIASERIALIZACION fechas"
+          TopLeft="36,182" />
+        <EdgeLayout
+          Id="Package\D-Load Tables FACT_DIFERENCIASERIALIZACION.PrecedenceConstraints[Restricción]"
+          TopLeft="190.5,70">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,30"
+              Start="0,0"
+              End="0,22.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,22.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\D-Load Tables FACT_DIFERENCIASERIALIZACION.PrecedenceConstraints[Restricción 1]"
+          TopLeft="191.5,142">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,40"
+              Start="0,0"
+              End="0,32.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,32.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="408,274"
+          Size="408,317"
+          Id="Package\D-Load Tables FACT_DIFERENCIASERIALIZACION"
+          TopLeft="373,325" />
+        <NodeLayout
+          Size="183,44"
+          Id="Package\X - Reset Process Variables\Tarea Reset Ejecucion DWH-DIFERENCIASERIALIZACION"
+          TopLeft="20.5471698113208,7.47169811320759" />
+        <ContainerLayout
+          HeaderHeight="43.924528301886795"
+          IsExpanded="True"
+          PanelSize="230,107"
+          Size="230,151"
+          Id="Package\X - Reset Process Variables"
+          TopLeft="483,693" />
+        <NodeLayout
+          Size="185,42"
+          Id="Package\Y - Correct Event Task"
+          TopLeft="500.132075471698,914.56603773585" />
+        <NodeLayout
+          Size="136,44"
+          Id="Package\Z - Correct Event\Mensaje"
+          TopLeft="7.54716981132083,8.47169811320759" />
+        <NodeLayout
+          Size="136,44"
+          Id="Package\Z - Correct Event\Send Mail Task"
+          TopLeft="7.54716981132083,90.1320754716983" />
+        <EdgeLayout
+          Id="Package\Z - Correct Event.PrecedenceConstraints[Constraint]"
+          TopLeft="75.433962264151,52.3962264150944">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,37.7358490566039"
+              Start="0,0"
+              End="0,30.2358490566039">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,30.2358490566039" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43.924528301886795"
+          IsExpanded="True"
+          PanelSize="182,141"
+          Size="182,185"
+          Id="Package\Z - Correct Event"
+          TopLeft="496.433962264151,1035.05660377358" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="550,91">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,53"
+              Start="0,0"
+              End="0,45.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,45.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-8,14.75,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Restricción]"
+          TopLeft="551,269">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="26,56"
+              Start="0,0"
+              End="26,48.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,24" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,24"
+                    Point2="0,28"
+                    Point3="4,28" />
+                  <mssgle:LineSegment
+                    End="22,28" />
+                  <mssgle:CubicBezierSegment
+                    Point1="22,28"
+                    Point2="26,28"
+                    Point3="26,32" />
+                  <mssgle:LineSegment
+                    End="26,48.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Restricción 1]"
+          TopLeft="590.033018867925,956.56603773585">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,78.4905660377301"
+              Start="0,0"
+              End="0,70.9905660377301">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,70.9905660377301" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Restricción 2]"
+          TopLeft="595.316037735849,844">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,70.5660377358499"
+              Start="0,0"
+              End="0,63.0660377358499">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,63.0660377358499" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Restricción 3]"
+          TopLeft="550.75,186">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,41"
+              Start="0,0"
+              End="0,33.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,33.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Restricción 4]"
+          TopLeft="577,642">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="21,51"
+              Start="0,0"
+              End="21,43.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,21.5"
+                    Point2="0,25.5"
+                    Point3="4,25.5" />
+                  <mssgle:LineSegment
+                    End="17,25.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="17,25.5"
+                    Point2="21,25.5"
+                    Point3="21,29.5" />
+                  <mssgle:LineSegment
+                    End="21,43.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <DtsEventHandler
+    design-time-name="Package.EventHandlers[OnError]">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="136,44"
+          Id="Package.EventHandlers[OnError]\Event Error\Mensaje"
+          TopLeft="41.5471698113207,19.5660377358491" />
+        <NodeLayout
+          Size="136,44"
+          Id="Package.EventHandlers[OnError]\Event Error\Send Mail Task"
+          TopLeft="41.9622641509434,105.566037735849" />
+        <EdgeLayout
+          Id="Package.EventHandlers[OnError]\Event Error.PrecedenceConstraints[Constraint]"
+          TopLeft="109.433962264151,63.4905660377358">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0.415094339622641,42.0754716981132"
+              Start="0,0"
+              End="0.415094339622641,34.5754716981132">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21.0188679245283" />
+                  <mssgle:LineSegment
+                    End="0.415094339622641,21.0188679245283" />
+                  <mssgle:LineSegment
+                    End="0.415094339622641,34.5754716981132" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43.924528301886795"
+          IsExpanded="True"
+          PanelSize="292,189.075471698114"
+          Size="292,233"
+          Id="Package.EventHandlers[OnError]\Event Error"
+          TopLeft="60,173" />
+        <NodeLayout
+          Size="230,44"
+          Id="Package.EventHandlers[OnError]\Process Control Errors\Tarea Evento Fallo"
+          TopLeft="30.0377358490566,88.2452830188679" />
+        <NodeLayout
+          Size="225,44"
+          Id="Package.EventHandlers[OnError]\Process Control Errors\Tarea Reset Ejecucion DWH-DIFERENCIASERIALIZACION"
+          TopLeft="34.5283018867925,14.8867924528302" />
+        <EdgeLayout
+          Id="Package.EventHandlers[OnError]\Process Control Errors.PrecedenceConstraints[Restricción]"
+          TopLeft="NaN,NaN">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="{assembly:Null}"
+              Start="0,0"
+              End="0,0">
+              <mssgle:Curve.Segments>
+                <assembly:Null />
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="44"
+          IsExpanded="False"
+          PanelSize="296,159"
+          Size="206,44"
+          Id="Package.EventHandlers[OnError]\Process Control Errors"
+          TopLeft="94.9999999999999,60" />
+        <EdgeLayout
+          Id="Package.EventHandlers[OnError].PrecedenceConstraints[Constraint]"
+          TopLeft="198,104">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="8.00000000000011,69"
+              Start="0,0"
+              End="8.00000000000011,61.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,30.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,30.5"
+                    Point2="0,34.5"
+                    Point3="4,34.5" />
+                  <mssgle:LineSegment
+                    End="4.00000000000011,34.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="4.00000000000011,34.5"
+                    Point2="8.00000000000011,34.5"
+                    Point3="8.00000000000011,38.5" />
+                  <mssgle:LineSegment
+                    End="8.00000000000011,61.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </DtsEventHandler>
+  <DtsEventHandler
+    design-time-name="Package\A - Execution Control.EventHandlers[OnPreExecute]">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="136,44"
+          Id="{ae53db23-e442-4903-aae1-3e1699927651}"
+          TopLeft="5.5,5.5" />
+      </GraphLayout>
+    </LayoutInfo>
+  </DtsEventHandler>
+  <DtsEventHandler
+    design-time-name="Package\A - Execution Control.EventHandlers[OnPostExecute]">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="136,44"
+          Id="{e0299b72-83e8-4219-ab64-d69964f95473}"
+          TopLeft="5.5,5.5" />
+      </GraphLayout>
+    </LayoutInfo>
+  </DtsEventHandler>
+  <DtsEventHandler
+    design-time-name="Package\A - Execution Control.EventHandlers[OnError]">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="136,44"
+          Id="{1541b623-ed10-43fd-9e2e-2b5ecf8741be}"
+          TopLeft="5.5,5.5" />
+      </GraphLayout>
+    </LayoutInfo>
+  </DtsEventHandler>
+  <DtsEventHandler
+    design-time-name="Package\B - Task Home DWH-DIFERENCIASERIALIZACION.EventHandlers[OnPreExecute]">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="136,44"
+          Id="{fba84609-776e-4f07-b15f-ed43a3101779}"
+          TopLeft="5.5,5.5" />
+      </GraphLayout>
+    </LayoutInfo>
+  </DtsEventHandler>
+  <DtsEventHandler
+    design-time-name="Package\B - Task Home DWH-DIFERENCIASERIALIZACION.EventHandlers[OnPostExecute]">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="304,42"
+          Id="{e3525397-d0ee-499f-ba9b-98469e74c1db}"
+          TopLeft="5.5,5.5" />
+      </GraphLayout>
+    </LayoutInfo>
+  </DtsEventHandler>
+  <DtsEventHandler
+    design-time-name="Package\B - Task Home DWH-DIFERENCIASERIALIZACION.EventHandlers[OnError]">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="304,42"
+          Id="{7b0f4b17-fc3f-4870-bdbb-5f59b549004e}"
+          TopLeft="5.5,5.5" />
+      </GraphLayout>
+    </LayoutInfo>
+  </DtsEventHandler>
+  <TaskHost
+    design-time-name="Package\D-Load Tables FACT_DIFERENCIASERIALIZACION\Data Flow Task">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="171,42"
+          Id="Package\D-Load Tables FACT_DIFERENCIASERIALIZACION\Data Flow Task\OLE DB Destination"
+          TopLeft="349,225" />
+        <NodeLayout
+          Size="151,42"
+          Id="Package\D-Load Tables FACT_DIFERENCIASERIALIZACION\Data Flow Task\Flat File Source"
+          TopLeft="362,20" />
+        <NodeLayout
+          Size="154,42"
+          Id="Package\D-Load Tables FACT_DIFERENCIASERIALIZACION\Data Flow Task\Derived Column"
+          TopLeft="364,87" />
+        <EdgeLayout
+          Id="Package\D-Load Tables FACT_DIFERENCIASERIALIZACION\Data Flow Task.Paths[Flat File Source Output]"
+          TopLeft="439.25,62">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,25"
+              Start="0,0"
+              End="0,17.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,17.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="156,42"
+          Id="Package\D-Load Tables FACT_DIFERENCIASERIALIZACION\Data Flow Task\Data Conversion"
+          TopLeft="362,152" />
+        <EdgeLayout
+          Id="Package\D-Load Tables FACT_DIFERENCIASERIALIZACION\Data Flow Task.Paths[Derived Column Output]"
+          TopLeft="440.5,129">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,23"
+              Start="0,0"
+              End="0,15.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,15.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\D-Load Tables FACT_DIFERENCIASERIALIZACION\Data Flow Task.Paths[Data Conversion Output]"
+          TopLeft="437.25,194">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,31"
+              Start="0,0"
+              End="0,23.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,23.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\D-Load Tables FACT_DIFERENCIASERIALIZACION\Data Flow Task\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

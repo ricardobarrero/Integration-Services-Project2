@@ -1,0 +1,1902 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="5/24/2021 7:14:46 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="XCB-XCBRBARR"
+  DTS:CreatorName="INTCOMEX\xcbrbarr"
+  DTS:Description="DTS Wizard-generated package"
+  DTS:DTSID="{4A330CA2-5A15-4D03-8847-1B7C451156D9}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.150"
+  DTS:LocaleID="21514"
+  DTS:MaxErrorCount="0"
+  DTS:ObjectName="Package2"
+  DTS:VersionBuild="1"
+  DTS:VersionGUID="{FC20FDD7-D3BA-412D-80D2-D9E2399A9ADC}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DestinationConnectionOLEDB]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{BD922612-F433-4FBD-B707-F5A2B50EF188}"
+      DTS:ObjectName="DestinationConnectionOLEDB">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=S91SQLUS;User ID=etluser;Initial Catalog=DWStaging;Provider=SQLNCLI11;Auto Translate=false;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAARHVuP+oaqkSvaKg8a4ToLQAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAABcleVE6rYXOzyOSJ1QwHSCAAAAAASAAACgAAAAEAAAANdU+AxjeshwC/rmUAxt39YYAAAA5hfnNY9DnuUhEaMrmZ3MSGOodbGrnJlaFAAAAOlQ258bSEE2NsVw2E64YU/Y4zO6</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[SourceConnectionOLEDB]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{1990E842-D46F-4EC8-867D-0E4AABF88448}"
+      DTS:ObjectName="SourceConnectionOLEDB">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=S91SQLUS;User ID=etluser;Initial Catalog=DWStaging;Provider=SQLNCLI11;Auto Translate=false;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAARHVuP+oaqkSvaKg8a4ToLQAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAAAZfUUP9Mjo2t6LS3hCW/DiAAAAAASAAACgAAAAEAAAAKPdxACTZ/JRo7x/+qYToSwYAAAANFtS/zTTejrAkPAWVGjxfB+tSXetoNWXFAAAAOJItZ7Dcnw7xyErVnGpFigmfozz</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Tarea Flujo de datos 1"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:DTSID="{278FC1EC-C38E-415A-A3EE-91B43B81E53F}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:FailPackageOnFailure="True"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Tarea Flujo de datos 1"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          defaultBufferSize="3145728"
+          version="1">
+          <components>
+            <component
+              refId="Package\Tarea Flujo de datos 1\Conversión de datos 0 - 0"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="Conversión de datos 0 - 0"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Tarea Flujo de datos 1\Conversión de datos 0 - 0.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos 1\Conversión de datos 0 - 0.Inputs[Data Conversion Input].Columns[SPA_seq]"
+                      cachedDataType="nText"
+                      cachedName="SPA_seq"
+                      lineageId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Output].Columns[SPA_seq]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos 1\Conversión de datos 0 - 0.Inputs[Data Conversion Input].Columns[SPA_SD_no]"
+                      cachedDataType="nText"
+                      cachedName="SPA_SD_no"
+                      lineageId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Output].Columns[SPA_SD_no]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos 1\Conversión de datos 0 - 0.Inputs[Data Conversion Input].Columns[SPA_ID_Description]"
+                      cachedDataType="nText"
+                      cachedName="SPA_ID_Description"
+                      lineageId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Output].Columns[SPA_ID_Description]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos 1\Conversión de datos 0 - 0.Inputs[Data Conversion Input].Columns[SDB_Supp_ID]"
+                      cachedDataType="nText"
+                      cachedName="SDB_Supp_ID"
+                      lineageId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Output].Columns[SDB_Supp_ID]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos 1\Conversión de datos 0 - 0.Inputs[Data Conversion Input].Columns[SDB_Effect_date]"
+                      cachedDataType="nText"
+                      cachedName="SDB_Effect_date"
+                      lineageId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Output].Columns[SDB_Effect_date]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos 1\Conversión de datos 0 - 0.Inputs[Data Conversion Input].Columns[SDB_Expiry_date]"
+                      cachedDataType="nText"
+                      cachedName="SDB_Expiry_date"
+                      lineageId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Output].Columns[SDB_Expiry_date]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos 1\Conversión de datos 0 - 0.Inputs[Data Conversion Input].Columns[SDB_Claim_deadline]"
+                      cachedDataType="nText"
+                      cachedName="SDB_Claim_deadline"
+                      lineageId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Output].Columns[SDB_Claim_deadline]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos 1\Conversión de datos 0 - 0.Inputs[Data Conversion Input].Columns[SPA_Number]"
+                      cachedDataType="nText"
+                      cachedName="SPA_Number"
+                      lineageId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Output].Columns[SPA_Number]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos 1\Conversión de datos 0 - 0.Inputs[Data Conversion Input].Columns[SDB_Reference]"
+                      cachedDataType="nText"
+                      cachedName="SDB_Reference"
+                      lineageId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Output].Columns[SDB_Reference]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos 1\Conversión de datos 0 - 0.Inputs[Data Conversion Input].Columns[SPA_IP_Doc_number]"
+                      cachedDataType="nText"
+                      cachedName="SPA_IP_Doc_number"
+                      lineageId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Output].Columns[SPA_IP_Doc_number]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Tarea Flujo de datos 1\Conversión de datos 0 - 0.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\Tarea Flujo de datos 1\Conversión de datos 0 - 0.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos 1\Conversión de datos 0 - 0.Outputs[Data Conversion Output].Columns[SPA_seq]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="100"
+                      lineageId="Package\Tarea Flujo de datos 1\Conversión de datos 0 - 0.Outputs[Data Conversion Output].Columns[SPA_seq]"
+                      name="SPA_seq"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Output].Columns[SPA_seq]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos 1\Conversión de datos 0 - 0.Outputs[Data Conversion Output].Columns[SPA_SD_no]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="100"
+                      lineageId="Package\Tarea Flujo de datos 1\Conversión de datos 0 - 0.Outputs[Data Conversion Output].Columns[SPA_SD_no]"
+                      name="SPA_SD_no"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Output].Columns[SPA_SD_no]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos 1\Conversión de datos 0 - 0.Outputs[Data Conversion Output].Columns[SPA_ID_Description]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Tarea Flujo de datos 1\Conversión de datos 0 - 0.Outputs[Data Conversion Output].Columns[SPA_ID_Description]"
+                      name="SPA_ID_Description"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Output].Columns[SPA_ID_Description]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos 1\Conversión de datos 0 - 0.Outputs[Data Conversion Output].Columns[SDB_Supp_ID]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Tarea Flujo de datos 1\Conversión de datos 0 - 0.Outputs[Data Conversion Output].Columns[SDB_Supp_ID]"
+                      name="SDB_Supp_ID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Output].Columns[SDB_Supp_ID]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos 1\Conversión de datos 0 - 0.Outputs[Data Conversion Output].Columns[SDB_Effect_date]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="100"
+                      lineageId="Package\Tarea Flujo de datos 1\Conversión de datos 0 - 0.Outputs[Data Conversion Output].Columns[SDB_Effect_date]"
+                      name="SDB_Effect_date"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Output].Columns[SDB_Effect_date]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos 1\Conversión de datos 0 - 0.Outputs[Data Conversion Output].Columns[SDB_Expiry_date]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="100"
+                      lineageId="Package\Tarea Flujo de datos 1\Conversión de datos 0 - 0.Outputs[Data Conversion Output].Columns[SDB_Expiry_date]"
+                      name="SDB_Expiry_date"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Output].Columns[SDB_Expiry_date]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos 1\Conversión de datos 0 - 0.Outputs[Data Conversion Output].Columns[SDB_Claim_deadline]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="100"
+                      lineageId="Package\Tarea Flujo de datos 1\Conversión de datos 0 - 0.Outputs[Data Conversion Output].Columns[SDB_Claim_deadline]"
+                      name="SDB_Claim_deadline"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Output].Columns[SDB_Claim_deadline]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos 1\Conversión de datos 0 - 0.Outputs[Data Conversion Output].Columns[SPA_Number]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Tarea Flujo de datos 1\Conversión de datos 0 - 0.Outputs[Data Conversion Output].Columns[SPA_Number]"
+                      name="SPA_Number"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Output].Columns[SPA_Number]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos 1\Conversión de datos 0 - 0.Outputs[Data Conversion Output].Columns[SDB_Reference]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Tarea Flujo de datos 1\Conversión de datos 0 - 0.Outputs[Data Conversion Output].Columns[SDB_Reference]"
+                      name="SDB_Reference"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Output].Columns[SDB_Reference]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos 1\Conversión de datos 0 - 0.Outputs[Data Conversion Output].Columns[SPA_IP_Doc_number]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Tarea Flujo de datos 1\Conversión de datos 0 - 0.Outputs[Data Conversion Output].Columns[SPA_IP_Doc_number]"
+                      name="SPA_IP_Doc_number"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Output].Columns[SPA_IP_Doc_number]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Tarea Flujo de datos 1\Conversión de datos 0 - 0.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\Tarea Flujo de datos 1\Conversión de datos 0 - 0.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos 1\Conversión de datos 0 - 0.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Flujo de datos 1\Conversión de datos 0 - 0.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos 1\Conversión de datos 0 - 0.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Flujo de datos 1\Conversión de datos 0 - 0.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Tarea Flujo de datos 1\Conversión de datos 0 - 1"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="Conversión de datos 0 - 1"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Tarea Flujo de datos 1\Conversión de datos 0 - 1.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos 1\Conversión de datos 0 - 1.Inputs[Data Conversion Input].Columns[SPA_seq]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="SPA_seq"
+                      lineageId="Package\Tarea Flujo de datos 1\Conversión de datos 0 - 0.Outputs[Data Conversion Output].Columns[SPA_seq]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos 1\Conversión de datos 0 - 1.Inputs[Data Conversion Input].Columns[SPA_SD_no]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="SPA_SD_no"
+                      lineageId="Package\Tarea Flujo de datos 1\Conversión de datos 0 - 0.Outputs[Data Conversion Output].Columns[SPA_SD_no]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos 1\Conversión de datos 0 - 1.Inputs[Data Conversion Input].Columns[SPA_ID_Description]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="SPA_ID_Description"
+                      lineageId="Package\Tarea Flujo de datos 1\Conversión de datos 0 - 0.Outputs[Data Conversion Output].Columns[SPA_ID_Description]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos 1\Conversión de datos 0 - 1.Inputs[Data Conversion Input].Columns[SDB_Supp_ID]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="SDB_Supp_ID"
+                      lineageId="Package\Tarea Flujo de datos 1\Conversión de datos 0 - 0.Outputs[Data Conversion Output].Columns[SDB_Supp_ID]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos 1\Conversión de datos 0 - 1.Inputs[Data Conversion Input].Columns[SDB_Effect_date]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="SDB_Effect_date"
+                      lineageId="Package\Tarea Flujo de datos 1\Conversión de datos 0 - 0.Outputs[Data Conversion Output].Columns[SDB_Effect_date]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos 1\Conversión de datos 0 - 1.Inputs[Data Conversion Input].Columns[SDB_Expiry_date]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="SDB_Expiry_date"
+                      lineageId="Package\Tarea Flujo de datos 1\Conversión de datos 0 - 0.Outputs[Data Conversion Output].Columns[SDB_Expiry_date]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos 1\Conversión de datos 0 - 1.Inputs[Data Conversion Input].Columns[SDB_Claim_deadline]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="SDB_Claim_deadline"
+                      lineageId="Package\Tarea Flujo de datos 1\Conversión de datos 0 - 0.Outputs[Data Conversion Output].Columns[SDB_Claim_deadline]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos 1\Conversión de datos 0 - 1.Inputs[Data Conversion Input].Columns[SPA_Number]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="SPA_Number"
+                      lineageId="Package\Tarea Flujo de datos 1\Conversión de datos 0 - 0.Outputs[Data Conversion Output].Columns[SPA_Number]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos 1\Conversión de datos 0 - 1.Inputs[Data Conversion Input].Columns[SDB_Reference]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="SDB_Reference"
+                      lineageId="Package\Tarea Flujo de datos 1\Conversión de datos 0 - 0.Outputs[Data Conversion Output].Columns[SDB_Reference]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos 1\Conversión de datos 0 - 1.Inputs[Data Conversion Input].Columns[SPA_IP_Doc_number]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="SPA_IP_Doc_number"
+                      lineageId="Package\Tarea Flujo de datos 1\Conversión de datos 0 - 0.Outputs[Data Conversion Output].Columns[SPA_IP_Doc_number]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Tarea Flujo de datos 1\Conversión de datos 0 - 1.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\Tarea Flujo de datos 1\Conversión de datos 0 - 1.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos 1\Conversión de datos 0 - 1.Outputs[Data Conversion Output].Columns[SPA_seq]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="100"
+                      lineageId="Package\Tarea Flujo de datos 1\Conversión de datos 0 - 1.Outputs[Data Conversion Output].Columns[SPA_seq]"
+                      name="SPA_seq"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Tarea Flujo de datos 1\Conversión de datos 0 - 0.Outputs[Data Conversion Output].Columns[SPA_seq]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos 1\Conversión de datos 0 - 1.Outputs[Data Conversion Output].Columns[SPA_SD_no]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="100"
+                      lineageId="Package\Tarea Flujo de datos 1\Conversión de datos 0 - 1.Outputs[Data Conversion Output].Columns[SPA_SD_no]"
+                      name="SPA_SD_no"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Tarea Flujo de datos 1\Conversión de datos 0 - 0.Outputs[Data Conversion Output].Columns[SPA_SD_no]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos 1\Conversión de datos 0 - 1.Outputs[Data Conversion Output].Columns[SPA_ID_Description]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Tarea Flujo de datos 1\Conversión de datos 0 - 1.Outputs[Data Conversion Output].Columns[SPA_ID_Description]"
+                      name="SPA_ID_Description"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Tarea Flujo de datos 1\Conversión de datos 0 - 0.Outputs[Data Conversion Output].Columns[SPA_ID_Description]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos 1\Conversión de datos 0 - 1.Outputs[Data Conversion Output].Columns[SDB_Supp_ID]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Tarea Flujo de datos 1\Conversión de datos 0 - 1.Outputs[Data Conversion Output].Columns[SDB_Supp_ID]"
+                      name="SDB_Supp_ID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Tarea Flujo de datos 1\Conversión de datos 0 - 0.Outputs[Data Conversion Output].Columns[SDB_Supp_ID]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos 1\Conversión de datos 0 - 1.Outputs[Data Conversion Output].Columns[SDB_Effect_date]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="100"
+                      lineageId="Package\Tarea Flujo de datos 1\Conversión de datos 0 - 1.Outputs[Data Conversion Output].Columns[SDB_Effect_date]"
+                      name="SDB_Effect_date"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Tarea Flujo de datos 1\Conversión de datos 0 - 0.Outputs[Data Conversion Output].Columns[SDB_Effect_date]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos 1\Conversión de datos 0 - 1.Outputs[Data Conversion Output].Columns[SDB_Expiry_date]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="100"
+                      lineageId="Package\Tarea Flujo de datos 1\Conversión de datos 0 - 1.Outputs[Data Conversion Output].Columns[SDB_Expiry_date]"
+                      name="SDB_Expiry_date"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Tarea Flujo de datos 1\Conversión de datos 0 - 0.Outputs[Data Conversion Output].Columns[SDB_Expiry_date]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos 1\Conversión de datos 0 - 1.Outputs[Data Conversion Output].Columns[SDB_Claim_deadline]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="100"
+                      lineageId="Package\Tarea Flujo de datos 1\Conversión de datos 0 - 1.Outputs[Data Conversion Output].Columns[SDB_Claim_deadline]"
+                      name="SDB_Claim_deadline"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Tarea Flujo de datos 1\Conversión de datos 0 - 0.Outputs[Data Conversion Output].Columns[SDB_Claim_deadline]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos 1\Conversión de datos 0 - 1.Outputs[Data Conversion Output].Columns[SPA_Number]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Tarea Flujo de datos 1\Conversión de datos 0 - 1.Outputs[Data Conversion Output].Columns[SPA_Number]"
+                      name="SPA_Number"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Tarea Flujo de datos 1\Conversión de datos 0 - 0.Outputs[Data Conversion Output].Columns[SPA_Number]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos 1\Conversión de datos 0 - 1.Outputs[Data Conversion Output].Columns[SDB_Reference]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Tarea Flujo de datos 1\Conversión de datos 0 - 1.Outputs[Data Conversion Output].Columns[SDB_Reference]"
+                      name="SDB_Reference"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Tarea Flujo de datos 1\Conversión de datos 0 - 0.Outputs[Data Conversion Output].Columns[SDB_Reference]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos 1\Conversión de datos 0 - 1.Outputs[Data Conversion Output].Columns[SPA_IP_Doc_number]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Tarea Flujo de datos 1\Conversión de datos 0 - 1.Outputs[Data Conversion Output].Columns[SPA_IP_Doc_number]"
+                      name="SPA_IP_Doc_number"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Tarea Flujo de datos 1\Conversión de datos 0 - 0.Outputs[Data Conversion Output].Columns[SPA_IP_Doc_number]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Tarea Flujo de datos 1\Conversión de datos 0 - 1.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\Tarea Flujo de datos 1\Conversión de datos 0 - 1.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos 1\Conversión de datos 0 - 1.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Flujo de datos 1\Conversión de datos 0 - 1.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos 1\Conversión de datos 0 - 1.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Flujo de datos 1\Conversión de datos 0 - 1.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Tarea Flujo de datos 1\Destino - STG_SCANDATA_SD_STUFF2"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Destino - STG_SCANDATA_SD_STUFF2"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[vout].[STG_SCANDATA_SD_STUFF2]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Tarea Flujo de datos 1\Destino - STG_SCANDATA_SD_STUFF2.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DestinationConnectionOLEDB]"
+                  connectionManagerRefId="Package.ConnectionManagers[DestinationConnectionOLEDB]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Tarea Flujo de datos 1\Destino - STG_SCANDATA_SD_STUFF2.Inputs[Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos 1\Destino - STG_SCANDATA_SD_STUFF2.Inputs[Destination Input].Columns[CompanyID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="4"
+                      cachedName="CompanyID"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos 1\Destino - STG_SCANDATA_SD_STUFF2.Inputs[Destination Input].ExternalColumns[CompanyID]"
+                      lineageId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Output].Columns[CompanyID]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos 1\Destino - STG_SCANDATA_SD_STUFF2.Inputs[Destination Input].Columns[so_control_ent]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="4"
+                      cachedName="so_control_ent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos 1\Destino - STG_SCANDATA_SD_STUFF2.Inputs[Destination Input].ExternalColumns[SO_Control_ent]"
+                      lineageId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Output].Columns[so_control_ent]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos 1\Destino - STG_SCANDATA_SD_STUFF2.Inputs[Destination Input].Columns[SO_Trans_code]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="8"
+                      cachedName="SO_Trans_code"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos 1\Destino - STG_SCANDATA_SD_STUFF2.Inputs[Destination Input].ExternalColumns[SO_Trans_code]"
+                      lineageId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Output].Columns[SO_Trans_code]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos 1\Destino - STG_SCANDATA_SD_STUFF2.Inputs[Destination Input].Columns[SO_Trans_no]"
+                      cachedDataType="i4"
+                      cachedName="SO_Trans_no"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos 1\Destino - STG_SCANDATA_SD_STUFF2.Inputs[Destination Input].ExternalColumns[SO_Trans_no]"
+                      lineageId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Output].Columns[SO_Trans_no]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos 1\Destino - STG_SCANDATA_SD_STUFF2.Inputs[Destination Input].Columns[SO_line_no]"
+                      cachedDataType="i4"
+                      cachedName="SO_line_no"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos 1\Destino - STG_SCANDATA_SD_STUFF2.Inputs[Destination Input].ExternalColumns[SO_line_no]"
+                      lineageId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Output].Columns[SO_line_no]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos 1\Destino - STG_SCANDATA_SD_STUFF2.Inputs[Destination Input].Columns[SPA_ID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="SPA_ID"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos 1\Destino - STG_SCANDATA_SD_STUFF2.Inputs[Destination Input].ExternalColumns[SPA_ID]"
+                      lineageId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Output].Columns[SPA_ID]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos 1\Destino - STG_SCANDATA_SD_STUFF2.Inputs[Destination Input].Columns[PA_trans_no]"
+                      cachedDataType="i4"
+                      cachedName="PA_trans_no"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos 1\Destino - STG_SCANDATA_SD_STUFF2.Inputs[Destination Input].ExternalColumns[PA_Trans_no]"
+                      lineageId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Output].Columns[PA_trans_no]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos 1\Destino - STG_SCANDATA_SD_STUFF2.Inputs[Destination Input].Columns[PA_trans_code]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="8"
+                      cachedName="PA_trans_code"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos 1\Destino - STG_SCANDATA_SD_STUFF2.Inputs[Destination Input].ExternalColumns[PA_Trans_code]"
+                      lineageId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Output].Columns[PA_trans_code]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos 1\Destino - STG_SCANDATA_SD_STUFF2.Inputs[Destination Input].Columns[PA_line_no]"
+                      cachedDataType="i2"
+                      cachedName="PA_line_no"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos 1\Destino - STG_SCANDATA_SD_STUFF2.Inputs[Destination Input].ExternalColumns[PA_Line_no]"
+                      lineageId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Output].Columns[PA_line_no]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos 1\Destino - STG_SCANDATA_SD_STUFF2.Inputs[Destination Input].Columns[IM_trans_vals]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="200"
+                      cachedName="IM_trans_vals"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos 1\Destino - STG_SCANDATA_SD_STUFF2.Inputs[Destination Input].ExternalColumns[IM_trans_vals]"
+                      lineageId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Output].Columns[IM_trans_vals]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos 1\Destino - STG_SCANDATA_SD_STUFF2.Inputs[Destination Input].Columns[SPA_seq]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="SPA_seq"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos 1\Destino - STG_SCANDATA_SD_STUFF2.Inputs[Destination Input].ExternalColumns[SPA_seq]"
+                      lineageId="Package\Tarea Flujo de datos 1\Conversión de datos 0 - 1.Outputs[Data Conversion Output].Columns[SPA_seq]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos 1\Destino - STG_SCANDATA_SD_STUFF2.Inputs[Destination Input].Columns[SPA_SD_no]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="SPA_SD_no"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos 1\Destino - STG_SCANDATA_SD_STUFF2.Inputs[Destination Input].ExternalColumns[SPA_SD_no]"
+                      lineageId="Package\Tarea Flujo de datos 1\Conversión de datos 0 - 1.Outputs[Data Conversion Output].Columns[SPA_SD_no]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos 1\Destino - STG_SCANDATA_SD_STUFF2.Inputs[Destination Input].Columns[SPA_ID_Description]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="SPA_ID_Description"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos 1\Destino - STG_SCANDATA_SD_STUFF2.Inputs[Destination Input].ExternalColumns[SPA_ID_Description]"
+                      lineageId="Package\Tarea Flujo de datos 1\Conversión de datos 0 - 1.Outputs[Data Conversion Output].Columns[SPA_ID_Description]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos 1\Destino - STG_SCANDATA_SD_STUFF2.Inputs[Destination Input].Columns[SPA_Description]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="SPA_Description"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos 1\Destino - STG_SCANDATA_SD_STUFF2.Inputs[Destination Input].ExternalColumns[SPA_Description]"
+                      lineageId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Output].Columns[SPA_Description]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos 1\Destino - STG_SCANDATA_SD_STUFF2.Inputs[Destination Input].Columns[SDB_Supp_ID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="SDB_Supp_ID"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos 1\Destino - STG_SCANDATA_SD_STUFF2.Inputs[Destination Input].ExternalColumns[SDB_Supp_ID]"
+                      lineageId="Package\Tarea Flujo de datos 1\Conversión de datos 0 - 1.Outputs[Data Conversion Output].Columns[SDB_Supp_ID]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos 1\Destino - STG_SCANDATA_SD_STUFF2.Inputs[Destination Input].Columns[SDB_Effect_date]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="SDB_Effect_date"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos 1\Destino - STG_SCANDATA_SD_STUFF2.Inputs[Destination Input].ExternalColumns[SDB_Effect_date]"
+                      lineageId="Package\Tarea Flujo de datos 1\Conversión de datos 0 - 1.Outputs[Data Conversion Output].Columns[SDB_Effect_date]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos 1\Destino - STG_SCANDATA_SD_STUFF2.Inputs[Destination Input].Columns[SDB_Expiry_date]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="SDB_Expiry_date"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos 1\Destino - STG_SCANDATA_SD_STUFF2.Inputs[Destination Input].ExternalColumns[SDB_Expiry_date]"
+                      lineageId="Package\Tarea Flujo de datos 1\Conversión de datos 0 - 1.Outputs[Data Conversion Output].Columns[SDB_Expiry_date]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos 1\Destino - STG_SCANDATA_SD_STUFF2.Inputs[Destination Input].Columns[SDB_Claim_deadline]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="SDB_Claim_deadline"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos 1\Destino - STG_SCANDATA_SD_STUFF2.Inputs[Destination Input].ExternalColumns[SDB_Claim_deadline]"
+                      lineageId="Package\Tarea Flujo de datos 1\Conversión de datos 0 - 1.Outputs[Data Conversion Output].Columns[SDB_Claim_deadline]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos 1\Destino - STG_SCANDATA_SD_STUFF2.Inputs[Destination Input].Columns[SDBD_Supplier_cost]"
+                      cachedDataType="cy"
+                      cachedName="SDBD_Supplier_cost"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos 1\Destino - STG_SCANDATA_SD_STUFF2.Inputs[Destination Input].ExternalColumns[SDBD_Supplier_cost]"
+                      lineageId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Output].Columns[SDBD_Supplier_cost]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos 1\Destino - STG_SCANDATA_SD_STUFF2.Inputs[Destination Input].Columns[SDBD_Price_rebate_amt]"
+                      cachedDataType="cy"
+                      cachedName="SDBD_Price_rebate_amt"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos 1\Destino - STG_SCANDATA_SD_STUFF2.Inputs[Destination Input].ExternalColumns[SDBD_Price_rebate_amt]"
+                      lineageId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Output].Columns[SDBD_Price_rebate_amt]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos 1\Destino - STG_SCANDATA_SD_STUFF2.Inputs[Destination Input].Columns[SPA_Number]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="SPA_Number"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos 1\Destino - STG_SCANDATA_SD_STUFF2.Inputs[Destination Input].ExternalColumns[SPA_Number]"
+                      lineageId="Package\Tarea Flujo de datos 1\Conversión de datos 0 - 1.Outputs[Data Conversion Output].Columns[SPA_Number]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos 1\Destino - STG_SCANDATA_SD_STUFF2.Inputs[Destination Input].Columns[SDB_Reference]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="SDB_Reference"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos 1\Destino - STG_SCANDATA_SD_STUFF2.Inputs[Destination Input].ExternalColumns[SDB_Reference]"
+                      lineageId="Package\Tarea Flujo de datos 1\Conversión de datos 0 - 1.Outputs[Data Conversion Output].Columns[SDB_Reference]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos 1\Destino - STG_SCANDATA_SD_STUFF2.Inputs[Destination Input].Columns[SPA_IP_Doc_number]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="SPA_IP_Doc_number"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos 1\Destino - STG_SCANDATA_SD_STUFF2.Inputs[Destination Input].ExternalColumns[SPA_IP_Doc_number]"
+                      lineageId="Package\Tarea Flujo de datos 1\Conversión de datos 0 - 1.Outputs[Data Conversion Output].Columns[SPA_IP_Doc_number]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos 1\Destino - STG_SCANDATA_SD_STUFF2.Inputs[Destination Input].Columns[SDBD_Rebate_cost]"
+                      cachedDataType="cy"
+                      cachedName="SDBD_Rebate_cost"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos 1\Destino - STG_SCANDATA_SD_STUFF2.Inputs[Destination Input].ExternalColumns[SDBD_Rebate_cost]"
+                      lineageId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Output].Columns[SDBD_Rebate_cost]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos 1\Destino - STG_SCANDATA_SD_STUFF2.Inputs[Destination Input].ExternalColumns[CompanyID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      name="CompanyID" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos 1\Destino - STG_SCANDATA_SD_STUFF2.Inputs[Destination Input].ExternalColumns[SO_Control_ent]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      name="SO_Control_ent" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos 1\Destino - STG_SCANDATA_SD_STUFF2.Inputs[Destination Input].ExternalColumns[SO_Trans_code]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8"
+                      name="SO_Trans_code" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos 1\Destino - STG_SCANDATA_SD_STUFF2.Inputs[Destination Input].ExternalColumns[SO_Trans_no]"
+                      dataType="i4"
+                      name="SO_Trans_no" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos 1\Destino - STG_SCANDATA_SD_STUFF2.Inputs[Destination Input].ExternalColumns[SO_line_no]"
+                      dataType="i4"
+                      name="SO_line_no" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos 1\Destino - STG_SCANDATA_SD_STUFF2.Inputs[Destination Input].ExternalColumns[PA_Trans_code]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8"
+                      name="PA_Trans_code" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos 1\Destino - STG_SCANDATA_SD_STUFF2.Inputs[Destination Input].ExternalColumns[PA_Trans_no]"
+                      dataType="i4"
+                      name="PA_Trans_no" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos 1\Destino - STG_SCANDATA_SD_STUFF2.Inputs[Destination Input].ExternalColumns[PA_Line_no]"
+                      dataType="i2"
+                      name="PA_Line_no" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos 1\Destino - STG_SCANDATA_SD_STUFF2.Inputs[Destination Input].ExternalColumns[IM_trans_vals]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      name="IM_trans_vals" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos 1\Destino - STG_SCANDATA_SD_STUFF2.Inputs[Destination Input].ExternalColumns[SPA_seq]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="SPA_seq" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos 1\Destino - STG_SCANDATA_SD_STUFF2.Inputs[Destination Input].ExternalColumns[SPA_SD_no]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="SPA_SD_no" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos 1\Destino - STG_SCANDATA_SD_STUFF2.Inputs[Destination Input].ExternalColumns[SPA_ID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="SPA_ID" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos 1\Destino - STG_SCANDATA_SD_STUFF2.Inputs[Destination Input].ExternalColumns[SPA_ID_Description]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="SPA_ID_Description" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos 1\Destino - STG_SCANDATA_SD_STUFF2.Inputs[Destination Input].ExternalColumns[SPA_Number]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="SPA_Number" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos 1\Destino - STG_SCANDATA_SD_STUFF2.Inputs[Destination Input].ExternalColumns[SPA_Description]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="SPA_Description" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos 1\Destino - STG_SCANDATA_SD_STUFF2.Inputs[Destination Input].ExternalColumns[SPA_IP_Doc_number]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="SPA_IP_Doc_number" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos 1\Destino - STG_SCANDATA_SD_STUFF2.Inputs[Destination Input].ExternalColumns[SDB_Reference]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="SDB_Reference" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos 1\Destino - STG_SCANDATA_SD_STUFF2.Inputs[Destination Input].ExternalColumns[SDB_Supp_ID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="SDB_Supp_ID" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos 1\Destino - STG_SCANDATA_SD_STUFF2.Inputs[Destination Input].ExternalColumns[SDB_Effect_date]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="SDB_Effect_date" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos 1\Destino - STG_SCANDATA_SD_STUFF2.Inputs[Destination Input].ExternalColumns[SDB_Expiry_date]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="SDB_Expiry_date" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos 1\Destino - STG_SCANDATA_SD_STUFF2.Inputs[Destination Input].ExternalColumns[SDB_Claim_deadline]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="SDB_Claim_deadline" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos 1\Destino - STG_SCANDATA_SD_STUFF2.Inputs[Destination Input].ExternalColumns[SDBD_Supplier_cost]"
+                      dataType="cy"
+                      name="SDBD_Supplier_cost" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos 1\Destino - STG_SCANDATA_SD_STUFF2.Inputs[Destination Input].ExternalColumns[SDBD_Rebate_cost]"
+                      dataType="cy"
+                      name="SDBD_Rebate_cost" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos 1\Destino - STG_SCANDATA_SD_STUFF2.Inputs[Destination Input].ExternalColumns[SDBD_Price_rebate_amt]"
+                      dataType="cy"
+                      name="SDBD_Price_rebate_amt" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos 1\Destino - STG_SCANDATA_SD_STUFF2.Inputs[Destination Input].ExternalColumns[LastExtraction]"
+                      dataType="dbTimeStamp"
+                      name="LastExtraction" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Tarea Flujo de datos 1\Destino - STG_SCANDATA_SD_STUFF2.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Tarea Flujo de datos 1\Destino - STG_SCANDATA_SD_STUFF2.Inputs[Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos 1\Destino - STG_SCANDATA_SD_STUFF2.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Flujo de datos 1\Destino - STG_SCANDATA_SD_STUFF2.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos 1\Destino - STG_SCANDATA_SD_STUFF2.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Flujo de datos 1\Destino - STG_SCANDATA_SD_STUFF2.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Tarea Flujo de datos 1\Origen - Consulta"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Origen - Consulta"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select CompanyID,so_control_ent,SO_Trans_code,SO_Trans_no,SO_line_no,SPA_ID,PA_trans_no,PA_trans_code,PA_line_no,
+IM_trans_vals,
+
+STUFF(
+  (SELECT ', ' +convert (varchar(50),(A.SPA_seq))
+        FROM vout.STG_SCANDATA_SD A
+        WHERE XT.Companyid=A.companyid and XT.SO_Trans_no = A.SO_Trans_no and XT.SO_line_no=A.SO_line_no and XT.SPA_ID=A.SPA_ID AND XT.PA_Trans_No = A.PA_Trans_No
+        FOR XML PATH('')), 1, 1, '') as SPA_seq ,
+
+STUFF(
+  (SELECT ', ' +convert (varchar(50),(A.SPA_SD_no))
+        FROM vout.STG_SCANDATA_SD A
+        WHERE XT.Companyid=A.companyid and XT.SO_Trans_no = A.SO_Trans_no and XT.SO_line_no=A.SO_line_no and XT.SPA_ID=A.SPA_ID AND XT.PA_Trans_No = A.PA_Trans_No
+        FOR XML PATH('')), 1, 1, '') as SPA_SD_no ,
+
+STUFF(
+  (SELECT ', ' +convert (varchar(50),(A.SPA_ID_Description))
+        FROM vout.STG_SCANDATA_SD A
+        WHERE XT.Companyid=A.companyid and XT.SO_Trans_no = A.SO_Trans_no and XT.SO_line_no=A.SO_line_no and XT.SPA_ID=A.SPA_ID AND XT.PA_Trans_No = A.PA_Trans_No
+        FOR XML PATH('')), 1, 1, '') as SPA_ID_Description ,
+
+SPA_Description,
+
+STUFF(
+  (SELECT ', ' +convert (varchar(50),(A.SDB_Supp_ID))
+        FROM vout.STG_SCANDATA_SD A
+        WHERE XT.Companyid=A.companyid and XT.SO_Trans_no = A.SO_Trans_no and XT.SO_line_no=A.SO_line_no and XT.SPA_ID=A.SPA_ID AND XT.PA_Trans_No = A.PA_Trans_No
+        FOR XML PATH('')), 1, 1, '') as SDB_Supp_ID,
+
+
+
+STUFF(
+  (SELECT ', ' +convert (varchar(50),(A.SDB_Effect_date))
+        FROM vout.STG_SCANDATA_SD A
+        WHERE XT.Companyid=A.companyid and XT.SO_Trans_no = A.SO_Trans_no and XT.SO_line_no=A.SO_line_no and XT.SPA_ID=A.SPA_ID AND XT.PA_Trans_No = A.PA_Trans_No
+        FOR XML PATH('')), 1, 1, '') as SDB_Effect_date ,
+
+STUFF(
+  (SELECT ', ' +convert (varchar(50),(A.SDB_Expiry_date))
+        FROM vout.STG_SCANDATA_SD A
+        WHERE XT.Companyid=A.companyid and XT.SO_Trans_no = A.SO_Trans_no and XT.SO_line_no=A.SO_line_no and XT.SPA_ID=A.SPA_ID AND XT.PA_Trans_No = A.PA_Trans_No
+        FOR XML PATH('')), 1, 1, '') as SDB_Expiry_date ,
+
+
+STUFF(
+  (SELECT ', ' +convert (varchar(50),(A.SDB_Claim_deadline))
+        FROM vout.STG_SCANDATA_SD A
+        WHERE XT.Companyid=A.companyid and XT.SO_Trans_no = A.SO_Trans_no and XT.SO_line_no=A.SO_line_no and XT.SPA_ID=A.SPA_ID AND XT.PA_Trans_No = A.PA_Trans_No
+        FOR XML PATH('')), 1, 1, '') as SDB_Claim_deadline ,
+
+
+sum(SDBD_Supplier_cost) SDBD_Supplier_cost,	
+Sum(SDBD_Price_rebate_amt) SDBD_Price_rebate_amt,
+
+
+STUFF(
+  (SELECT ', ' +convert (varchar(50),(A.SPA_Number))
+        FROM vout.STG_SCANDATA_SD A
+        WHERE XT.Companyid=A.companyid and XT.SO_Trans_no = A.SO_Trans_no and XT.SO_line_no=A.SO_line_no and XT.SPA_ID=A.SPA_ID AND XT.PA_Trans_No = A.PA_Trans_No
+        FOR XML PATH('')), 1, 1, '') as SPA_Number ,
+
+STUFF(
+  (SELECT ', ' +convert (varchar(50),(A.SDB_Reference))
+        FROM vout.STG_SCANDATA_SD A
+        WHERE XT.Companyid=A.companyid and XT.SO_Trans_no = A.SO_Trans_no and XT.SO_line_no=A.SO_line_no and XT.SPA_ID=A.SPA_ID AND XT.PA_Trans_No = A.PA_Trans_No
+        FOR XML PATH('')), 1, 1, '') as SDB_Reference ,
+
+STUFF(
+  (SELECT ', ' +convert (varchar(50),(A.SPA_IP_Doc_number))
+        FROM vout.STG_SCANDATA_SD A
+        WHERE XT.Companyid=A.companyid and XT.SO_Trans_no = A.SO_Trans_no and XT.SO_line_no=A.SO_line_no and XT.SPA_ID=A.SPA_ID AND XT.PA_Trans_No = A.PA_Trans_No
+        FOR XML PATH('')), 1, 1, '') as SPA_IP_Doc_number ,
+
+
+
+SUM (SDBD_Rebate_cost) as SDBD_Rebate_cost
+FROM vout.STG_SCANDATA_SD XT
+group by CompanyID,so_control_ent,SO_Trans_code,SO_Trans_no,SO_line_no,SPA_ID,PA_trans_no,PA_trans_code,PA_line_no,
+IM_trans_vals
+,SPA_Description</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Tarea Flujo de datos 1\Origen - Consulta.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[SourceConnectionOLEDB]"
+                  connectionManagerRefId="Package.ConnectionManagers[SourceConnectionOLEDB]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Output].Columns[CompanyID]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Output].ExternalColumns[CompanyID]"
+                      length="4"
+                      lineageId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Output].Columns[CompanyID]"
+                      name="CompanyID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Output].Columns[so_control_ent]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Output].ExternalColumns[so_control_ent]"
+                      length="4"
+                      lineageId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Output].Columns[so_control_ent]"
+                      name="so_control_ent"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Output].Columns[SO_Trans_code]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Output].ExternalColumns[SO_Trans_code]"
+                      length="8"
+                      lineageId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Output].Columns[SO_Trans_code]"
+                      name="SO_Trans_code"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Output].Columns[SO_Trans_no]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Output].ExternalColumns[SO_Trans_no]"
+                      lineageId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Output].Columns[SO_Trans_no]"
+                      name="SO_Trans_no"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Output].Columns[SO_line_no]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Output].ExternalColumns[SO_line_no]"
+                      lineageId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Output].Columns[SO_line_no]"
+                      name="SO_line_no"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Output].Columns[SPA_ID]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Output].ExternalColumns[SPA_ID]"
+                      length="50"
+                      lineageId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Output].Columns[SPA_ID]"
+                      name="SPA_ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Output].Columns[PA_trans_no]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Output].ExternalColumns[PA_trans_no]"
+                      lineageId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Output].Columns[PA_trans_no]"
+                      name="PA_trans_no"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Output].Columns[PA_trans_code]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Output].ExternalColumns[PA_trans_code]"
+                      length="8"
+                      lineageId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Output].Columns[PA_trans_code]"
+                      name="PA_trans_code"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Output].Columns[PA_line_no]"
+                      dataType="i2"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Output].ExternalColumns[PA_line_no]"
+                      lineageId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Output].Columns[PA_line_no]"
+                      name="PA_line_no"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Output].Columns[IM_trans_vals]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Output].ExternalColumns[IM_trans_vals]"
+                      length="200"
+                      lineageId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Output].Columns[IM_trans_vals]"
+                      name="IM_trans_vals"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Output].Columns[SPA_seq]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Output].ExternalColumns[SPA_seq]"
+                      lineageId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Output].Columns[SPA_seq]"
+                      name="SPA_seq"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Output].Columns[SPA_SD_no]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Output].ExternalColumns[SPA_SD_no]"
+                      lineageId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Output].Columns[SPA_SD_no]"
+                      name="SPA_SD_no"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Output].Columns[SPA_ID_Description]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Output].ExternalColumns[SPA_ID_Description]"
+                      lineageId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Output].Columns[SPA_ID_Description]"
+                      name="SPA_ID_Description"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Output].Columns[SPA_Description]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Output].ExternalColumns[SPA_Description]"
+                      length="50"
+                      lineageId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Output].Columns[SPA_Description]"
+                      name="SPA_Description"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Output].Columns[SDB_Supp_ID]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Output].ExternalColumns[SDB_Supp_ID]"
+                      lineageId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Output].Columns[SDB_Supp_ID]"
+                      name="SDB_Supp_ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Output].Columns[SDB_Effect_date]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Output].ExternalColumns[SDB_Effect_date]"
+                      lineageId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Output].Columns[SDB_Effect_date]"
+                      name="SDB_Effect_date"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Output].Columns[SDB_Expiry_date]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Output].ExternalColumns[SDB_Expiry_date]"
+                      lineageId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Output].Columns[SDB_Expiry_date]"
+                      name="SDB_Expiry_date"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Output].Columns[SDB_Claim_deadline]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Output].ExternalColumns[SDB_Claim_deadline]"
+                      lineageId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Output].Columns[SDB_Claim_deadline]"
+                      name="SDB_Claim_deadline"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Output].Columns[SDBD_Supplier_cost]"
+                      dataType="cy"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Output].ExternalColumns[SDBD_Supplier_cost]"
+                      lineageId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Output].Columns[SDBD_Supplier_cost]"
+                      name="SDBD_Supplier_cost"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Output].Columns[SDBD_Price_rebate_amt]"
+                      dataType="cy"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Output].ExternalColumns[SDBD_Price_rebate_amt]"
+                      lineageId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Output].Columns[SDBD_Price_rebate_amt]"
+                      name="SDBD_Price_rebate_amt"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Output].Columns[SPA_Number]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Output].ExternalColumns[SPA_Number]"
+                      lineageId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Output].Columns[SPA_Number]"
+                      name="SPA_Number"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Output].Columns[SDB_Reference]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Output].ExternalColumns[SDB_Reference]"
+                      lineageId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Output].Columns[SDB_Reference]"
+                      name="SDB_Reference"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Output].Columns[SPA_IP_Doc_number]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Output].ExternalColumns[SPA_IP_Doc_number]"
+                      lineageId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Output].Columns[SPA_IP_Doc_number]"
+                      name="SPA_IP_Doc_number"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Output].Columns[SDBD_Rebate_cost]"
+                      dataType="cy"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Output].ExternalColumns[SDBD_Rebate_cost]"
+                      lineageId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Output].Columns[SDBD_Rebate_cost]"
+                      name="SDBD_Rebate_cost"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Output].ExternalColumns[CompanyID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      name="CompanyID" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Output].ExternalColumns[so_control_ent]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      name="so_control_ent" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Output].ExternalColumns[SO_Trans_code]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8"
+                      name="SO_Trans_code" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Output].ExternalColumns[SO_Trans_no]"
+                      dataType="i4"
+                      name="SO_Trans_no" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Output].ExternalColumns[SO_line_no]"
+                      dataType="i4"
+                      name="SO_line_no" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Output].ExternalColumns[SPA_ID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="SPA_ID" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Output].ExternalColumns[PA_trans_no]"
+                      dataType="i4"
+                      name="PA_trans_no" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Output].ExternalColumns[PA_trans_code]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8"
+                      name="PA_trans_code" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Output].ExternalColumns[PA_line_no]"
+                      dataType="i2"
+                      name="PA_line_no" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Output].ExternalColumns[IM_trans_vals]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      name="IM_trans_vals" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Output].ExternalColumns[SPA_seq]"
+                      dataType="nText"
+                      name="SPA_seq" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Output].ExternalColumns[SPA_SD_no]"
+                      dataType="nText"
+                      name="SPA_SD_no" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Output].ExternalColumns[SPA_ID_Description]"
+                      dataType="nText"
+                      name="SPA_ID_Description" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Output].ExternalColumns[SPA_Description]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="SPA_Description" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Output].ExternalColumns[SDB_Supp_ID]"
+                      dataType="nText"
+                      name="SDB_Supp_ID" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Output].ExternalColumns[SDB_Effect_date]"
+                      dataType="nText"
+                      name="SDB_Effect_date" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Output].ExternalColumns[SDB_Expiry_date]"
+                      dataType="nText"
+                      name="SDB_Expiry_date" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Output].ExternalColumns[SDB_Claim_deadline]"
+                      dataType="nText"
+                      name="SDB_Claim_deadline" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Output].ExternalColumns[SDBD_Supplier_cost]"
+                      dataType="cy"
+                      name="SDBD_Supplier_cost" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Output].ExternalColumns[SDBD_Price_rebate_amt]"
+                      dataType="cy"
+                      name="SDBD_Price_rebate_amt" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Output].ExternalColumns[SPA_Number]"
+                      dataType="nText"
+                      name="SPA_Number" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Output].ExternalColumns[SDB_Reference]"
+                      dataType="nText"
+                      name="SDB_Reference" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Output].ExternalColumns[SPA_IP_Doc_number]"
+                      dataType="nText"
+                      name="SPA_IP_Doc_number" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Output].ExternalColumns[SDBD_Rebate_cost]"
+                      dataType="cy"
+                      name="SDBD_Rebate_cost" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Error Output].Columns[CompanyID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      lineageId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Error Output].Columns[CompanyID]"
+                      name="CompanyID" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Error Output].Columns[so_control_ent]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      lineageId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Error Output].Columns[so_control_ent]"
+                      name="so_control_ent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Error Output].Columns[SO_Trans_code]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8"
+                      lineageId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Error Output].Columns[SO_Trans_code]"
+                      name="SO_Trans_code" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Error Output].Columns[SO_Trans_no]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Error Output].Columns[SO_Trans_no]"
+                      name="SO_Trans_no" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Error Output].Columns[SO_line_no]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Error Output].Columns[SO_line_no]"
+                      name="SO_line_no" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Error Output].Columns[SPA_ID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Error Output].Columns[SPA_ID]"
+                      name="SPA_ID" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Error Output].Columns[PA_trans_no]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Error Output].Columns[PA_trans_no]"
+                      name="PA_trans_no" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Error Output].Columns[PA_trans_code]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8"
+                      lineageId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Error Output].Columns[PA_trans_code]"
+                      name="PA_trans_code" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Error Output].Columns[PA_line_no]"
+                      dataType="i2"
+                      lineageId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Error Output].Columns[PA_line_no]"
+                      name="PA_line_no" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Error Output].Columns[IM_trans_vals]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      lineageId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Error Output].Columns[IM_trans_vals]"
+                      name="IM_trans_vals" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Error Output].Columns[SPA_seq]"
+                      dataType="nText"
+                      lineageId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Error Output].Columns[SPA_seq]"
+                      name="SPA_seq" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Error Output].Columns[SPA_SD_no]"
+                      dataType="nText"
+                      lineageId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Error Output].Columns[SPA_SD_no]"
+                      name="SPA_SD_no" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Error Output].Columns[SPA_ID_Description]"
+                      dataType="nText"
+                      lineageId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Error Output].Columns[SPA_ID_Description]"
+                      name="SPA_ID_Description" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Error Output].Columns[SPA_Description]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Error Output].Columns[SPA_Description]"
+                      name="SPA_Description" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Error Output].Columns[SDB_Supp_ID]"
+                      dataType="nText"
+                      lineageId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Error Output].Columns[SDB_Supp_ID]"
+                      name="SDB_Supp_ID" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Error Output].Columns[SDB_Effect_date]"
+                      dataType="nText"
+                      lineageId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Error Output].Columns[SDB_Effect_date]"
+                      name="SDB_Effect_date" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Error Output].Columns[SDB_Expiry_date]"
+                      dataType="nText"
+                      lineageId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Error Output].Columns[SDB_Expiry_date]"
+                      name="SDB_Expiry_date" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Error Output].Columns[SDB_Claim_deadline]"
+                      dataType="nText"
+                      lineageId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Error Output].Columns[SDB_Claim_deadline]"
+                      name="SDB_Claim_deadline" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Error Output].Columns[SDBD_Supplier_cost]"
+                      dataType="cy"
+                      lineageId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Error Output].Columns[SDBD_Supplier_cost]"
+                      name="SDBD_Supplier_cost" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Error Output].Columns[SDBD_Price_rebate_amt]"
+                      dataType="cy"
+                      lineageId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Error Output].Columns[SDBD_Price_rebate_amt]"
+                      name="SDBD_Price_rebate_amt" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Error Output].Columns[SPA_Number]"
+                      dataType="nText"
+                      lineageId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Error Output].Columns[SPA_Number]"
+                      name="SPA_Number" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Error Output].Columns[SDB_Reference]"
+                      dataType="nText"
+                      lineageId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Error Output].Columns[SDB_Reference]"
+                      name="SDB_Reference" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Error Output].Columns[SPA_IP_Doc_number]"
+                      dataType="nText"
+                      lineageId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Error Output].Columns[SPA_IP_Doc_number]"
+                      name="SPA_IP_Doc_number" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Error Output].Columns[SDBD_Rebate_cost]"
+                      dataType="cy"
+                      lineageId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Error Output].Columns[SDBD_Rebate_cost]"
+                      name="SDBD_Rebate_cost" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Tarea Flujo de datos 1.Paths[Data Conversion Output]"
+              endId="Package\Tarea Flujo de datos 1\Conversión de datos 0 - 1.Inputs[Data Conversion Input]"
+              name="Data Conversion Output"
+              startId="Package\Tarea Flujo de datos 1\Conversión de datos 0 - 0.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\Tarea Flujo de datos 1.Paths[Data Conversion Output1]"
+              endId="Package\Tarea Flujo de datos 1\Destino - STG_SCANDATA_SD_STUFF2.Inputs[Destination Input]"
+              name="Data Conversion Output"
+              startId="Package\Tarea Flujo de datos 1\Conversión de datos 0 - 1.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\Tarea Flujo de datos 1.Paths[OLE DB Source Output]"
+              endId="Package\Tarea Flujo de datos 1\Conversión de datos 0 - 0.Inputs[Data Conversion Input]"
+              name="OLE DB Source Output"
+              startId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Esta sección CDATA contiene la información de diseño del paquete. Esta sección incluye información como, por ejemplo, las coordenadas (x,y), el ancho y el alto.-->
+<!--Si edita manualmente esta sección y comete un error, puede eliminarlo. -->
+<!--El paquete podrá cargarse normalmente, pero se perderá la información de diseño anterior y el diseñador reorganizará los elementos automáticamente en la superficie de diseño.-->
+<Objects
+  Version="8">
+  <!--Cada uno de los nodos siguientes contiene propiedades que no afectan al comportamiento en tiempo de ejecución.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="185,42"
+          Id="Package\Tarea Flujo de datos 1"
+          TopLeft="5.5,5.5" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Tarea Flujo de datos 1">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="200,42"
+          Id="Package\Tarea Flujo de datos 1\Conversión de datos 0 - 1"
+          TopLeft="37,209.5" />
+        <NodeLayout
+          Size="161,42"
+          Id="Package\Tarea Flujo de datos 1\Origen - Consulta"
+          TopLeft="56.5,5.5" />
+        <NodeLayout
+          Size="263,42"
+          Id="Package\Tarea Flujo de datos 1\Destino - STG_SCANDATA_SD_STUFF2"
+          TopLeft="5.50000000000006,311.5" />
+        <NodeLayout
+          Size="200,42"
+          Id="Package\Tarea Flujo de datos 1\Conversión de datos 0 - 0"
+          TopLeft="37,107.5" />
+        <EdgeLayout
+          Id="Package\Tarea Flujo de datos 1.Paths[OLE DB Source Output]"
+          TopLeft="137,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-23.08947265625,20.5234375,46.1789453125,11.453125"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Tarea Flujo de datos 1.Paths[Data Conversion Output1]"
+          TopLeft="137,251.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-19.21556640625,21.34375,38.4311328125,9.8125"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Tarea Flujo de datos 1.Paths[Data Conversion Output]"
+          TopLeft="137,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-19.21556640625,21.34375,38.4311328125,9.8125"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
