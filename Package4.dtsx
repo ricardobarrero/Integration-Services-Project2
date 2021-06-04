@@ -8,12 +8,12 @@
   DTS:Description="DTS Wizard-generated package"
   DTS:DTSID="{CE85C559-8B41-4F91-BAAB-B4A09B55BEC6}"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="15.0.2000.166"
+  DTS:LastModifiedProductVersion="15.0.2000.150"
   DTS:LocaleID="21514"
   DTS:MaxErrorCount="0"
   DTS:ObjectName="Package4"
-  DTS:VersionBuild="4"
-  DTS:VersionGUID="{986FAB3E-35C1-42CE-ADD9-E7DDD829A3D1}">
+  DTS:VersionBuild="5"
+  DTS:VersionGUID="{7E972ED1-68FC-48BE-851A-617FEF39F16B}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -24,8 +24,6 @@
       DTS:ObjectName="DestinationConnectionOLEDB">
       <DTS:ObjectData>
         <DTS:ConnectionManager
-          DTS:ConnectRetryCount="1"
-          DTS:ConnectRetryInterval="5"
           DTS:ConnectionString="Data Source=S91SQLUS;User ID=etluser;Initial Catalog=DWStaging;Provider=SQLNCLI11;Auto Translate=false;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -36,8 +34,6 @@
       DTS:ObjectName="SourceConnectionOLEDB">
       <DTS:ObjectData>
         <DTS:ConnectionManager
-          DTS:ConnectRetryCount="1"
-          DTS:ConnectRetryInterval="5"
           DTS:ConnectionString="Data Source=S91SQLUS;User ID=ETLUSER;Initial Catalog=DWStaging;Provider=SQLNCLI11;Auto Translate=false;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -59,401 +55,6 @@
           defaultBufferSize="3145728"
           version="1">
           <components>
-            <component
-              refId="Package\Tarea Flujo de datos 1\Destino - STG_SCANDATA_SD_STUFF2"
-              componentClassID="Microsoft.OLEDBDestination"
-              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
-              description="OLE DB Destination"
-              name="Destino - STG_SCANDATA_SD_STUFF2"
-              usesDispositions="true"
-              version="4">
-              <properties>
-                <property
-                  dataType="System.Int32"
-                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
-                  name="CommandTimeout">0</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset">[vout].[STG_SCANDATA_SD_STUFF2]</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies the variable that contains the name of the database object used to open a rowset."
-                  name="OpenRowsetVariable"></property>
-                <property
-                  dataType="System.String"
-                  description="The SQL command to be executed."
-                  name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the column code page to use when code page information is unavailable from the data source."
-                  name="DefaultCodePage">1252</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Forces the use of the DefaultCodePage property value when describing character data."
-                  name="AlwaysUseDefaultCodePage">false</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the mode used to access the database."
-                  name="AccessMode"
-                  typeConverter="AccessMode">3</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
-                  name="FastLoadKeepIdentity">false</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
-                  name="FastLoadKeepNulls">false</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
-                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
-                  name="FastLoadMaxInsertCommitSize">2147483647</property>
-              </properties>
-              <connections>
-                <connection
-                  refId="Package\Tarea Flujo de datos 1\Destino - STG_SCANDATA_SD_STUFF2.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[DestinationConnectionOLEDB]"
-                  connectionManagerRefId="Package.ConnectionManagers[DestinationConnectionOLEDB]"
-                  description="The OLE DB runtime connection used to access the database."
-                  name="OleDbConnection" />
-              </connections>
-              <inputs>
-                <input
-                  refId="Package\Tarea Flujo de datos 1\Destino - STG_SCANDATA_SD_STUFF2.Inputs[Destination Input]"
-                  errorOrTruncationOperation="Insert"
-                  errorRowDisposition="FailComponent"
-                  hasSideEffects="true"
-                  name="Destination Input">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\Tarea Flujo de datos 1\Destino - STG_SCANDATA_SD_STUFF2.Inputs[Destination Input].Columns[CompanyID]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="4"
-                      cachedName="CompanyID"
-                      externalMetadataColumnId="Package\Tarea Flujo de datos 1\Destino - STG_SCANDATA_SD_STUFF2.Inputs[Destination Input].ExternalColumns[CompanyID]"
-                      lineageId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Output].Columns[CompanyID]" />
-                    <inputColumn
-                      refId="Package\Tarea Flujo de datos 1\Destino - STG_SCANDATA_SD_STUFF2.Inputs[Destination Input].Columns[so_control_ent]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="4"
-                      cachedName="so_control_ent"
-                      externalMetadataColumnId="Package\Tarea Flujo de datos 1\Destino - STG_SCANDATA_SD_STUFF2.Inputs[Destination Input].ExternalColumns[SO_Control_ent]"
-                      lineageId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Output].Columns[so_control_ent]" />
-                    <inputColumn
-                      refId="Package\Tarea Flujo de datos 1\Destino - STG_SCANDATA_SD_STUFF2.Inputs[Destination Input].Columns[SO_Trans_code]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="8"
-                      cachedName="SO_Trans_code"
-                      externalMetadataColumnId="Package\Tarea Flujo de datos 1\Destino - STG_SCANDATA_SD_STUFF2.Inputs[Destination Input].ExternalColumns[SO_Trans_code]"
-                      lineageId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Output].Columns[SO_Trans_code]" />
-                    <inputColumn
-                      refId="Package\Tarea Flujo de datos 1\Destino - STG_SCANDATA_SD_STUFF2.Inputs[Destination Input].Columns[SO_Trans_no]"
-                      cachedDataType="i4"
-                      cachedName="SO_Trans_no"
-                      externalMetadataColumnId="Package\Tarea Flujo de datos 1\Destino - STG_SCANDATA_SD_STUFF2.Inputs[Destination Input].ExternalColumns[SO_Trans_no]"
-                      lineageId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Output].Columns[SO_Trans_no]" />
-                    <inputColumn
-                      refId="Package\Tarea Flujo de datos 1\Destino - STG_SCANDATA_SD_STUFF2.Inputs[Destination Input].Columns[SO_line_no]"
-                      cachedDataType="i4"
-                      cachedName="SO_line_no"
-                      externalMetadataColumnId="Package\Tarea Flujo de datos 1\Destino - STG_SCANDATA_SD_STUFF2.Inputs[Destination Input].ExternalColumns[SO_line_no]"
-                      lineageId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Output].Columns[SO_line_no]" />
-                    <inputColumn
-                      refId="Package\Tarea Flujo de datos 1\Destino - STG_SCANDATA_SD_STUFF2.Inputs[Destination Input].Columns[SPA_ID]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="SPA_ID"
-                      externalMetadataColumnId="Package\Tarea Flujo de datos 1\Destino - STG_SCANDATA_SD_STUFF2.Inputs[Destination Input].ExternalColumns[SPA_ID]"
-                      lineageId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Output].Columns[SPA_ID]" />
-                    <inputColumn
-                      refId="Package\Tarea Flujo de datos 1\Destino - STG_SCANDATA_SD_STUFF2.Inputs[Destination Input].Columns[PA_trans_no]"
-                      cachedDataType="i4"
-                      cachedName="PA_trans_no"
-                      externalMetadataColumnId="Package\Tarea Flujo de datos 1\Destino - STG_SCANDATA_SD_STUFF2.Inputs[Destination Input].ExternalColumns[PA_Trans_no]"
-                      lineageId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Output].Columns[PA_trans_no]" />
-                    <inputColumn
-                      refId="Package\Tarea Flujo de datos 1\Destino - STG_SCANDATA_SD_STUFF2.Inputs[Destination Input].Columns[PA_trans_code]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="8"
-                      cachedName="PA_trans_code"
-                      externalMetadataColumnId="Package\Tarea Flujo de datos 1\Destino - STG_SCANDATA_SD_STUFF2.Inputs[Destination Input].ExternalColumns[PA_Trans_code]"
-                      lineageId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Output].Columns[PA_trans_code]" />
-                    <inputColumn
-                      refId="Package\Tarea Flujo de datos 1\Destino - STG_SCANDATA_SD_STUFF2.Inputs[Destination Input].Columns[PA_line_no]"
-                      cachedDataType="i2"
-                      cachedName="PA_line_no"
-                      externalMetadataColumnId="Package\Tarea Flujo de datos 1\Destino - STG_SCANDATA_SD_STUFF2.Inputs[Destination Input].ExternalColumns[PA_Line_no]"
-                      lineageId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Output].Columns[PA_line_no]" />
-                    <inputColumn
-                      refId="Package\Tarea Flujo de datos 1\Destino - STG_SCANDATA_SD_STUFF2.Inputs[Destination Input].Columns[IM_trans_vals]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="200"
-                      cachedName="IM_trans_vals"
-                      externalMetadataColumnId="Package\Tarea Flujo de datos 1\Destino - STG_SCANDATA_SD_STUFF2.Inputs[Destination Input].ExternalColumns[IM_trans_vals]"
-                      lineageId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Output].Columns[IM_trans_vals]" />
-                    <inputColumn
-                      refId="Package\Tarea Flujo de datos 1\Destino - STG_SCANDATA_SD_STUFF2.Inputs[Destination Input].Columns[SPA_seq]"
-                      cachedDataType="nText"
-                      cachedName="SPA_seq"
-                      externalMetadataColumnId="Package\Tarea Flujo de datos 1\Destino - STG_SCANDATA_SD_STUFF2.Inputs[Destination Input].ExternalColumns[SPA_seq]"
-                      lineageId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Output].Columns[SPA_seq]" />
-                    <inputColumn
-                      refId="Package\Tarea Flujo de datos 1\Destino - STG_SCANDATA_SD_STUFF2.Inputs[Destination Input].Columns[SPA_SD_no]"
-                      cachedDataType="nText"
-                      cachedName="SPA_SD_no"
-                      externalMetadataColumnId="Package\Tarea Flujo de datos 1\Destino - STG_SCANDATA_SD_STUFF2.Inputs[Destination Input].ExternalColumns[SPA_SD_no]"
-                      lineageId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Output].Columns[SPA_SD_no]" />
-                    <inputColumn
-                      refId="Package\Tarea Flujo de datos 1\Destino - STG_SCANDATA_SD_STUFF2.Inputs[Destination Input].Columns[SPA_ID_Description]"
-                      cachedDataType="nText"
-                      cachedName="SPA_ID_Description"
-                      externalMetadataColumnId="Package\Tarea Flujo de datos 1\Destino - STG_SCANDATA_SD_STUFF2.Inputs[Destination Input].ExternalColumns[SPA_ID_Description]"
-                      lineageId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Output].Columns[SPA_ID_Description]" />
-                    <inputColumn
-                      refId="Package\Tarea Flujo de datos 1\Destino - STG_SCANDATA_SD_STUFF2.Inputs[Destination Input].Columns[SPA_Description]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="SPA_Description"
-                      externalMetadataColumnId="Package\Tarea Flujo de datos 1\Destino - STG_SCANDATA_SD_STUFF2.Inputs[Destination Input].ExternalColumns[SPA_Description]"
-                      lineageId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Output].Columns[SPA_Description]" />
-                    <inputColumn
-                      refId="Package\Tarea Flujo de datos 1\Destino - STG_SCANDATA_SD_STUFF2.Inputs[Destination Input].Columns[SDB_Supp_ID]"
-                      cachedDataType="nText"
-                      cachedName="SDB_Supp_ID"
-                      externalMetadataColumnId="Package\Tarea Flujo de datos 1\Destino - STG_SCANDATA_SD_STUFF2.Inputs[Destination Input].ExternalColumns[SDB_Supp_ID]"
-                      lineageId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Output].Columns[SDB_Supp_ID]" />
-                    <inputColumn
-                      refId="Package\Tarea Flujo de datos 1\Destino - STG_SCANDATA_SD_STUFF2.Inputs[Destination Input].Columns[SDB_Effect_date]"
-                      cachedDataType="nText"
-                      cachedName="SDB_Effect_date"
-                      externalMetadataColumnId="Package\Tarea Flujo de datos 1\Destino - STG_SCANDATA_SD_STUFF2.Inputs[Destination Input].ExternalColumns[SDB_Effect_date]"
-                      lineageId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Output].Columns[SDB_Effect_date]" />
-                    <inputColumn
-                      refId="Package\Tarea Flujo de datos 1\Destino - STG_SCANDATA_SD_STUFF2.Inputs[Destination Input].Columns[SDB_Expiry_date]"
-                      cachedDataType="nText"
-                      cachedName="SDB_Expiry_date"
-                      externalMetadataColumnId="Package\Tarea Flujo de datos 1\Destino - STG_SCANDATA_SD_STUFF2.Inputs[Destination Input].ExternalColumns[SDB_Expiry_date]"
-                      lineageId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Output].Columns[SDB_Expiry_date]" />
-                    <inputColumn
-                      refId="Package\Tarea Flujo de datos 1\Destino - STG_SCANDATA_SD_STUFF2.Inputs[Destination Input].Columns[SDB_Claim_deadline]"
-                      cachedDataType="nText"
-                      cachedName="SDB_Claim_deadline"
-                      externalMetadataColumnId="Package\Tarea Flujo de datos 1\Destino - STG_SCANDATA_SD_STUFF2.Inputs[Destination Input].ExternalColumns[SDB_Claim_deadline]"
-                      lineageId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Output].Columns[SDB_Claim_deadline]" />
-                    <inputColumn
-                      refId="Package\Tarea Flujo de datos 1\Destino - STG_SCANDATA_SD_STUFF2.Inputs[Destination Input].Columns[SDBD_Supplier_cost]"
-                      cachedDataType="cy"
-                      cachedName="SDBD_Supplier_cost"
-                      externalMetadataColumnId="Package\Tarea Flujo de datos 1\Destino - STG_SCANDATA_SD_STUFF2.Inputs[Destination Input].ExternalColumns[SDBD_Supplier_cost]"
-                      lineageId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Output].Columns[SDBD_Supplier_cost]" />
-                    <inputColumn
-                      refId="Package\Tarea Flujo de datos 1\Destino - STG_SCANDATA_SD_STUFF2.Inputs[Destination Input].Columns[SDBD_Price_rebate_amt]"
-                      cachedDataType="cy"
-                      cachedName="SDBD_Price_rebate_amt"
-                      externalMetadataColumnId="Package\Tarea Flujo de datos 1\Destino - STG_SCANDATA_SD_STUFF2.Inputs[Destination Input].ExternalColumns[SDBD_Price_rebate_amt]"
-                      lineageId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Output].Columns[SDBD_Price_rebate_amt]" />
-                    <inputColumn
-                      refId="Package\Tarea Flujo de datos 1\Destino - STG_SCANDATA_SD_STUFF2.Inputs[Destination Input].Columns[SPA_Number]"
-                      cachedDataType="nText"
-                      cachedName="SPA_Number"
-                      externalMetadataColumnId="Package\Tarea Flujo de datos 1\Destino - STG_SCANDATA_SD_STUFF2.Inputs[Destination Input].ExternalColumns[SPA_Number]"
-                      lineageId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Output].Columns[SPA_Number]" />
-                    <inputColumn
-                      refId="Package\Tarea Flujo de datos 1\Destino - STG_SCANDATA_SD_STUFF2.Inputs[Destination Input].Columns[SDB_Reference]"
-                      cachedDataType="nText"
-                      cachedName="SDB_Reference"
-                      externalMetadataColumnId="Package\Tarea Flujo de datos 1\Destino - STG_SCANDATA_SD_STUFF2.Inputs[Destination Input].ExternalColumns[SDB_Reference]"
-                      lineageId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Output].Columns[SDB_Reference]" />
-                    <inputColumn
-                      refId="Package\Tarea Flujo de datos 1\Destino - STG_SCANDATA_SD_STUFF2.Inputs[Destination Input].Columns[SPA_IP_Doc_number]"
-                      cachedDataType="nText"
-                      cachedName="SPA_IP_Doc_number"
-                      externalMetadataColumnId="Package\Tarea Flujo de datos 1\Destino - STG_SCANDATA_SD_STUFF2.Inputs[Destination Input].ExternalColumns[SPA_IP_Doc_number]"
-                      lineageId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Output].Columns[SPA_IP_Doc_number]" />
-                    <inputColumn
-                      refId="Package\Tarea Flujo de datos 1\Destino - STG_SCANDATA_SD_STUFF2.Inputs[Destination Input].Columns[SDBD_Rebate_cost]"
-                      cachedDataType="cy"
-                      cachedName="SDBD_Rebate_cost"
-                      externalMetadataColumnId="Package\Tarea Flujo de datos 1\Destino - STG_SCANDATA_SD_STUFF2.Inputs[Destination Input].ExternalColumns[SDBD_Rebate_cost]"
-                      lineageId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Output].Columns[SDBD_Rebate_cost]" />
-                  </inputColumns>
-                  <externalMetadataColumns
-                    isUsed="True">
-                    <externalMetadataColumn
-                      refId="Package\Tarea Flujo de datos 1\Destino - STG_SCANDATA_SD_STUFF2.Inputs[Destination Input].ExternalColumns[CompanyID]"
-                      codePage="1252"
-                      dataType="str"
-                      length="4"
-                      name="CompanyID" />
-                    <externalMetadataColumn
-                      refId="Package\Tarea Flujo de datos 1\Destino - STG_SCANDATA_SD_STUFF2.Inputs[Destination Input].ExternalColumns[SO_Control_ent]"
-                      codePage="1252"
-                      dataType="str"
-                      length="4"
-                      name="SO_Control_ent" />
-                    <externalMetadataColumn
-                      refId="Package\Tarea Flujo de datos 1\Destino - STG_SCANDATA_SD_STUFF2.Inputs[Destination Input].ExternalColumns[SO_Trans_code]"
-                      codePage="1252"
-                      dataType="str"
-                      length="8"
-                      name="SO_Trans_code" />
-                    <externalMetadataColumn
-                      refId="Package\Tarea Flujo de datos 1\Destino - STG_SCANDATA_SD_STUFF2.Inputs[Destination Input].ExternalColumns[SO_Trans_no]"
-                      dataType="i4"
-                      name="SO_Trans_no" />
-                    <externalMetadataColumn
-                      refId="Package\Tarea Flujo de datos 1\Destino - STG_SCANDATA_SD_STUFF2.Inputs[Destination Input].ExternalColumns[SO_line_no]"
-                      dataType="i4"
-                      name="SO_line_no" />
-                    <externalMetadataColumn
-                      refId="Package\Tarea Flujo de datos 1\Destino - STG_SCANDATA_SD_STUFF2.Inputs[Destination Input].ExternalColumns[PA_Trans_code]"
-                      codePage="1252"
-                      dataType="str"
-                      length="8"
-                      name="PA_Trans_code" />
-                    <externalMetadataColumn
-                      refId="Package\Tarea Flujo de datos 1\Destino - STG_SCANDATA_SD_STUFF2.Inputs[Destination Input].ExternalColumns[PA_Trans_no]"
-                      dataType="i4"
-                      name="PA_Trans_no" />
-                    <externalMetadataColumn
-                      refId="Package\Tarea Flujo de datos 1\Destino - STG_SCANDATA_SD_STUFF2.Inputs[Destination Input].ExternalColumns[PA_Line_no]"
-                      dataType="i2"
-                      name="PA_Line_no" />
-                    <externalMetadataColumn
-                      refId="Package\Tarea Flujo de datos 1\Destino - STG_SCANDATA_SD_STUFF2.Inputs[Destination Input].ExternalColumns[IM_trans_vals]"
-                      codePage="1252"
-                      dataType="str"
-                      length="200"
-                      name="IM_trans_vals" />
-                    <externalMetadataColumn
-                      refId="Package\Tarea Flujo de datos 1\Destino - STG_SCANDATA_SD_STUFF2.Inputs[Destination Input].ExternalColumns[SPA_seq]"
-                      codePage="1252"
-                      dataType="str"
-                      length="100"
-                      name="SPA_seq" />
-                    <externalMetadataColumn
-                      refId="Package\Tarea Flujo de datos 1\Destino - STG_SCANDATA_SD_STUFF2.Inputs[Destination Input].ExternalColumns[SPA_SD_no]"
-                      codePage="1252"
-                      dataType="str"
-                      length="100"
-                      name="SPA_SD_no" />
-                    <externalMetadataColumn
-                      refId="Package\Tarea Flujo de datos 1\Destino - STG_SCANDATA_SD_STUFF2.Inputs[Destination Input].ExternalColumns[SPA_ID]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      name="SPA_ID" />
-                    <externalMetadataColumn
-                      refId="Package\Tarea Flujo de datos 1\Destino - STG_SCANDATA_SD_STUFF2.Inputs[Destination Input].ExternalColumns[SPA_ID_Description]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      name="SPA_ID_Description" />
-                    <externalMetadataColumn
-                      refId="Package\Tarea Flujo de datos 1\Destino - STG_SCANDATA_SD_STUFF2.Inputs[Destination Input].ExternalColumns[SPA_Number]"
-                      codePage="1252"
-                      dataType="str"
-                      length="100"
-                      name="SPA_Number" />
-                    <externalMetadataColumn
-                      refId="Package\Tarea Flujo de datos 1\Destino - STG_SCANDATA_SD_STUFF2.Inputs[Destination Input].ExternalColumns[SPA_Description]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      name="SPA_Description" />
-                    <externalMetadataColumn
-                      refId="Package\Tarea Flujo de datos 1\Destino - STG_SCANDATA_SD_STUFF2.Inputs[Destination Input].ExternalColumns[SPA_IP_Doc_number]"
-                      codePage="1252"
-                      dataType="str"
-                      length="150"
-                      name="SPA_IP_Doc_number" />
-                    <externalMetadataColumn
-                      refId="Package\Tarea Flujo de datos 1\Destino - STG_SCANDATA_SD_STUFF2.Inputs[Destination Input].ExternalColumns[SDB_Reference]"
-                      codePage="1252"
-                      dataType="str"
-                      length="150"
-                      name="SDB_Reference" />
-                    <externalMetadataColumn
-                      refId="Package\Tarea Flujo de datos 1\Destino - STG_SCANDATA_SD_STUFF2.Inputs[Destination Input].ExternalColumns[SDB_Supp_ID]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      name="SDB_Supp_ID" />
-                    <externalMetadataColumn
-                      refId="Package\Tarea Flujo de datos 1\Destino - STG_SCANDATA_SD_STUFF2.Inputs[Destination Input].ExternalColumns[SDB_Effect_date]"
-                      codePage="1252"
-                      dataType="str"
-                      length="100"
-                      name="SDB_Effect_date" />
-                    <externalMetadataColumn
-                      refId="Package\Tarea Flujo de datos 1\Destino - STG_SCANDATA_SD_STUFF2.Inputs[Destination Input].ExternalColumns[SDB_Expiry_date]"
-                      codePage="1252"
-                      dataType="str"
-                      length="100"
-                      name="SDB_Expiry_date" />
-                    <externalMetadataColumn
-                      refId="Package\Tarea Flujo de datos 1\Destino - STG_SCANDATA_SD_STUFF2.Inputs[Destination Input].ExternalColumns[SDB_Claim_deadline]"
-                      codePage="1252"
-                      dataType="str"
-                      length="100"
-                      name="SDB_Claim_deadline" />
-                    <externalMetadataColumn
-                      refId="Package\Tarea Flujo de datos 1\Destino - STG_SCANDATA_SD_STUFF2.Inputs[Destination Input].ExternalColumns[SDBD_Supplier_cost]"
-                      dataType="cy"
-                      name="SDBD_Supplier_cost" />
-                    <externalMetadataColumn
-                      refId="Package\Tarea Flujo de datos 1\Destino - STG_SCANDATA_SD_STUFF2.Inputs[Destination Input].ExternalColumns[SDBD_Rebate_cost]"
-                      dataType="cy"
-                      name="SDBD_Rebate_cost" />
-                    <externalMetadataColumn
-                      refId="Package\Tarea Flujo de datos 1\Destino - STG_SCANDATA_SD_STUFF2.Inputs[Destination Input].ExternalColumns[SDBD_Price_rebate_amt]"
-                      dataType="cy"
-                      name="SDBD_Price_rebate_amt" />
-                    <externalMetadataColumn
-                      refId="Package\Tarea Flujo de datos 1\Destino - STG_SCANDATA_SD_STUFF2.Inputs[Destination Input].ExternalColumns[LastExtraction]"
-                      dataType="dbTimeStamp"
-                      name="LastExtraction" />
-                  </externalMetadataColumns>
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\Tarea Flujo de datos 1\Destino - STG_SCANDATA_SD_STUFF2.Outputs[OLE DB Destination Error Output]"
-                  exclusionGroup="1"
-                  isErrorOut="true"
-                  name="OLE DB Destination Error Output"
-                  synchronousInputId="Package\Tarea Flujo de datos 1\Destino - STG_SCANDATA_SD_STUFF2.Inputs[Destination Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Tarea Flujo de datos 1\Destino - STG_SCANDATA_SD_STUFF2.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\Tarea Flujo de datos 1\Destino - STG_SCANDATA_SD_STUFF2.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\Tarea Flujo de datos 1\Destino - STG_SCANDATA_SD_STUFF2.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\Tarea Flujo de datos 1\Destino - STG_SCANDATA_SD_STUFF2.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
             <component
               refId="Package\Tarea Flujo de datos 1\Origen - Consulta"
               componentClassID="Microsoft.OLEDBSource"
@@ -1096,24 +697,17 @@ IM_trans_vals
               </outputs>
             </component>
           </components>
-          <paths>
-            <path
-              refId="Package\Tarea Flujo de datos 1.Paths[OLE DB Source Output]"
-              endId="Package\Tarea Flujo de datos 1\Destino - STG_SCANDATA_SD_STUFF2.Inputs[Destination Input]"
-              name="OLE DB Source Output"
-              startId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[OLE DB Source Output]" />
-          </paths>
         </pipeline>
       </DTS:ObjectData>
     </DTS:Executable>
   </DTS:Executables>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
-<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
-<!--If you manually edit this section and make a mistake, you can delete it. -->
-<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<!--Esta sección CDATA contiene la información de diseño del paquete. Esta sección incluye información como, por ejemplo, las coordenadas (x,y), el ancho y el alto.-->
+<!--Si edita manualmente esta sección y comete un error, puede eliminarlo. -->
+<!--El paquete podrá cargarse normalmente, pero se perderá la información de diseño anterior y el diseñador reorganizará los elementos automáticamente en la superficie de diseño.-->
 <Objects
   Version="8">
-  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <!--Cada uno de los nodos siguientes contiene propiedades que no afectan al comportamiento en tiempo de ejecución.-->
   <Package
     design-time-name="Package">
     <LayoutInfo>
@@ -1130,37 +724,11 @@ IM_trans_vals
     design-time-name="Package\Tarea Flujo de datos 1">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
-        <NodeLayout
-          Size="263,42"
-          Id="Package\Tarea Flujo de datos 1\Destino - STG_SCANDATA_SD_STUFF2"
-          TopLeft="5.50000000000006,311.5" />
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
         <NodeLayout
           Size="161,42"
           Id="Package\Tarea Flujo de datos 1\Origen - Consulta"
           TopLeft="56.5,5.5" />
-        <EdgeLayout
-          Id="Package\Tarea Flujo de datos 1.Paths[OLE DB Source Output]"
-          TopLeft="137,47.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,264"
-              Start="0,0"
-              End="0,256.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,256.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
